@@ -23,8 +23,8 @@ export default function Home() {
       <main>
           <div className="bg-purple px-14 py-8" style={{width: "717px"}}>
             <TitlePrimary title="Estimez votre bien en ligne" titleWithColor="gratuitement et en 2 minutes" />
-            <TitleSecondary title="Adress du bien à estimer" color="primary" />
             <SeparationLign color="white" />
+            <TitleSecondary title="Adress du bien à estimer" color="primary" />
             <InputWhithLogo logoType="/Vectorlocalization.png" placeholder="Saisir une adresse"/>
             <ButtonPrimary title="Estimer"  version="secondary"/>
             <Text textSize="normal" color="white">
