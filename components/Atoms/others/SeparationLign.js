@@ -12,7 +12,6 @@ const SeparationLign = (props) => {
 
     return (
         <div className={color !== undefined ? classDesign[color] : classDesign.blue}>
-            
         </div>
     );
 };
