@@ -7,6 +7,17 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    extend: {
+      keyframes: {
+        wiggle: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        animation: {
+          wiggle: 'wiggle 1s ease-in-out',
+        }
+      }
+    },
     colors:{
       transparent: 'transparent',
       current: 'currentColor',
