@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import ButtonWithLogoAndText from '../Atoms/buttons/ButtonWithLogoAndText';
 
 const Header = () => {
     return (
@@ -11,19 +12,9 @@ const Header = () => {
             {/* Right container */}
             <div className="hidden lg:flex">
                 {/* Button one */}
-                <button className='group/button w-48 relative flex items-center flex-col after:content-[""] after:absolute after:right-0 after:bottom-0 after:w-px after:h-full after:bg-purple '>
-                    <div className="w-7 relative h-8  group-hover/button:scale-105  transition-transform">
-                        <Image src="/VectorLight.png" layout='fill' objectFit='contain'  />
-                    </div>
-                    <p className="mx-3 text-purple">Recommandations</p>
-                </button>
+                <ButtonWithLogoAndText image="/VectorLight.png" text="Recommandations" size="big" after="withAfter"/>
                 {/* Button two */}
-                <button className='group/button w-36 relative flex items-center flex-col after:content-[""] after:absolute after:right-0 after:bottom-0 after:w-px after:h-full after:bg-purple '>
-                    <div className="w-7 relative h-8  group-hover/button:scale-105  transition-transform">
-                        <Image src="/VectorLove.png" layout='fill' objectFit='contain'  />
-                    </div>
-                    <p className="mx-3 text-purple">Favoris</p>
-                </button>
+                <ButtonWithLogoAndText image="/VectorLove.png" text="Favoris" size="normal" after="withAfter" />
                 {/* Button three */}
                 <button className='group/button w-32 relative flex items-center flex-col '>
                     <div className="w-9 relative h-full group-hover/button:scale-105  transition-transform">
