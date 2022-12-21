@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const ButtonPrimary = (props) => {
-    const title = props.title
+    const text = props.text
     const version = props.version
     const callback = props.callback
 
@@ -12,7 +12,7 @@ const ButtonPrimary = (props) => {
 
     return (
         <button className={version !== undefined && version !== null ? classDesign[version] : classDesign.primary}>
-            {title}
+            {text}
         </button>
     );
 };
