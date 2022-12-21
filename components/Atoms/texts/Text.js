@@ -3,11 +3,12 @@ import React from 'react';
 const Text = (props) => {
     const textSize = props.textSize
     const color = props.color
+    const margin = props.marginY
 
     const classDesign = {
         light:{
-            white:"text-white text-xs md:text-sm font-thin",
-            purple:"text-purple text-xs md:text-sm font-thin "
+            white:"text-white text-xs md:text-sm font-thin w-5/6 md:w-2/6 " + margin,
+            purple:"text-purple text-xs md:text-sm font-thin w-5/6 md:w-2/6 " + margin
         },
         normal: {
             white:"text-white text-sm md:text-base font-thin",
