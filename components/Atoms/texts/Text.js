@@ -7,8 +7,8 @@ const Text = (props) => {
 
     const classDesign = {
         light:{
-            white:"text-white text-xs md:text-sm font-thin w-5/6 md:w-2/6 " + margin,
-            purple:"text-purple text-xs md:text-sm font-thin w-5/6 md:w-2/6 " + margin
+            white:"text-white text-xs md:text-sm font-thin w-4/6 md:w-3/6 " + margin,
+            purple:"text-purple text-xs md:text-sm font-thin w-4/6 md:w-3/6 " + margin
         },
         normal: {
             white:"text-white text-sm md:text-base font-thin",
