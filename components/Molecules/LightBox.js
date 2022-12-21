@@ -4,6 +4,7 @@ import Point from '../Atoms/others/Point';
 
 const LightBox = (props) => {
     const [whatPointIsActive, setWhatPointIsActive] = useState(0)
+    const image = ["maisonOne", "maisonTwo", "maisonThree", "maisonFour", "maisonFive"]
 
     const autoScroll = ()=>{
         const interval = setInterval(()=>{
@@ -23,8 +24,8 @@ const LightBox = (props) => {
 
     return (
         <div className='flex content-center items-center relative w-full h-full'>
-            <div className="w-full h-full">
-                <Image src="/imageOne.png" layout='fill' objectFit='cover'/>
+            <div className="w-full h-full animate-[wiggle_1s_ease-in-out]">
+                <Image src={"/lightbox/" + image[whatPointIsActive]+".png"} layout='fill' objectFit='cover'/>
             </div>
             <div className="w-2/6 flex justify-around items-center absolute bottom-5 left-1/2 transform -translate-x-1/2 -translate-y-2/2">
                 <Point active={whatPointIsActive === 0 ? true : false}/>
