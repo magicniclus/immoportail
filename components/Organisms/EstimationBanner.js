@@ -7,7 +7,7 @@ import LightBox from '../Molecules/LightBox';
 
 const EstimationBanner = () => {
     return (
-        <div className='bg-purple px-5 md:px-40 py-2 md:py-16 flex content-between relative'>
+        <div className='bg-purple px-5 md:px-40 py-10 md:py-16 flex content-between relative'>
             {/* Right container */}
             <div className=" lg:w-8/12">
                 <TitlePrimary text="Estimez votre bien en ligne" textWithColor="gratuitement en 2 minutes " />
@@ -18,7 +18,6 @@ const EstimationBanner = () => {
                 <SeparationLign color="white" />
                 <SetInputWithTitleAndButton />
             </div>
-
             {/* Left  container */}
             <div className="hidden h-full bg-white lg:flex lg:w-4/12 absolute right-0 top-0">
                 <LightBox />
