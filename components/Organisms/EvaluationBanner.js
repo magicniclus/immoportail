@@ -4,7 +4,7 @@ import SetTitleWithDescriptionAndMiddleSeparation from '../Molecules/SetTitleWit
 
 const EvaluationBanner = () => {
     return (
-        <div className='w-full px-5 md:px-40 '>
+        <div className='w-full px-5 md:px-40 lg:flex lg:justify-between'>
             <SetTitleWithDescriptionAndMiddleSeparation title="Comment évaluer" titleWithColor="gratuitement son bien immobilier ?" colorTitle="purple" colorSeparation="yellow" />
             <SetOfAdvice title="Notre conseil:" text="La plupart des propriétaire ont tendances à sur-évaluer leur bien. C’est pourquoi nous vous recommandons de vous renseigner valeur du marché actuel, de son évolution et surtout de vous entourer de professionnel compétant pour votre estimation." />
         </div>
