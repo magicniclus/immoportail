@@ -1,10 +1,11 @@
 import React from 'react';
 import Icon from '../Atoms/logos/Icon';
 
-const SetOfQuality = () => {
+const SetOfQuality = (props) => {
+    const image = props.image
     return (
         <div>
-            <Icon image="Vectorcheck" />
+            <Icon image={image} />
         </div>
     );
 };
