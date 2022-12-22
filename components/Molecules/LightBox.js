@@ -6,14 +6,6 @@ const LightBox = (props) => {
     const [whatPointIsActive, setWhatPointIsActive] = useState(0)
     const image = ["maisonOne", "maisonTwo", "maisonThree", "maisonFour", "maisonFive"]
 
-    const autoScroll = ()=>{
-        const interval = setInterval(()=>{
-            if(whatPointIsActive >= 0)setWhatPointIsActive(whatPointIsActive=>whatPointIsActive+1) 
-            if(whatPointIsActive >= 4) setWhatPointIsActive(0)
-        }, 2000)
-        return ()=>clearInterval(interval)
-    }
-
     useEffect(()=>{
         const interval = setInterval(()=>{
             if(whatPointIsActive >= 0)setWhatPointIsActive(whatPointIsActive=>whatPointIsActive+1) 
