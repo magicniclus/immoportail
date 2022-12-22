@@ -9,7 +9,7 @@ const SetTitleWithDescriptionAndMiddleSeparation = (props) => {
     const colorTitle = props.colorTitle
     const colorSeparation = props.colorSeparation
     return (
-        <div>
+        <div className=" lg:w-7/12">
             <TitlePrimary text={title} textWithColor={titleWithColor} color={colorTitle} />
             <SeparationLign color={colorSeparation} marginY="my-4"/>
             <Text textSize="normal" color="purple">
