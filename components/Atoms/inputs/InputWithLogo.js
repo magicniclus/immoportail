@@ -7,7 +7,7 @@ const InputWithLogo = (props) => {
     const marginY = props.marginY
 
     return (
-        <div className={'relative w-80 md:w-10/12 h-12 ' + marginY}>
+        <div className={'relative sm:w-80 md:w-10/12 h-12 ' + marginY}>
             <input className='border rounded-lg border-purple placeholder-gray-200::placeholder px-3 w-full h-12' type="text" placeholder={placeholder}  />
             <div className='absolute right-0 top-1/2 transform -translate-y-1/2 h-12 w-14 bg-purple flex content-center items-center rounded-r-lg'>
                 <div className='mx-auto'>
