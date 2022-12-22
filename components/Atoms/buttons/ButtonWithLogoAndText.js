@@ -25,7 +25,7 @@ const ButtonWithLogoAndText = (props) => {
     return (
         <button className={size===undefined ? classDesign.normal.withAfter : classDesign[size][after]}>
             <div className="w-7 relative h-8  group-hover/button:scale-105  transition-transform">
-                <Image src={image === undefined ? "/VectorLight.png" : image} layout='fill' objectFit='contain'  />
+                <Image src={image === undefined ? "/VectorLight.png" : image} layout='fill' objectFit='contain' alt="icon" />
             </div>
             <p className="mx-3 text-purple">{text === undefined ? "Recommandations" : text}</p>
         </button>
