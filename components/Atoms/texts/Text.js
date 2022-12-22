@@ -6,23 +6,24 @@ const Text = (props) => {
     const marginY = props.marginY
     const marginX = props.marginX
     const width = props.width
+    const center = props.center
 
     const classDesign = {
         light:{
-            white:"text-white text-xs md:text-sm font-thin w-4/6 md:w-3/6 " + marginY + " " + marginX + " " ,
-            purple:"text-purple text-xs md:text-sm font-thin w-4/6 md:w-3/6 " + marginY + " " + marginX + " " 
+            white:"text-white text-xs md:text-sm font-thin w-4/6 md:w-3/6 " + marginY + " " + marginX + " "+ center + " " ,
+            purple:"text-purple text-xs md:text-sm font-thin w-4/6 md:w-3/6 " + marginY + " " + marginX + " "+ center + " " 
         },
         bigLight:{
-            white:"text-white text-xs md:text-sm font-thin w-6/6 " + marginY + " " + marginX + " " ,
-            purple:"text-purple text-xs md:text-sm font-thin w-6/6 " + marginY + " " + marginX + " " 
+            white:"text-white text-xs md:text-sm font-thin w-6/6 " + marginY + " " + marginX + " "+ center + " " ,
+            purple:"text-purple text-xs md:text-sm font-thin w-6/6 " + marginY + " " + marginX + " "+ center + " " 
         },
         normal: {
-            white:"text-white text-sm md:text-base font-thin" + marginY + " " + marginX,
-            purple:"text-purple text-sm md:text-base font-thin " + marginY + " " + marginX
+            white:"text-white text-sm md:text-base font-thin" + marginY + " " + marginX+ " "+ center + " ",
+            purple:"text-purple text-sm md:text-base font-thin " + marginY + " " + marginX+ " "+ center + " "
         },
         big: {
-            white:"text-white text-xl md:text-base" + marginY + " " + marginX,
-            purple:"text-purple text-xl md:text-base" + marginY + " " + marginX
+            white:"text-white text-xl md:text-base" + marginY + " " + marginX+ " "+ center + " ",
+            purple:"text-purple text-xl md:text-base" + marginY + " " + marginX+ " "+ center + " "
         }
     }
 
