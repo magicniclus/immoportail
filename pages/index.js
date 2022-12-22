@@ -4,6 +4,7 @@ import Header from '../components/Organisms/Header'
 import EstimationBanner from '../components/Organisms/EstimationBanner'
 import BreadcrumbContainer from '../components/Organisms/BreadcrumbContainer'
 import EvaluationBanner from '../components/Organisms/EvaluationBanner'
+import QualityBanner from '../components/Organisms/QualityBanner'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,6 +22,7 @@ export default function Home() {
         <EstimationBanner />
         <BreadcrumbContainer list={["Accueil", "Estimation"]} />
         <EvaluationBanner />
+        <QualityBanner />
       </main>
     </>
   )
