@@ -6,7 +6,7 @@ const ButtonWithLogo = (props) => {
     return (
         <button className='group/button w-32 relative flex items-center flex-col '>
             <div className="w-9 relative h-full group-hover/button:scale-105  transition-transform">
-                <Image src={image} layout='fill' objectFit='contain'  />
+                <Image src={image} layout='fill' objectFit='contain' alt="icon"  />
             </div>
         </button>
     );
