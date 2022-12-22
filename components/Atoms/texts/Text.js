@@ -5,11 +5,16 @@ const Text = (props) => {
     const color = props.color
     const marginY = props.marginY
     const marginX = props.marginX
+    const width = props.width
 
     const classDesign = {
         light:{
-            white:"text-white text-xs md:text-sm font-thin w-4/6 md:w-3/6 " + marginY + " " + marginX,
-            purple:"text-purple text-xs md:text-sm font-thin w-4/6 md:w-3/6 " + marginY + " " + marginX
+            white:"text-white text-xs md:text-sm font-thin w-4/6 md:w-3/6 " + marginY + " " + marginX + " " ,
+            purple:"text-purple text-xs md:text-sm font-thin w-4/6 md:w-3/6 " + marginY + " " + marginX + " " 
+        },
+        bigLight:{
+            white:"text-white text-xs md:text-sm font-thin w-5/6 " + marginY + " " + marginX + " " ,
+            purple:"text-purple text-xs md:text-sm font-thin w-5/6 " + marginY + " " + marginX + " " 
         },
         normal: {
             white:"text-white text-sm md:text-base font-thin" + marginY + " " + marginX,
