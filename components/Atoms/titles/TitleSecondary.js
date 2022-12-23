@@ -1,13 +1,14 @@
 import React from 'react';
 
 const TitleSecondary = (props) => {
-    const text = props.text;
+    const text = props.text
     const textWithColor = props.textWithColor
-    const color = props.color;
-
+    const color = props.color
+    const marginY = props.marginY
+ 
     const classDesign = {
-        white: "text-white text-base md:text-2xl",
-        purple: "text-purple text-base md:text-2xl"
+        white: "text-white text-base md:text-2xl "+ marginY ,
+        purple: "text-purple text-base md:text-2xl "+ marginY 
     }
 
     return (
