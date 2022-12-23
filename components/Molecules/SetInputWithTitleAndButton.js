@@ -8,10 +8,11 @@ const SetInputWithTitleAndButton = (props) => {
     const titleColor = props.titleColor
     const buttonVersion = props.buttonVersion
     const colorInput = props.colorInput
+    const textWithColor = props.textWithColor
 
     return (
         <div className={bgColor !== undefined ?'bg-'+ bgColor + ' py-5 px-7 my-4 rounded-lg md:w-10/12' : 'bg-white py-5 px-7 my-4 rounded-lg md:w-10/12'}>
-            <TitleSecondary text="Adresse du bien à estimer" color={titleColor !== undefined ? titleColor :"purple"} />
+            <TitleSecondary text="Adresse du bien à estimer" textWithColor={textWithColor} color={titleColor !== undefined ? titleColor :"purple"} />
             <InputWithLogo image={titleColor === "purple" ? "/Vectorlocalization.png" : "/vector/VectorlocalizationPurple.png"} marginY="my-4" placeholder="Saisir une adresse" color={colorInput !== undefined ? colorInput : "purple"} />
             <ButtonPrimary text="Estimer" version={buttonVersion !== undefined ? buttonVersion :"primary"} />
         </div>
