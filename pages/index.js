@@ -5,8 +5,8 @@ import EstimationBanner from '../components/Organisms/EstimationBanner'
 import BreadcrumbContainer from '../components/Organisms/BreadcrumbContainer'
 import EvaluationBanner from '../components/Organisms/EvaluationBanner'
 import QualityBanner from '../components/Organisms/QualityBanner'
-import SetOfImmoStep from '../components/Molecules/SetOfImmoStep'
 import ImmoStepContainer from '../components/Organisms/ImmoStepContainer'
+import SetInputWithTitleButtonBanner from '../components/Organisms/SetInputWithTitleButtonBanner'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,6 +26,7 @@ export default function Home() {
         <EvaluationBanner />
         <QualityBanner />
         <ImmoStepContainer />
+        <SetInputWithTitleButtonBanner />
       </main>
     </>
   )
