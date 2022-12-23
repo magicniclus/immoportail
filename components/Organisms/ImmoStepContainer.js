@@ -1,4 +1,5 @@
 import React from 'react';
+import Mozaic from '../Molecules/Mozaic';
 import SetOfImmoStep from '../Molecules/SetOfImmoStep';
 
 const ImmoStepContainer = () => {
@@ -7,8 +8,8 @@ const ImmoStepContainer = () => {
             <div className="lg:w-8/12 w-full">
                 <SetOfImmoStep />
             </div>
-            <div className="w-6/12 bg-blue min-h-full lg:flex hidden">
-
+            <div className="w-6/12 min-h-full lg:flex hidden">
+                <Mozaic />
             </div>
         </div>
     );
