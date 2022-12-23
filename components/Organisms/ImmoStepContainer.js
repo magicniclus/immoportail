@@ -8,7 +8,7 @@ const ImmoStepContainer = () => {
             <div className="lg:w-8/12 w-full">
                 <SetOfImmoStep />
             </div>
-            <div className="w-6/12 min-h-full lg:flex hidden flex-col justify-center">
+            <div className="w-4/12 min-h-full lg:flex hidden flex-col justify-center">
                 <Mozaic />
             </div>
         </div>
