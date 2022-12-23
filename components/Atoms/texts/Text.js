@@ -10,20 +10,20 @@ const Text = (props) => {
 
     const classDesign = {
         light:{
-            white:"text-white text-xs md:text-sm font-thin w-4/6 md:w-3/6 " + marginY + " " + marginX + " "+ center + " " ,
-            purple:"text-purple text-xs md:text-sm font-thin w-4/6 md:w-3/6 " + marginY + " " + marginX + " "+ center + " " 
+            white:"text-white text-xs md:text-sm font-light w-4/6 md:w-3/6 " + marginY + " " + marginX + " "+ center + " " ,
+            purple:"text-purple text-xs md:text-sm font-light w-4/6 md:w-3/6 " + marginY + " " + marginX + " "+ center + " " 
         },
         bigLight:{
-            white:"text-white text-xs md:text-sm font-thin w-6/6 " + marginY + " " + marginX + " "+ center + " " ,
-            purple:"text-purple text-xs md:text-sm font-thin w-6/6 " + marginY + " " + marginX + " "+ center + " " 
+            white:"text-white text-xs md:text-sm font-light w-6/6 " + marginY + " " + marginX + " "+ center + " " ,
+            purple:"text-purple text-xs md:text-sm font-light w-6/6 " + marginY + " " + marginX + " "+ center + " " 
         },
         normal: {
-            white:"text-white text-sm md:text-base font-thin" + marginY + " " + marginX+ " "+ center + " ",
-            purple:"text-purple text-sm md:text-base font-thin " + marginY + " " + marginX+ " "+ center + " "
+            white:"text-white text-sm md:text-base font-light " + marginY + " " + marginX+ " "+ center + " ",
+            purple:"text-purple text-sm md:text-base font-light " + marginY + " " + marginX+ " "+ center + " "
         },
         big: {
-            white:"text-white text-xl md:text-base" + marginY + " " + marginX+ " "+ center + " ",
-            purple:"text-purple text-xl md:text-base" + marginY + " " + marginX+ " "+ center + " "
+            white:"text-white text-xl md:text-base " + marginY + " " + marginX+ " "+ center + " ",
+            purple:"text-purple text-xl md:text-base " + marginY + " " + marginX+ " "+ center + " "
         }
     }
 
