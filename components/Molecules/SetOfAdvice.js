@@ -6,6 +6,7 @@ const SetOfAdvice = (props) => {
     const title = props.title
     const text = props.text
     const size = props.size
+    
     const classDesign = {
         normal: 'lg:w-4/12 min-h-full rounded-lg bg-purple py-5 lg:py-5 px-12 flex justify-around flex-col my-4 lg:my-0',
         long: 'lg:w-7/12 min-h-full rounded-lg bg-purple py-5 lg:py-5 px-12 flex justify-around flex-col my-4 lg:my-0'
