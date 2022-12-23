@@ -16,7 +16,7 @@ const EstimationBanner = () => {
                     votre bien immobilier et du marché local en temps réel
                 </Text>
                 <SeparationLign color="white" />
-                <SetInputWithTitleAndButton />
+                <SetInputWithTitleAndButton titleColor="purple" />
             </div>
             {/* Left  container */}
             <div className="hidden h-full bg-white lg:flex lg:w-4/12 absolute right-0 top-0">
