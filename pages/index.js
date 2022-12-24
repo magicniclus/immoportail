@@ -7,6 +7,7 @@ import EvaluationBanner from '../components/Organisms/EvaluationBanner'
 import QualityBanner from '../components/Organisms/QualityBanner'
 import ImmoStepContainer from '../components/Organisms/ImmoStepContainer'
 import SetInputWithTitleButtonBanner from '../components/Organisms/SetInputWithTitleButtonBanner'
+import Footer from '../components/Organisms/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,8 +27,9 @@ export default function Home() {
         <EvaluationBanner />
         <QualityBanner />
         <ImmoStepContainer />
-        <SetInputWithTitleButtonBanner />
+        <SetInputWithTitleButtonBanner /> 
       </main>
+      <Footer />
     </>
   )
 }
