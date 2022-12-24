@@ -17,7 +17,7 @@ const LightBox = (props) => {
     return (
         <div className='flex content-center items-center relative w-full h-full'>
             <div className="w-full h-full animate-[wiggle_1s_ease-in-out]">
-                <Image src={"/lightbox/" + image[whatPointIsActive]+".png"} layout='fill' objectFit='cover' alt={image[whatPointIsActive]}/>
+                <Image priority src={"/lightbox/" + image[whatPointIsActive]+".png"} layout='fill' objectFit='cover' alt={image[whatPointIsActive]}/>
             </div>
             <div className="w-2/6 flex justify-around items-center absolute bottom-5 left-1/2 transform -translate-x-1/2 -translate-y-2/2">
                 <Point active={whatPointIsActive === 0 ? true : false}/>
