@@ -3,10 +3,6 @@ import React, { useEffect } from 'react';
 const Breadcrumb = (props) => {
     const list = props.list
 
-    useEffect(()=>{
-        console.log(list.length);
-    }, [])
-
     const style = "text-purple text-xs md:text-sm font-bold"
 
     return (
