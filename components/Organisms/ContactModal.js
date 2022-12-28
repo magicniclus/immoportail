@@ -30,7 +30,7 @@ const ContactModal = () => {
         return(
             <>
                 <PhoneWithLogo phoneNumber="Contact" />
-                <div onClick={e=>setToggleModal(true)} className="cursor-pointer absolute w-6 h-6 md:w-10 md:h-10 right-2 bottom-2 md:right-1 md:bottom-0">
+                <div onClick={e=>setToggleModal(true)} className="cursor-pointer absolute w-4 h-4 md:w-6 md:h-6 right-2 bottom-2 md:right-4 md:bottom-3">
                     <Icon image="vectorchevronBottom" size="light"/>
                 </div>
             </>
