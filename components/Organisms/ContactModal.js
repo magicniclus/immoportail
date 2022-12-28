@@ -19,7 +19,7 @@ const ContactModal = () => {
                 <div className="flex mt-3 items-center">
                     <PhoneWithLogo phoneNumber="+33631420045" />
                 </div> 
-                <div onClick={e=>setToggleModal(false)} className="absolute w-10 h-10 right-1 bottom-0">
+                <div onClick={e=>setToggleModal(false)} className="absolute w-6 h-6 md:w-10 right-3 bottom-2 md:h-10 md:right-1 md:bottom-0">
                     <Icon image="Vectorclose" size="extraLight" />
                 </div>
             </>
@@ -30,7 +30,7 @@ const ContactModal = () => {
         return(
             <>
                 <PhoneWithLogo phoneNumber="Contact" />
-                <div onClick={e=>setToggleModal(true)} className="absolute w-10 h-10 right-1 bottom-0">
+                <div onClick={e=>setToggleModal(true)} className="absolute w-6 h-6 md:w-10 md:h-10 right-3 bottom-2 md:right-1 md:bottom-0">
                     <Icon image="vectorchevronBottom" size="light"/>
                 </div>
             </>
@@ -38,15 +38,19 @@ const ContactModal = () => {
     }
 
     return (
-        <div className='p-3 px-7 pt-7 w-80 bg-white shadow-xl fixed bottom-20 right-14 z-50 rounded-xl'>
-            <div className="absolute h-14 bg-white w-14 -top-6 -left-6 rounded-full overflow-hidden">
+        <div className={!toggleModal ? 'p-3 px-7 pt-3 md:pt-7 w-36 md:w-52 bg-white shadow-xl fixed bottom-10 right-7 md:bottom-20 md:right-14 z-50 rounded-xl' : 'p-3 px-7 pt-7 w-80 bg-white shadow-xl fixed bottom-10 right-7 md:bottom-20 md:right-14 z-50 rounded-xl'}>
+            <div className="absolute bg-white w-10 h-10 md:w-14 md:h-14 -top-3 -left-3 md:-top-6 md:-left-6 rounded-full overflow-hidden">
                 <Image priority src="/femme.jpg" layout='fill' objectFit='cover' alt='conseiller'/>
             </div>
             {
-                !toggleModal ? <p className='text-orange absolute -top-4 left-10 text-xl font-bold bg-white py-1 px-3 rounded-lg'>Nouveau</p> : null
+                !toggleModal ? <p className='text-orange absolute -top-4 left-10 text-sm md:text-xl font-bold bg-white py-1 px-3 rounded-lg'>Nouveau</p> : null
             }
-            
-            {toggleModal ? openModal() : closeModal()}
+            <div className="hidden md:block">
+                {toggleModal ? openModal() : closeModal()}
+            </div>
+            <div className="flex md:hidden">
+                <PhoneWithLogo text="Contact" phoneNumber="+33631420045" />
+            </div>
         </div>
     );
 };
