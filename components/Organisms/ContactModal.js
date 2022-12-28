@@ -19,7 +19,7 @@ const ContactModal = () => {
                 <div className="flex mt-3 items-center">
                     <PhoneWithLogo phoneNumber="+33631420045" />
                 </div> 
-                <div onClick={e=>setToggleModal(false)} className="absolute w-6 h-6 md:w-10 right-3 bottom-2 md:h-10 md:right-1 md:bottom-0">
+                <div onClick={e=>setToggleModal(false)} className="cursor-pointer absolute w-6 h-6 md:w-10 right-3 bottom-2 md:h-10 md:right-1 md:bottom-0">
                     <Icon image="Vectorclose" size="extraLight" />
                 </div>
             </>
@@ -30,7 +30,7 @@ const ContactModal = () => {
         return(
             <>
                 <PhoneWithLogo phoneNumber="Contact" />
-                <div onClick={e=>setToggleModal(true)} className="absolute w-6 h-6 md:w-10 md:h-10 right-3 bottom-2 md:right-1 md:bottom-0">
+                <div onClick={e=>setToggleModal(true)} className="cursor-pointer absolute w-6 h-6 md:w-10 md:h-10 right-3 bottom-2 md:right-1 md:bottom-0">
                     <Icon image="vectorchevronBottom" size="light"/>
                 </div>
             </>
