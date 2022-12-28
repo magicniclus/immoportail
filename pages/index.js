@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <Layout title="ImmoPortail | Accueil" description="Estimez votre bien immobilier gratuitement en ligne en 2 minutes">
+    <Layout title="ImmoPortail | Estimez votre bien" description="Estimez votre bien immobilier gratuitement en ligne en 2 minutes">
         <EstimationBanner />
         <BreadcrumbContainer list={["Accueil", "Estimation"]} />
         <EvaluationBanner />
