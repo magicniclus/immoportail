@@ -38,7 +38,7 @@ const ContactModal = () => {
     }
 
     return (
-        <div className={!toggleModal ? 'p-3 px-7 pt-3 md:pt-7 w-36 md:w-52 bg-white shadow-xl fixed bottom-5 right-5 md:bottom-15 md:right-14 z-50 rounded-xl' : 'p-3 px-7 pt-7 w-80 bg-white shadow-xl fixed bottom-10 right-7 md:bottom-15 md:right-14 z-50 rounded-xl'}>
+        <div className={!toggleModal ? 'p-3 px-7 pt-3 md:pt-7 w-36 md:w-52 bg-white shadow-xl fixed bottom-5 right-5 md:bottom-24 md:right-14 z-50 rounded-xl' : 'p-3 px-7 pt-7 w-80 bg-white shadow-xl fixed bottom-10 right-7 md:bottom-24 md:right-14 z-50 rounded-xl'}>
             <div className="absolute bg-white w-10 h-10 md:w-14 md:h-14 -top-3 -left-3 md:-top-6 md:-left-6 rounded-full overflow-hidden">
                 <Image priority src="/femme.jpg" layout='fill' objectFit='cover' alt='conseiller'/>
             </div>
