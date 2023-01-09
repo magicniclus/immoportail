@@ -7,6 +7,8 @@ import ImmoStepContainer from '../components/Organisms/ImmoStepContainer'
 import SetInputWithTitleButtonBanner from '../components/Organisms/SetInputWithTitleButtonBanner'
 import Layout from '../components/Layout/Layout'
 import ContactModal from '../components/Organisms/ContactModal'
+import GoogleSearchInputWithLogo from '../components/Atoms/inputs/googleSearchInputWithLogo'
+import AdressForm from '../components/Molecules/form/AdressForm'
 
 const inter = Inter({ subsets: ['latin'] })
 
