@@ -34,8 +34,8 @@ const AdressForm = (props) => {
     }, [address])
     
     const handleAddress = (description) => {
-        setAddress(description)
         setSuggestions([])
+        setAddress(description)
     }
     
     useEffect(()=>{
@@ -58,7 +58,7 @@ const AdressForm = (props) => {
                 suggestionsAreOpen ?
                 <ul className={'bg-white py-1'}>
                     {Array.isArray(suggestions) && suggestions.map(suggestion => (
-                        <li onClick={()=>handleAddress(suggestion.description)}className="text-purple cursor-pointer mx-3 my-3" key={suggestion.id}>{suggestion.description}</li>
+                        <li onClick={()=>handleAddress(suggestion.description)}className="text-purple cursor-pointer mx-3 my-3 hover:font-bold" key={suggestion.id}>{suggestion.description}</li>
                     ))}
                 </ul>:
                 null
