@@ -21,16 +21,20 @@ const AdressForm = (props) => {
             return
         }
 
-        axios.get(
-            `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${address}&key=${API_KEY}&components=country:fr`
-        )
-        .then(res => {
-            setSuggestions(res.data.predictions)
-        })
-        .catch(error => {
-            console.error(error)
-            setSuggestions("Erreur, veuillez essayer à nouveau")
-        })
+        if(address.length < 3){
+            return
+        }else{
+            axios.get(
+                `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${address}&key=${API_KEY}&components=country:fr`
+            )
+            .then(res => {
+                setSuggestions(res.data.predictions)
+            })
+            .catch(error => {
+                console.error(error)
+                setSuggestions("Erreur, veuillez essayer à nouveau")
+            })
+        }
     }, [address])
     
     const handleAddress = (description) => {
