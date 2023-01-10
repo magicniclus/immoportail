@@ -1,6 +1,6 @@
 const initState = {
     addressIsValid: false,
-    adress: ""
+    address: ""
 }
 
 const reducer = ((state= initState, action)=>{
@@ -11,10 +11,10 @@ const reducer = ((state= initState, action)=>{
                 adressIsValid: action.payload
             }
 
-        case "updateAdress":
+        case "updateAddress":
             return{
                 ...state,
-                adress: action.payload
+                address: action.payload
             }    
             
         default: return state    
