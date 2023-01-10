@@ -11,3 +11,10 @@ export const updateAddress = (address)=>{
         payload: address
     }
 }
+
+export const updateAddressCoordinate = (coordinate)=>{
+    return {
+        type: "updateAddressCoordinate",
+        payload: coordinate
+    }
+}
