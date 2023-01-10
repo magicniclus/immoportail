@@ -30,7 +30,7 @@ export default function Home() {
         <EvaluationBanner />
         <QualityBanner />
         <ImmoStepContainer />
-        <SetInputWithTitleButtonBanner /> 
+        <SetInputWithTitleButtonBanner disabled={disabled}/> 
         <ContactModal />
     </Layout>
   )
