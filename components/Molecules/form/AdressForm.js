@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { updateAddress } from '../../../redux/action'
+import { updateAddress, updateAddressCoordinate } from '../../../redux/action'
 
 const AdressForm = (props) => {
     const placeholder = props.placeholder
@@ -19,6 +19,7 @@ const AdressForm = (props) => {
 
     // Utilisez useEffect pour récupérer les suggestions d'adresse à mesure que l'utilisateur saisit l'adresse
     useEffect(() => {
+
         setSuggestionsAreOpen(false)
         if ( address.trim() === '') {
             setSuggestions([])
