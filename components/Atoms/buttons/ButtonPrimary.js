@@ -8,7 +8,7 @@ const ButtonPrimary = (props) => {
 
     const classDesign = {
         primary: disabled ? "text-base px-10 py-2 bg-purpleLight rounded-3xl text-white hover:shadow-md hover:shadow-slate-200 transition-shadow": "text-base px-10 py-2 bg-purple rounded-3xl text-white hover:shadow-md hover:shadow-slate-200 transition-shadow",
-        secondary: disabled ? "text-base px-10 py-2 bg-white rounded-3xl text-purple hover:shadow-md hover:shadow-slate-200 transition-shadow":"text-base px-10 py-2 bg-white rounded-3xl text-purple hover:shadow-md hover:shadow-slate-200 transition-shadow"
+        secondary: disabled ? "text-base px-10 py-2 bg-newGray rounded-3xl text-purple hover:shadow-md hover:shadow-slate-200 transition-shadow":"text-base px-10 py-2 bg-white rounded-3xl text-purple hover:shadow-md hover:shadow-slate-200 transition-shadow"
     }
 
     return (
