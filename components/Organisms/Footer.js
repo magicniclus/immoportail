@@ -25,12 +25,12 @@ const Footer = () => {
                 </ul>
                 <p className='text-purple text-base md:text-xl'>© immoportail.fr 2022</p>
             </div>
-            <div className="flex flex-col justify-between items-start lg:items-end lg:w-4/12 w-8/12 lg:h-auto h-64 my-7 lg:m-0">
+            <form className="flex flex-col justify-between items-start lg:items-end lg:w-4/12 w-8/12 lg:h-auto h-64 my-7 lg:m-0">
                 <Logo />
                 <TitleSecondary text="S’inscrire à notre news letters" color="purple" />
                 <InputWithLogo placeholder="Saisir un email" image="/vector/Vectorletter.png" color="white" />
                 <ButtonPrimary text="S'inscrire" version="primary" />
-            </div>
+            </form>
         </footer>
     );
 };
