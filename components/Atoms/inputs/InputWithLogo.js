@@ -13,7 +13,7 @@ const InputWithLogo = (props) => {
         <div className={'relative sm:w-80 md:w-10/12 h-12 ' + marginY}>
             {
                 componentIsForAdress &&  componentIsForAdress !== undefined ?
-                <AdressForm color={color} />:
+                <AdressForm color={color} placeholder={placeholder}/>:
                 <input className={color !== undefined ? 'border rounded-lg placeholder-gray-200::placeholder px-3 w-full h-12 border-'+color :'border rounded-lg placeholder-gray-200::placeholder px-3 w-full h-12 border-purple'} type="text" placeholder={placeholder}  />
 
             }
