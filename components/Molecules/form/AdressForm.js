@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { updateAddress } from '../../../redux/action'
 
 const AdressForm = (props) => {
     const placeholder = props.placeholder
@@ -13,11 +15,14 @@ const AdressForm = (props) => {
 
     const [suggestionsAreOpen, setSuggestionsAreOpen]=useState(false)
 
+    const dispatch = useDispatch()
+
     // Utilisez useEffect pour récupérer les suggestions d'adresse à mesure que l'utilisateur saisit l'adresse
     useEffect(() => {
         setSuggestionsAreOpen(false)
         if ( address.trim() === '') {
             setSuggestions([])
+            dispatch(updateAddress(""))
             return
         }
 
@@ -40,6 +45,7 @@ const AdressForm = (props) => {
     const handleAddress = (description) => {
         setSuggestions([])
         setAddress(description)
+        dispatch(updateAddress(description))
     }
     
     useEffect(()=>{
@@ -54,7 +60,7 @@ const AdressForm = (props) => {
                 type="text"
                 value={address}
                 onChange={e => setAddress(e.target.value)}
-                className={color !== undefined ? 'border text-purple rounded-lg placeholder-gray-200::placeholder px-3 w-full h-12 border-'+color :'border text-purple rounded-lg placeholder-gray-200::placeholder px-3 w-full h-12 border-purple'} 
+                className={color !== undefined ? 'border text-purple rounded-lg placeholder:text-slate-400 px-3 w-full h-12 border-'+color :'border text-purple rounded-lg placeholder:text-slate-400 px-3 w-full h-12 border-purple'} 
                 placeholder={placeholder !== undefined ? placeholder : null}
             />
             {/* Affichez les suggestions d'adresse dans une liste */}
@@ -62,7 +68,7 @@ const AdressForm = (props) => {
                 suggestionsAreOpen ?
                 <ul className={'bg-white py-1'}>
                     {Array.isArray(suggestions) && suggestions.map(suggestion => (
-                        <li onClick={()=>handleAddress(suggestion.description)}className="text-purple cursor-pointer mx-3 my-3 hover:font-bold" key={suggestion.id}>{suggestion.description}</li>
+                        <li onClick={()=>handleAddress(suggestion.description)}className="text-purple cursor-pointer mx-3 my-3 hover:font-bold z-50" key={suggestion.id}>{suggestion.description}</li>
                     ))}
                 </ul>:
                 null
