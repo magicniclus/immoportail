@@ -42,11 +42,12 @@ const SetInputWithTitleAndButton = (props) => {
         }
     }
 
-    useEffect(()=>{
-        if(state.addressCoordinate !== null){
-            router.push('/estimation-immobiliere')
+    useEffect(() => {
+        if (coordinates.lat !== null && coordinates.lng !== null) {
+        router.push('/estimation-immobiliere');
         }
-    }, [state.addressCoordinate])
+    }, [coordinates]);
+
 
     return (
         <form onSubmit={handleSubmit} className={bgColor !== undefined ?'bg-'+ bgColor + ' py-5 px-7 my-4 rounded-lg md:w-10/12' : 'bg-white py-5 px-7 my-4 rounded-lg md:w-10/12'}>
