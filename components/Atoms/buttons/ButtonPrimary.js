@@ -5,6 +5,7 @@ const ButtonPrimary = (props) => {
     const version = props.version
     const callback = props.callback
     const disabled = props.disabled || false
+    const type = props.type || "button"
 
     const classDesign = {
         primary: disabled ? "text-base px-10 py-2 bg-purpleLight rounded-3xl text-white hover:shadow-md hover:shadow-slate-200 transition-shadow": "text-base px-10 py-2 bg-purple rounded-3xl text-white hover:shadow-md hover:shadow-slate-200 transition-shadow",
@@ -12,7 +13,7 @@ const ButtonPrimary = (props) => {
     }
 
     return (
-        <button disabled={disabled} className={version !== undefined && version !== null ? classDesign[version] : classDesign.primary}>
+        <button type={type} disabled={disabled} className={version !== undefined && version !== null ? classDesign[version] : classDesign.primary}>
             {text}
         </button>
     );
