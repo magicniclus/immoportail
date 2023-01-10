@@ -5,7 +5,9 @@ import SetInputWithTitleAndButton from '../Molecules/SetInputWithTitleAndButton'
 import TitlePrimary from '../Atoms/titles/TitlePrimary';
 import LightBox from '../Molecules/LightBox';
 
-const EstimationBanner = () => {
+const EstimationBanner = (props) => {
+    const disabled = props.disabled
+
     return (
         <div className='bg-purple px-5 md:px-40 py-10 md:py-16 flex content-between relative'>
             {/* Right container */}
@@ -16,7 +18,7 @@ const EstimationBanner = () => {
                     votre bien immobilier et du marché local en temps réel
                 </Text>
                 <SeparationLign color="white" />
-                <SetInputWithTitleAndButton titleColor="purple" />
+                <SetInputWithTitleAndButton titleColor="purple" disabled={disabled} />
             </div>
             {/* Left  container */}
             <div className="hidden h-full bg-white lg:flex lg:w-4/12 absolute right-0 top-0">
