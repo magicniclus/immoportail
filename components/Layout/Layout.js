@@ -1,4 +1,4 @@
-import Header from "../Organisms/Header";
+import Header from "../Organisms/headers/Header";
 import Head from 'next/head'
 import Footer from "../Organisms/Footer";
 
