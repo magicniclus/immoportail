@@ -10,10 +10,10 @@ const LayoutEstimation = (props) => {
                 <title>{props.title}</title>
                 <meta property="og:title" content={props.description} key={props.key !== undefined ? props.key : "title"} />
             </Head>
-            <header className='max-w-max-w-screen-lg'>
+            <header className=' mx-auto'>
                 <HeaderEstimation />
             </header>
-            <main className="flex flex-col relative h-[calc(100vh-7rem)]">
+            <main className="flex flex-col relative h-[calc(100vh-7rem)] mx-auto drop-shadow-md ">
                 {props.children}
             </main>
             <Footer />
