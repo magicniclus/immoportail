@@ -4,12 +4,14 @@ import LayoutEstimation from '../../components/Layout/LayoutEstimation';
 const EstimationImmobiliere = () => {
     return (
         <LayoutEstimation>
-            {/* Left Container */}
-            <div className="min-h-full w-5/12 bg-grayLight flex justify-end">
-                 <div className="w-full 2xl:w-10/12 bg-purple"></div>
-                 
+            <div className="min-h-full w-full lg:max-w-screen-2xl bg-grayLight flex justify-end mx-auto">
+                {/* Left Container */}
+                 <div className="w-5/12  bg-purple mx-auto">
+
+                 </div>
+                {/* Right Container */}
+                <div className="w-7/12 bg-blue "></div>
             </div>
-            {/* Right Container */}
         </LayoutEstimation>
     );
 };
