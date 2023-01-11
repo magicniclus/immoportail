@@ -6,7 +6,7 @@ const Simulateur = ({params}) => {
     }, [])
     return (
         <div>
-            <h1>Simulateur</h1>
+            <h1>Simulateur {params}</h1>
         </div>
     );
 };
