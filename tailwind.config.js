@@ -30,6 +30,7 @@ module.exports = {
       "yellow": "#F2B544",
       "orange": "#F26D3D",
       "newGray": "#D9D9D9",
+      "grayLight": "#FAFAFA",
       "black": colors.black,
       "white": colors.white,
       "gray": colors.slate,
