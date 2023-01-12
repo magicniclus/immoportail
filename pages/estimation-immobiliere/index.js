@@ -1,16 +1,19 @@
 import React from 'react';
 import LayoutEstimation from '../../components/Layout/LayoutEstimation';
+import BottomStepContainer from '../../components/Organisms/BottomStepContainer';
+import MultitCardsContainer from '../../components/Organisms/MultitCardsContainer';
+import ProjectStepContainer from '../../components/Organisms/ProjectStepContainer';
 
 const EstimationImmobiliere = () => {
     return (
         <LayoutEstimation>
-            <div className="min-h-full w-full lg:max-w-screen-2xl bg-grayLight flex justify-end mx-auto">
+            <div className="min-h-[calc((100vh-7rem))] w-full flex mx-auto flex-col justify-end md:flex-row md:max-w-screen-2xl md:px-5 md:py-8">
                 {/* Left Container */}
-                 <div className="w-5/12  bg-purple mx-auto">
-
-                 </div>
+                <ProjectStepContainer />
                 {/* Right Container */}
-                <div className="w-7/12 bg-blue "></div>
+                <MultitCardsContainer />
+                {/* Bottom Container */}
+                <BottomStepContainer />
             </div>
         </LayoutEstimation>
     );
