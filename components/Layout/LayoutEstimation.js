@@ -13,7 +13,7 @@ const LayoutEstimation = (props) => {
             <header className=' mx-auto'>
                 <HeaderEstimation />
             </header>
-            <main className="flex flex-col item-center relative h-[calc(100vh-7rem)] mx-auto drop-shadow-md w-full">
+            <main className="flex flex-col item-center relative min-h-[calc(100vh-7rem)] h-max mx-auto drop-shadow-md w-full">
                 {props.children}
             </main>
             <Footer />
