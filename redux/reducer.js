@@ -1,6 +1,7 @@
 const initState = {
     address: "",
-    addressCoordinate: null
+    addressCoordinate: null,
+    stepOfProjectProgress: 8
 }
 
 const reducer = ((state= initState, action)=>{
