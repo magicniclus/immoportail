@@ -6,7 +6,7 @@ import TitleSecondary from '../../Atoms/titles/TitleSecondary';
 const HeaderEstimation = () => {
     return (
         <div className='w-screen z-20 bg-white h-28 drop-shadow-md flex items-center px-5 lg:px-40'>
-            <div className=" items-baseline lg:flex-row  justify-between w-full lg:flex flex-col mx-auto ">
+            <div className=" items-baseline lg:flex-row w-full lg:flex flex-col mx-auto ">
                 {/* Left container */}
                 <Link href="/">
                     <Logo />
