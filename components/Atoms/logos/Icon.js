@@ -11,7 +11,7 @@ const Icon = (props) => {
             image:20
         },
         light:{
-            container:"w-10 md:w-10 h-10 md:h-10",
+            container:"w-10 md:w-10 h-10 md:h-10 ",
             image: 25
         },
         normal:{
