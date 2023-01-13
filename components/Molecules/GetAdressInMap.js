@@ -31,7 +31,7 @@ const GetAdressInMap = () => {
   }, [scriptLoaded, state.addressCoordinate]);
 
   return (
-    <div className="h-56 w-10/12 lg:ml-14 lg:w-7/12 bg-white shadow-[inset_0px_0px_15px_30px_#FAFAFA]">
+    <div className="h-48 w-11/12 bg-white shadow-[inset_0px_0px_15px_30px_#FAFAFA]">
       {scriptLoaded && (
         <LoadScript
           googleMapsApiKey="AIzaSyBhFIY1nvseuxoi4xA0HPiM-PvwNQdx9kI"
