@@ -40,6 +40,7 @@ const SetInputWithTitleAndButton = (props) => {
               lng: res.data.candidates[0].geometry.location.lng,
             })
           );
+          router.push("/estimation-immobiliere");
           //   Creer une promess
           //   if (state.addressCoordinate !== null) {
           //     router.push("/estimation-immobiliere");
@@ -52,11 +53,11 @@ const SetInputWithTitleAndButton = (props) => {
     }
   };
 
-  useEffect(() => {
-    if (state.addressCoordinate !== null) {
-      router.push("/estimation-immobiliere");
-    }
-  }, [coordinates, state.addressCoordinate]);
+  // useEffect(() => {
+  //   if (state.addressCoordinate !== null) {
+  //     router.push("/estimation-immobiliere");
+  //   }
+  // }, [coordinates, state.addressCoordinate]);
 
   return (
     <form
