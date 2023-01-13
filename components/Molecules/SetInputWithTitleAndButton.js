@@ -20,8 +20,6 @@ const SetInputWithTitleAndButton = (props) => {
 
   const router = useRouter();
 
-  const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (state.address !== "" && state.address !== undefined) {
@@ -30,34 +28,19 @@ const SetInputWithTitleAndButton = (props) => {
           `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${state.address}&key=AIzaSyBhFIY1nvseuxoi4xA0HPiM-PvwNQdx9kI&inputtype=textquery&fields=geometry`
         )
         .then((res) => {
-          setCoordinates({
-            lat: res.data.candidates[0].geometry.location.lat,
-            lng: res.data.candidates[0].geometry.location.lng,
-          });
           dispatch(
             updateAddressCoordinate({
               lat: res.data.candidates[0].geometry.location.lat,
               lng: res.data.candidates[0].geometry.location.lng,
             })
           );
-          router.push("/estimation-immobiliere");
-          //   Creer une promess
-          //   if (state.addressCoordinate !== null) {
-          //     router.push("/estimation-immobiliere");
-          //   }
+          router.push(`/${"estimation-immobiliere"}`);
         })
-        .then(() => {})
         .catch((error) => {
           console.error(error);
         });
     }
   };
-
-  // useEffect(() => {
-  //   if (state.addressCoordinate !== null) {
-  //     router.push("/estimation-immobiliere");
-  //   }
-  // }, [coordinates, state.addressCoordinate]);
 
   return (
     <form
