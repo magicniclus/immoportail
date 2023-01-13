@@ -18,6 +18,8 @@ const AdressForm = (props) => {
 
   const dispatch = useDispatch();
 
+  const [isClicked, setIsClicked] = useState(false);
+
   // Utilisez useEffect pour récupérer les suggestions d'adresse à mesure que l'utilisateur saisit l'adresse
   useEffect(() => {
     setSuggestionsAreOpen(false);
@@ -56,6 +58,7 @@ const AdressForm = (props) => {
     setAddress(description);
     setSource(axios.CancelToken.source());
     dispatch(updateAddress(description));
+    setIsClicked(true);
   };
 
   useEffect(() => {
@@ -69,7 +72,8 @@ const AdressForm = (props) => {
       <input
         type="text"
         value={address}
-        onChange={(e) => setAddress(e.target.value)}
+        onChange={(e) => (!isClicked ? setAddress(e.target.value) : null)}
+        onClick={() => setIsClicked(false)}
         className={
           color !== undefined
             ? "border text-purple rounded-lg placeholder:text-slate-400 px-3 w-full h-12 border-" +
@@ -79,7 +83,7 @@ const AdressForm = (props) => {
         placeholder={placeholder !== undefined ? placeholder : null}
       />
       {/* Affichez les suggestions d'adresse dans une liste */}
-      {suggestionsAreOpen ? (
+      {!isClicked && suggestionsAreOpen ? (
         <ul className={"bg-white py-1"}>
           {Array.isArray(suggestions) &&
             suggestions.map((suggestion, idx) => (
