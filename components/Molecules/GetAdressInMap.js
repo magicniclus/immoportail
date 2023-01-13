@@ -3,7 +3,7 @@ import { GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
 import { useSelector } from "react-redux";
 
 const GetAdressInMap = (props) => {
-  const isOk = props.isOk;
+  const customMarker = "/vector/localizationHouse.png";
 
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const state = useSelector((state) => state);
