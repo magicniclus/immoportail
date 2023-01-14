@@ -39,7 +39,7 @@ const GetAdressInMap = (props) => {
         <GoogleMap
           id="map"
           mapContainerStyle={containerStyle}
-          zoom={17}
+          zoom={18}
           center={center}
           options={options}
           style={{ zIndex: 0 }}
@@ -56,7 +56,7 @@ const GetAdressInMap = (props) => {
       <GoogleMap
         id="map"
         mapContainerStyle={containerStyle}
-        zoom={17}
+        zoom={18}
         center={center}
         options={options}
         style={{ zIndex: 0 }}
