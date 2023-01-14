@@ -1,4 +1,3 @@
-import { Inter } from "@next/font/google";
 import EstimationBanner from "../components/Organisms/EstimationBanner";
 import BreadcrumbContainer from "../components/Organisms/BreadcrumbContainer";
 import EvaluationBanner from "../components/Organisms/EvaluationBanner";
@@ -10,8 +9,7 @@ import ContactModal from "../components/Organisms/ContactModal";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAddress, updateAddressCoordinate } from "../redux/action";
-
-const inter = Inter({ subsets: ["latin"] });
+import { PromptInChatGPT } from "../lib/chatGPT/Prompt";
 
 export default function Home() {
   const [disabled, setDisabled] = useState(true);
@@ -23,10 +21,17 @@ export default function Home() {
     state.address !== "" ? setDisabled(false) : setDisabled(true);
   }, [state.address]);
 
-  useEffect(() => {
-    dispatch(updateAddress(""));
-    dispatch(updateAddressCoordinate(null));
-  }, []);
+  // useEffect(() => {
+  //   PromptInChatGPT("Say this is a test")
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  //   dispatch(updateAddress(""));
+  //   dispatch(updateAddressCoordinate(null));
+  // }, []);
 
   return (
     <Layout
