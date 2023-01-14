@@ -1,25 +1,26 @@
 const initState = {
-    address: "",
-    addressCoordinate: null,
-    stepOfProjectProgress: 8
-}
+  address: "",
+  addressCoordinate: null,
+  stepOfProjectProgress: 1,
+};
 
-const reducer = ((state= initState, action)=>{
-    switch(action.type) {
-        case "updateAddress":
-            return{
-                ...state,
-                address: action.payload
-            }
+const reducer = (state = initState, action) => {
+  switch (action.type) {
+    case "updateAddress":
+      return {
+        ...state,
+        address: action.payload,
+      };
 
-        case "updateAddressCoordinate":
-            return{
-                ...state,
-                addressCoordinate: action.payload
-            }
+    case "updateAddressCoordinate":
+      return {
+        ...state,
+        addressCoordinate: action.payload,
+      };
 
-        default: return state
-    }
-})
+    default:
+      return state;
+  }
+};
 
-export default reducer
+export default reducer;
