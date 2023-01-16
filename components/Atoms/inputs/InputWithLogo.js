@@ -18,9 +18,9 @@ const InputWithLogo = (props) => {
         <input
           className={
             color !== undefined
-              ? "border rounded-lg placeholder-gray-200::placeholder px-3 w-full h-12 border-" +
+              ? "border min-w-[200px] rounded-lg placeholder-gray-200::placeholder px-3 w-full h-12 border-" +
                 color
-              : "border rounded-lg placeholder-gray-200::placeholder px-3 w-full h-12 border-purple"
+              : "border min-w-[200px] rounded-lg placeholder-gray-200::placeholder px-3 w-full h-12 border-purple"
           }
           type="text"
           placeholder={placeholder}
