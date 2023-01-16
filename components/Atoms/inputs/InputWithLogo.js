@@ -11,7 +11,7 @@ const InputWithLogo = (props) => {
   const width = props.width;
 
   return (
-    <div className={"relative sm:w-80 md:w-10/12 h-12 " + marginY}>
+    <div className={"relative sm:w-full h-12 max-w-[450px] " + marginY}>
       {componentIsForAdress && componentIsForAdress !== undefined ? (
         <AdressForm color={color} placeholder={placeholder} />
       ) : (
