@@ -18,6 +18,12 @@ const reducer = (state = initState, action) => {
         addressCoordinate: action.payload,
       };
 
+    case "stepOfProjectProgress":
+      return {
+        ...state,
+        stepOfProjectProgress: action.payload,
+      };
+
     default:
       return state;
   }
