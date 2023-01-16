@@ -66,12 +66,12 @@ const MultitCardsContainer = () => {
 
   return (
     <div
-      className={`md:w-7/12 w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative pl-10 lg:pl-48`}
+      className={`min-h-[900pcx] md:w-7/12 w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative pl-10 lg:pl-48`}
     >
       {index > 0 ? (
         <p
           onClick={() => handleReturnRef(index)}
-          className="absolute top-10 left-10 text-purple font-normal hover:cursor-pointer md:text-normal text-xs"
+          className="absolute top-10 left-5 md:left-10 text-purple font-normal hover:cursor-pointer md:text-normal text-xs"
         >
           &lsaquo; Retour
         </p>
@@ -86,14 +86,14 @@ const MultitCardsContainer = () => {
             <div
               key={idx}
               className={
-                "min-h-[60%] flex-1 py-32 w-full flex flex-col items-start justify-start " +
+                "min-h-[40%] flex-1 py-32 w-full flex flex-col items-start justify-start " +
                 (idx === array.length - 1 ? "mb-96" : null)
               }
               ref={refs[idx]}
             >
               <div
-                className={`flex flex-col justify-between h-2/6 w-full ${
-                  idx < index || idx > index ? "opacity-40" : null
+                className={`flex flex-col justify-between h-2/6 w-full sm:items-start items-end ${
+                  idx < index || idx > index ? "opacity-20" : null
                 }`}
               >
                 <WhatAddress />
