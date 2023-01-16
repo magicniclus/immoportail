@@ -1,7 +1,10 @@
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateStepOfProjectProgress } from "../../redux/action";
+import ButtonPrimary from "../Atoms/buttons/ButtonPrimary";
 import Text from "../Atoms/texts/Text";
+import TitlePrimary from "../Atoms/titles/TitlePrimary";
+import WhatAddress from "../Molecules/steps/WhatAddress";
 
 const MultitCardsContainer = () => {
   const dispatch = useDispatch();
@@ -57,19 +60,24 @@ const MultitCardsContainer = () => {
     dispatch(updateStepOfProjectProgress(idx));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div
-      className={`md:w-7/12 w-full flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative`}
+      className={`md:w-7/12 w-full flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative px-52`}
     >
       {index > 0 ? (
         <p
           onClick={() => handleReturnRef(index)}
-          className="absolute top-10 left-0 text-purple font-normal hover:cursor-pointer"
+          className="absolute top-10 left-10 text-purple font-normal hover:cursor-pointer"
         >
           &lsaquo; Retour
         </p>
       ) : null}
-      <div
+      <form
+        onSubmit={handleSubmit}
         id="cardContainer"
         className="w-full flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden"
       >
@@ -78,28 +86,37 @@ const MultitCardsContainer = () => {
             <div
               key={idx}
               className={
-                "min-h-[60%] flex-1 py-20 w-full flex flex-col items-center justify-center bg-blue " +
+                "min-h-[60%] flex-1 py-32 w-full flex flex-col items-start justify-start " +
                 (idx === array.length - 1 ? "mb-96" : null)
               }
               ref={refs[idx]}
             >
-              <input
-                className="text-white bg-newGray w-2/12 text-center"
-                value={item}
-              />
-              <button
-                className={
-                  "text-white bg-gray w-4/12 text-center " +
-                  (idx === index ? null : "hidden")
-                }
-                onClick={(e) => handleRef(idx, e)}
+              <div
+                className={`flex flex-col justify-between h-2/6 w-full ${
+                  idx < index || idx > index ? "opacity-40" : null
+                }`}
               >
-                {idx === array.length - 1 ? "Estimer " : "Suivant"}
-              </button>
+                <WhatAddress />
+                {idx === array.length - 1 ? (
+                  <ButtonPrimary
+                    text="Estimer"
+                    updateClass={idx === index ? null : "hidden"}
+                    callback={handleSubmit}
+                    type="submit"
+                  />
+                ) : (
+                  <ButtonPrimary
+                    text="Suivant"
+                    type="button"
+                    updateClass={idx === index ? null : "hidden"}
+                    callback={(e) => handleRef(idx)}
+                  />
+                )}
+              </div>
             </div>
           );
         })}
-      </div>
+      </form>
     </div>
   );
 };
