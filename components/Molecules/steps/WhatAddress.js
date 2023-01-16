@@ -5,7 +5,7 @@ import SetInputWithTitleAndButton from "../SetInputWithTitleAndButton";
 
 const WhatAddress = () => {
   return (
-    <div className="">
+    <div className="w-full">
       <TitleSecondary text="Adresse du bien à estimer" color="purple" />
       <InputWithLogo
         componentIsForAdress={true}
