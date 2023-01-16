@@ -71,7 +71,7 @@ const MultitCardsContainer = () => {
       {index > 0 ? (
         <p
           onClick={() => handleReturnRef(index)}
-          className="absolute top-10 left-5 md:left-10 text-purple font-normal hover:cursor-pointer md:text-normal text-xs"
+          className="absolute top-10 left-5 md:left-10 text-gray-400 font-normal hover:cursor-pointer md:text-normal text-md"
         >
           &lsaquo; Retour
         </p>
