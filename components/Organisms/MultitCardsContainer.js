@@ -66,12 +66,12 @@ const MultitCardsContainer = () => {
 
   return (
     <div
-      className={`md:w-7/12 w-full flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative px-52`}
+      className={`md:w-7/12 w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative pl-10 lg:pl-48`}
     >
       {index > 0 ? (
         <p
           onClick={() => handleReturnRef(index)}
-          className="absolute top-10 left-10 text-purple font-normal hover:cursor-pointer"
+          className="absolute top-10 left-10 text-purple font-normal hover:cursor-pointer md:text-normal text-xs"
         >
           &lsaquo; Retour
         </p>
