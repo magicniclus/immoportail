@@ -95,7 +95,7 @@ const MultitCardsContainer = () => {
 
   return (
     <div
-      className={`min-h-[900px] md:top-0 top-10 md:w-7/12 w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative pl-10 lg:pl-48`}
+      className={`min-h-[700px] md:top-0 top-10 md:w-7/12 w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative pl-10 lg:pl-48`}
     >
       {index > 0 ? (
         <p
