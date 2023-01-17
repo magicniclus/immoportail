@@ -1,7 +1,6 @@
 import React from "react";
 import InputWithLogo from "../../Atoms/inputs/InputWithLogo";
 import TitleSecondary from "../../Atoms/titles/TitleSecondary";
-import SetInputWithTitleAndButton from "../SetInputWithTitleAndButton";
 
 const WhatAddress = () => {
   return (
