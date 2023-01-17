@@ -100,7 +100,7 @@ const MultitCardsContainer = () => {
       {index > 0 ? (
         <p
           onClick={() => handleReturnRef(index)}
-          className="absolute top-10 left-5 md:left-10 text-gray-400 font-normal hover:cursor-pointer md:text-normal text-md"
+          className="absolute top-0 left-5 md:left-10 text-gray-400 font-normal hover:cursor-pointer md:text-normal text-md"
         >
           &lsaquo; Retour
         </p>
@@ -115,8 +115,8 @@ const MultitCardsContainer = () => {
             <div
               key={idx}
               className={
-                "min-h-[40%] flex-1 py-32 w-full flex flex-col items-start justify-start " +
-                (idx === array.length - 1 ? "mb-96" : null)
+                "flex-1 mb-28 w-full flex flex-col items-start justify-start " +
+                (idx === array.length - 1 ? "min-h-[100%]" : "min-h-[40%]")
               }
               ref={refs[idx]}
             >
