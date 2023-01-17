@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { updateAddress } from "../../../redux/action";
+import {
+  updateAddress,
+  updateAddressIsValid,
+  updateStepOfProjectProgress,
+} from "../../../redux/action";
 
 const AdressForm = (props) => {
   const placeholder = props.placeholder;
@@ -68,6 +72,7 @@ const AdressForm = (props) => {
     setAddress(description);
     setSource(axios.CancelToken.source());
     dispatch(updateAddress(description));
+    // dispatch(updateStepOfProjectProgress(1));
     setIsClicked(true);
   };
 
