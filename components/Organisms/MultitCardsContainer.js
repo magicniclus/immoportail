@@ -1,13 +1,17 @@
-import React, { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
-import { updateStepOfProjectProgress } from "../../redux/action";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getCoordinateOfAddress } from "../../lib/googleMap/googleMap";
+import {
+  updateAddressCoordinate,
+  updateStepOfProjectProgress,
+} from "../../redux/action";
 import ButtonPrimary from "../Atoms/buttons/ButtonPrimary";
-import Text from "../Atoms/texts/Text";
-import TitlePrimary from "../Atoms/titles/TitlePrimary";
 import WhatAddress from "../Molecules/steps/WhatAddress";
 
 const MultitCardsContainer = () => {
   const dispatch = useDispatch();
+
+  const state = useSelector((state) => state);
 
   const [index, setIndex] = useState(0);
 
@@ -30,7 +34,7 @@ const MultitCardsContainer = () => {
     .fill()
     .map(() => useRef());
 
-  const handleRef = (idx, e) => {
+  const handleRef = (idx) => {
     if (index < array.length - 1) {
       setIndex(idx + 1);
       const element = refs[idx + 1].current;
@@ -60,8 +64,33 @@ const MultitCardsContainer = () => {
     dispatch(updateStepOfProjectProgress(idx));
   };
 
+  useEffect(() => {
+    if (state.address !== undefined && state.address !== "") {
+      setIndex(1);
+      const element = refs[1].current;
+      if (element) {
+        const parent = document.getElementById("cardContainer");
+        parent.scrollTo({
+          top: element.offsetTop - parent.offsetTop,
+          left: 0,
+          behavior: "smooth",
+        });
+      }
+      dispatch(updateStepOfProjectProgress(1));
+    }
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const updateAddress = async (idx) => {
+    getCoordinateOfAddress(state.address)
+      .then((res) => {
+        dispatch(updateAddressCoordinate(res));
+        handleRef(idx);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -109,7 +138,9 @@ const MultitCardsContainer = () => {
                     text="Suivant"
                     type="button"
                     updateClass={idx === index ? null : "hidden"}
-                    callback={(e) => handleRef(idx)}
+                    callback={(e) =>
+                      idx > 0 ? handleRef(idx) : updateAddress(idx)
+                    }
                   />
                 )}
               </div>
