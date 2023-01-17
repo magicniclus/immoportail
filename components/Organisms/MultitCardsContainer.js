@@ -95,7 +95,7 @@ const MultitCardsContainer = () => {
 
   return (
     <div
-      className={`min-h-[900pcx] md:w-7/12 w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative pl-10 lg:pl-48`}
+      className={`min-h-[900px] md:top-0 top-10 md:w-7/12 w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative pl-10 lg:pl-48`}
     >
       {index > 0 ? (
         <p
@@ -108,20 +108,22 @@ const MultitCardsContainer = () => {
       <form
         onSubmit={handleSubmit}
         id="cardContainer"
-        className="w-full flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden"
+        className="w-full mt-20 lg:mt-0 flex flex-col items-center min-h-[900px] h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden"
       >
         {array.map((item, idx) => {
           return (
             <div
               key={idx}
               className={
-                "flex-1 mb-28 w-full flex flex-col items-start justify-start " +
+                "flex-1 w-full flex flex-col items-start justify-start " +
                 (idx === array.length - 1 ? "min-h-[100%]" : "min-h-[40%]")
               }
               ref={refs[idx]}
             >
               <div
-                className={`flex flex-col justify-between h-2/6 w-full sm:items-start items-end ${
+                className={`flex flex-col justify-between ${
+                  idx === array.length - 1 ? null : "h-2/6"
+                } w-full sm:items-start items-end ${
                   idx < index || idx > index ? "opacity-20" : null
                 }`}
               >
