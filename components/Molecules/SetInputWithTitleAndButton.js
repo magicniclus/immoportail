@@ -3,9 +3,9 @@ import TitleSecondary from "../Atoms/titles/TitleSecondary";
 import InputWithLogo from "../Atoms/inputs/InputWithLogo";
 import ButtonPrimary from "../Atoms/buttons/ButtonPrimary";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
 import { updateAddressCoordinate } from "../../redux/action";
 import { useRouter } from "next/router";
+import { getCoordinateOfAddress } from "../../lib/googleMap/googleMap";
 
 const SetInputWithTitleAndButton = (props) => {
   const bgColor = props.bgColor;
@@ -23,22 +23,12 @@ const SetInputWithTitleAndButton = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (state.address !== "" && state.address !== undefined) {
-      axios
-        .get(
-          `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${state.address}&key=AIzaSyBhFIY1nvseuxoi4xA0HPiM-PvwNQdx9kI&inputtype=textquery&fields=geometry`
-        )
+      getCoordinateOfAddress(state.address)
         .then((res) => {
-          dispatch(
-            updateAddressCoordinate({
-              lat: res.data.candidates[0].geometry.location.lat,
-              lng: res.data.candidates[0].geometry.location.lng,
-            })
-          );
+          dispatch(updateAddressCoordinate(res));
           router.push(`/${"estimation-immobiliere"}`);
         })
-        .catch((error) => {
-          console.error(error);
-        });
+        .catch((error) => console.log(error));
     }
   };
 
