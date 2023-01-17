@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios, { CancelToken } from "axios";
-import { useDispatch } from "react-redux";
-import { updateAddress, updateAddressCoordinate } from "../../../redux/action";
+import { useRouter } from "next/router";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { updateAddress } from "../../../redux/action";
 
 const AdressForm = (props) => {
   const placeholder = props.placeholder;
@@ -9,8 +10,15 @@ const AdressForm = (props) => {
   const [source, setSource] = useState(axios.CancelToken.source());
 
   const API_KEY = "AIzaSyBhFIY1nvseuxoi4xA0HPiM-PvwNQdx9kI";
+
+  const router = useRouter();
+  const currentUrl = router.asPath;
+
+  const state = useSelector((state) => state);
   // Déclarez un état local pour stocker l'adresse saisie par l'utilisateur
-  const [address, setAddress] = useState("");
+  const [address, setAddress] = useState(
+    currentUrl === "/estimation-immobiliere" ? state.address : ""
+  );
   // Déclarez un état local pour stocker les suggestions d'adresse
   const [suggestions, setSuggestions] = useState([]);
 
@@ -18,7 +26,9 @@ const AdressForm = (props) => {
 
   const dispatch = useDispatch();
 
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(
+    currentUrl === "/estimation-immobiliere" ? true : false
+  );
 
   // Utilisez useEffect pour récupérer les suggestions d'adresse à mesure que l'utilisateur saisit l'adresse
   useEffect(() => {
