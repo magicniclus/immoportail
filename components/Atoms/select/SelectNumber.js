@@ -21,7 +21,9 @@ const SelectNumber = (props) => {
       <div className="flex">
         <div
           onClick={updateLessValue}
-          className="h-12 w-10 bg-purple rounded-l-lg flex items-center justify-center"
+          className={`h-12 w-10 bg-purple ${
+            value > 0 ? "opacity-100" : "opacity-80"
+          } rounded-l-lg flex items-center justify-center cursor-pointer`}
         >
           <Image width={21} height={21} alt="moins" src="/vector/moins.png" />
         </div>
@@ -34,7 +36,7 @@ const SelectNumber = (props) => {
         />
         <div
           onClick={updateMoreValue}
-          className="h-12 w-10 bg-purple rounded-r-lg flex items-center justify-center"
+          className="h-12 w-10 bg-purple rounded-r-lg flex items-center justify-center cursor-pointer"
         >
           <Image width={21} height={21} alt="plus" src="/vector/plus.png" />
         </div>
