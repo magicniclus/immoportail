@@ -6,8 +6,10 @@ import {
   updateStepOfProjectProgress,
 } from "../../redux/action";
 import ButtonPrimary from "../Atoms/buttons/ButtonPrimary";
+import NumberOfParts from "../Molecules/steps/NumberOfParts";
 import WhatAccommodationType from "../Molecules/steps/WhatAccommodationType";
 import WhatAddress from "../Molecules/steps/WhatAddress";
+import WhatIsASurface from "../Molecules/steps/WhatIsASurface";
 
 const MultitCardsContainer = () => {
   const dispatch = useDispatch();
@@ -97,13 +99,19 @@ const MultitCardsContainer = () => {
   const handleFunction = (idx) => {
     switch (idx) {
       case 0:
-        return WhatAddress();
+        return <WhatAddress />;
 
       case 1:
-        return WhatAccommodationType();
+        return <WhatAccommodationType />;
+
+      case 2:
+        return <WhatIsASurface />;
+
+      case 3:
+        return <NumberOfParts />;
 
       default:
-        return WhatAddress();
+        return <WhatAddress />;
     }
   };
 
@@ -130,15 +138,15 @@ const MultitCardsContainer = () => {
               key={idx}
               className={
                 "flex-1 w-full flex flex-col items-start justify-start " +
-                (idx === array.length - 1 ? "min-h-[100%]" : "min-h-[30%]")
+                (idx === array.length - 1
+                  ? "min-h-[100%] pt-10"
+                  : "mb-20 pt-10")
               }
               e
               ref={refs[idx]}
             >
               <div
-                className={`flex flex-col justify-between ${
-                  idx === array.length - 1 ? null : "h-2/6"
-                } w-full items-start ${
+                className={`flex flex-col justify-between w-full items-start ${
                   idx < index || idx > index ? "opacity-20" : null
                 }`}
               >
