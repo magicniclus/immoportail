@@ -16,6 +16,7 @@ const CheckWithImage = (props) => {
 
   return (
     <div
+      onClick={(e) => setIsValid(!isValid)}
       className={`w-28 h-28 border border-purple rounded-lg relative flex flex-col items-center justify-around p-3 cursor-pointer ${updateStyle}`}
     >
       <div
