@@ -1,11 +1,12 @@
 import React from "react";
 import InputWithLogo from "../../Atoms/inputs/InputWithLogo";
 import TitleSecondary from "../../Atoms/titles/TitleSecondary";
+import LayoutStep from "../../Layout/LayoutStep";
 
 const WhatAddress = () => {
   return (
-    <div className="w-full">
-      <TitleSecondary text="Adresse du bien à estimer" color="purple" />
+    <LayoutStep>
+      <TitleSecondary text="Adresse du bien à estimer ?" color="purple" />
       <InputWithLogo
         componentIsForAdress={true}
         image="/Vectorlocalization.png"
@@ -13,7 +14,7 @@ const WhatAddress = () => {
         placeholder="Saisir une adresse"
         color="purple"
       />
-    </div>
+    </LayoutStep>
   );
 };
 
