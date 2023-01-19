@@ -12,7 +12,7 @@ const CheckWithImage = (props) => {
   const text = props.text;
 
   const afterValidButton =
-    "after:content-[''] after:w-4 after:h-4 after:absolute after:rounded-full after:bg-purple after:top-1/2 after:left-1/2 after:transform after:-translate-x-1/2 after:-translate-y-1/2";
+    "after:content-[''] after:h-2 after:w-2 md:after:w-4 md:after:h-4 after:absolute after:rounded-full after:bg-purple after:top-1/2 after:left-1/2 after:transform after:-translate-x-1/2 after:-translate-y-1/2";
 
   return (
     <div
@@ -20,7 +20,7 @@ const CheckWithImage = (props) => {
       className={`w-28 h-28 border border-purple rounded-lg relative flex flex-col items-center justify-around p-3 cursor-pointer ${updateStyle}`}
     >
       <div
-        className={`absolute top-2 right-2 rounded-full bg-newGray h-5 w-5 ${
+        className={`absolute top-2 right-2 rounded-full bg-newGray h-3 w-3 md:h-5 md:w-5 ${
           isValid ? afterValidButton : null
         }`}
       ></div>
@@ -34,7 +34,7 @@ const CheckWithImage = (props) => {
       <Text
         children={text}
         color="purple"
-        textSize="bigLight"
+        textSize="titleCard"
         center="text-center"
       />
     </div>
