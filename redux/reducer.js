@@ -2,6 +2,7 @@ const initState = {
   address: "",
   addressCoordinate: null,
   stepOfProjectProgress: 1,
+  stepNumber: null,
 };
 
 const reducer = (state = initState, action) => {
@@ -22,6 +23,12 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         stepOfProjectProgress: action.payload,
+      };
+
+    case "updateStepNumber":
+      return {
+        ...state,
+        stepNumber: action.payload,
       };
 
     default:
