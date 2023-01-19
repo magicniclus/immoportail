@@ -7,7 +7,7 @@ const WhatAccommodationType = () => {
     <LayoutStep title="Quel type de bien souhaitez-vous estimer ?">
       <div className="flex mt-2">
         <CheckWithImage
-          updateStyle={"mr-10"}
+          updateStyle={"mr-5 md:mr-10"}
           imageAlt="maison"
           image="house"
           imageSize={{ width: 65, height: 48 }}
