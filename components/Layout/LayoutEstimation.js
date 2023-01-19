@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Footer from "../Organisms/Footer";
 import HeaderEstimation from "../Organisms/headers/HeaderEstimation";
+import BottomStepContainer from "../Organisms/BottomStepContainer";
 
 const LayoutEstimation = (props) => {
   return (
@@ -20,6 +21,7 @@ const LayoutEstimation = (props) => {
       <main className="flex flex-col item-center relative min-h-[calc(100vh-7rem)] h-max mx-auto drop-shadow-md w-full">
         {props.children}
       </main>
+      <BottomStepContainer />
       {/* <Footer /> */}
     </>
   );
