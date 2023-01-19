@@ -55,7 +55,7 @@ const GetProjectProgress = () => {
   return (
     <div className="h-full min-h-max w-10/12 my-5 flex flex-col justify-between flex-nowrap">
       {stepName.map((item, idx) => (
-        <div className="flex ">
+        <div className="flex w-full overflow-hidden">
           <div
             className={`h-full flex justify-center mb-3 items-center relative z-0 ${updateBefore(
               idx,
@@ -72,7 +72,7 @@ const GetProjectProgress = () => {
             text={item}
             isSelected={trackStep <= idx}
             valueIdx={idx}
-            updateStyle="ml-3"
+            updateStyle=" ml-3 text-ellipsis overflow-hidden whitespace-nowrap"
           />
         </div>
       ))}
