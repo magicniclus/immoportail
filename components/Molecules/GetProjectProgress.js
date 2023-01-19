@@ -14,7 +14,7 @@ const GetProjectProgress = () => {
     "Nombre de pièce",
     "Année de construction",
     "Travaux",
-    "Surface",
+    "Séjour/bâti",
     "Espaces exterieurs",
     "Exposition/Vue",
     "Standing",
