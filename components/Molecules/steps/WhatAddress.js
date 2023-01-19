@@ -5,12 +5,11 @@ import LayoutStep from "../../Layout/LayoutStep";
 
 const WhatAddress = () => {
   return (
-    <LayoutStep>
-      <TitleSecondary text="Adresse du bien à estimer ?" color="purple" />
+    <LayoutStep title="Adresse du bien à estimer ?">
       <InputWithLogo
         componentIsForAdress={true}
         image="/Vectorlocalization.png"
-        marginY="my-4"
+        marginY="mt-2"
         placeholder="Saisir une adresse"
         color="purple"
       />
