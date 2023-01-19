@@ -6,7 +6,9 @@ import {
   updateStepOfProjectProgress,
 } from "../../redux/action";
 import ButtonPrimary from "../Atoms/buttons/ButtonPrimary";
+import ImportantSurfaces from "../Molecules/steps/ImportantSurfaces";
 import NumberOfParts from "../Molecules/steps/NumberOfParts";
+import OutdoorSpace from "../Molecules/steps/OutdoorSpace";
 import WhatAccommodationType from "../Molecules/steps/WhatAccommodationType";
 import WhatAddress from "../Molecules/steps/WhatAddress";
 import WhatIsASurface from "../Molecules/steps/WhatIsASurface";
@@ -117,6 +119,12 @@ const MultitCardsContainer = () => {
 
       case 5:
         return <Works />;
+
+      case 6:
+        return <ImportantSurfaces />;
+
+      case 7:
+        return <OutdoorSpace />;
 
       default:
         return <WhatAddress />;
