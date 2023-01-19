@@ -10,7 +10,7 @@ const Input = (props) => {
 
   return (
     <input
-      className={`border min-w-[200px] rounded-lg placeholder-gray-200::placeholder px-3  max-w-[450px] h-12 border-purple text-xs md:text-sm`}
+      className={`border min-w-[200px] rounded-lg placeholder-gray-200::placeholder px-3  max-w-[450px] h-12 border-purple text-xs md:text-sm text-ellipsis overflow-hidden whitespace-nowrap`}
       required
       placeholder={placeholder}
       value={value}
