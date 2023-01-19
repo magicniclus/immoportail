@@ -162,7 +162,7 @@ const MultitCardsContainer = () => {
       <form
         onSubmit={handleSubmit}
         id="cardContainer"
-        className="w-full mt-20 lg:mt-0 flex flex-col items-center min-h-[900px] h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden"
+        className="w-full mt-12 xs:mt-20 lg:mt-0 flex flex-col items-center min-h-[900px] h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden"
       >
         {array.map((item, idx) => {
           return (
