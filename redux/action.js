@@ -25,3 +25,10 @@ export const updateStepOfProjectProgress = (stepValue) => {
     payload: stepValue,
   };
 };
+
+export const updateStepNumber = (number) => {
+  return {
+    type: "updateStepNumber",
+    payload: number,
+  };
+};
