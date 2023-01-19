@@ -12,8 +12,6 @@ const EstimationImmobiliere = () => {
         <ProjectStepContainer />
         {/* Right Container */}
         <MultitCardsContainer />
-        {/* Bottom Container */}
-        <BottomStepContainer />
       </div>
     </LayoutEstimation>
   );
