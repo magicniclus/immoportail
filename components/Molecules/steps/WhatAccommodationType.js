@@ -1,5 +1,4 @@
 import React from "react";
-import TitleSecondary from "../../Atoms/titles/TitleSecondary";
 import LayoutStep from "../../Layout/LayoutStep";
 import CheckWithImage from "../cards/CheckWithImage";
 
