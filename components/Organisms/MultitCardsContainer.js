@@ -10,6 +10,7 @@ import NumberOfParts from "../Molecules/steps/NumberOfParts";
 import WhatAccommodationType from "../Molecules/steps/WhatAccommodationType";
 import WhatAddress from "../Molecules/steps/WhatAddress";
 import WhatIsASurface from "../Molecules/steps/WhatIsASurface";
+import Works from "../Molecules/steps/Works";
 import YearOfContruction from "../Molecules/steps/YearOfContruction";
 
 const MultitCardsContainer = () => {
@@ -113,6 +114,9 @@ const MultitCardsContainer = () => {
 
       case 4:
         return <YearOfContruction />;
+
+      case 5:
+        return <Works />;
 
       default:
         return <WhatAddress />;
