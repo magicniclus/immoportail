@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateStepNumber } from "../../redux/action";
 import Icon from "../Atoms/logos/Icon";
 import TextWithColorChange from "../Atoms/texts/TextWithColorChange";
 
 const GetProjectProgress = () => {
   const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   const [trackStep, setTrackStep] = useState(state.stepOfProjectProgress);
 
   const stepName = [
@@ -21,6 +24,10 @@ const GetProjectProgress = () => {
     "Mitoyenneté",
     "Profil",
   ];
+
+  useEffect(() => {
+    dispatch(updateStepNumber(stepName.length));
+  }, []);
 
   useEffect(() => {
     if (trackStep !== state.stepOfProjectProgress) {
