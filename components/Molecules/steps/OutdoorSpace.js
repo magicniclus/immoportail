@@ -34,8 +34,8 @@ const OutdoorSpace = () => {
           />
         </div>
         <div className="flex">
-          <Check title="Une cave" updateStyle={"mr-10"} />
-          <Check title="Une dépendence" updateStyle={"mr-10"} />
+          <Check title="Une cave" updateStyle={"mr-3 md:mr-10"} />
+          <Check title="Une dépendence" updateStyle={"mr-3 md:mr-10"} />
           <Check title="Une piscine" />
         </div>
         <div className="flex flex-col mt-5">
