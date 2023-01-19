@@ -8,8 +8,8 @@ const Standing = () => {
     <LayoutStep title="Quel est le standing de votre bien ? ">
       <div className="mb-5">
         <div className="flex">
-          <Check title="Moyen" updateStyle={"mr-10"} />
-          <Check title="Standard" updateStyle={"mr-10"} />
+          <Check title="Moyen" updateStyle={"mr-5 md:mr-10"} />
+          <Check title="Standard" updateStyle={"mr-5 md:mr-10"} />
           <Check title="Exceptionnel" />
         </div>
       </div>
@@ -21,8 +21,8 @@ const Standing = () => {
         />
       </div>
       <div className="flex">
-        <Check title="Calme" updateStyle={"mr-10"} />
-        <Check title="Standard" updateStyle={"mr-10"} />
+        <Check title="Calme" updateStyle={"mr-5 md:mr-10"} />
+        <Check title="Standard" updateStyle={"mr-5 md:mr-10"} />
         <Check title="Exceptionnel" />
       </div>
     </LayoutStep>
