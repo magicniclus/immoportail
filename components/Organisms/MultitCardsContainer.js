@@ -6,10 +6,13 @@ import {
   updateStepOfProjectProgress,
 } from "../../redux/action";
 import ButtonPrimary from "../Atoms/buttons/ButtonPrimary";
+import Adjoining from "../Molecules/steps/Adjoining";
 import Exposure from "../Molecules/steps/Exposure";
 import ImportantSurfaces from "../Molecules/steps/ImportantSurfaces";
 import NumberOfParts from "../Molecules/steps/NumberOfParts";
 import OutdoorSpace from "../Molecules/steps/OutdoorSpace";
+import Profil from "../Molecules/steps/Profil";
+import Standing from "../Molecules/steps/Standing";
 import WhatAccommodationType from "../Molecules/steps/WhatAccommodationType";
 import WhatAddress from "../Molecules/steps/WhatAddress";
 import WhatIsASurface from "../Molecules/steps/WhatIsASurface";
@@ -129,6 +132,15 @@ const MultitCardsContainer = () => {
 
       case 8:
         return <Exposure />;
+
+      case 9:
+        return <Standing />;
+
+      case 10:
+        return <Adjoining />;
+
+      case 11:
+        return <Profil />;
 
       default:
         return <WhatAddress />;
