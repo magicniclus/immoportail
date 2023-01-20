@@ -150,6 +150,22 @@ const MultitCardsContainer = () => {
           : setDisabled(true);
         break;
 
+      case 10:
+        estimation.standing !== null && estimation.secteur !== null
+          ? setDisabled(false)
+          : setDisabled(true);
+        break;
+
+      case 11:
+        estimation.adjoining !== null ? setDisabled(false) : setDisabled(true);
+        break;
+
+      case 12:
+        estimation.contract !== null && estimation.when !== null
+          ? setDisabled(false)
+          : setDisabled(true);
+        break;
+
       default:
         setDisabled(false);
         break;
