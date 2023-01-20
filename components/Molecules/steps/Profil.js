@@ -3,7 +3,7 @@ import LayoutStep from "../../Layout/LayoutStep";
 import Text from "../../Atoms/texts/Text";
 import Check from "../../Molecules/cards/Check";
 import SelectValue from "../../Atoms/select/SelectValue";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateProfil } from "../../../redux/action";
 
 const Profil = (props) => {
@@ -15,15 +15,22 @@ const Profil = (props) => {
 
   const [value, setValue] = useState("");
 
+  const state = useSelector((state) => state);
+
   const options = [
     "Le plus rapidement possible",
     "Dans l'année",
     "Dans les 3 ans",
     "Je ne sais pas",
   ];
+  const [type, setType] = useState("bien");
 
   useEffect(() => {
-    if (value === "" || value === null || aCardIsSelected === null) return;
+    if (state.accommodation) setType(state.accommodation);
+    else setType("bien");
+  }, [state.accommodation]);
+
+  useEffect(() => {
     dispatch(
       updateProfil({
         contract: aCardIsSelected,
@@ -43,7 +50,7 @@ const Profil = (props) => {
     <LayoutStep title="Profil">
       <div className="mb-3">
         <Text
-          children="Êtes vous propriétaire de ce bien ?"
+          children={`Êtes vous propriétaire de ce ${type} ?`}
           color="purple"
           textSize="bigLight"
         />
@@ -63,7 +70,7 @@ const Profil = (props) => {
       </div>
       <div className="mt-5 mb-3">
         <Text
-          children="Quand souahitez-vous vendre ce bien ?"
+          children={`Quand souahitez-vous vendre ce ${type} ?`}
           color="purple"
           textSize="bigLight"
         />
