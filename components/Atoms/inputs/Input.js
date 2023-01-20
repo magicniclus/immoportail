@@ -13,7 +13,9 @@ const Input = (props) => {
 
   useEffect(() => {
     if (callback) {
-      callback(value);
+      if (value !== "") {
+        callback(value);
+      } else callback(null);
     }
   }, [value]);
 
