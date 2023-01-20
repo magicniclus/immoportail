@@ -17,14 +17,16 @@ const Check = (props) => {
 
   const handleValid = (e) => {
     e.preventDefault();
-    if (isValid) {
-      setIsValid(false);
-      callback(null);
-    }
-    if (!isValid) {
-      setIsValid(true);
-      callback(title);
-    }
+    if (callback) {
+      if (isValid) {
+        setIsValid(false);
+        callback(null);
+      }
+      if (!isValid) {
+        setIsValid(true);
+        callback(title);
+      }
+    } else setIsValid(!isValid);
   };
 
   const afterValidButton =
