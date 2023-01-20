@@ -47,7 +47,7 @@ const Profil = (props) => {
   }, [aCardIsSelected]);
 
   return (
-    <LayoutStep title="Profil">
+    <LayoutStep title="Quel est votre projet ?">
       <div className="mb-3">
         <Text
           children={`Êtes vous propriétaire de ce ${type} ?`}
