@@ -87,3 +87,17 @@ export const updateLandArea = (value) => {
     payload: value,
   };
 };
+
+export const updateOutdoorSpace = (object) => {
+  return {
+    type: "updateOutdoorSpace",
+    payload: object,
+  };
+};
+
+export const updateExposure = (object) => {
+  return {
+    type: "updateExposure",
+    payload: object,
+  };
+};
