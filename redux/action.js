@@ -32,3 +32,10 @@ export const updateStepNumber = (number) => {
     payload: number,
   };
 };
+
+export const updateAccommodationType = (type) => {
+  return {
+    type: "updateAccommodationType",
+    payload: type,
+  };
+};
