@@ -2,13 +2,21 @@ import React, { useEffect, useState } from "react";
 import Input from "../../Atoms/inputs/Input";
 import Text from "../../Atoms/texts/Text";
 import LayoutStep from "../../Layout/LayoutStep";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateASurface } from "../../../redux/action";
 
 const WhatIsASurface = () => {
   const dispatch = useDispatch();
+  const state = useSelector((state) => state);
 
   const [value, setValue] = useState("");
+  const [type, setType] = useState("bien");
+
+  useEffect(() => {
+    if (state.estimationElements.accommodation !== null)
+      setType(state.estimationElements.accommodation);
+    else setType("bien");
+  }, [state.estimationElements.accommodation]);
 
   useEffect(() => {
     if (value !== "") dispatch(updateASurface(value));
@@ -16,7 +24,7 @@ const WhatIsASurface = () => {
   }, [value]);
 
   return (
-    <LayoutStep title="Quelle est la surface de votre bien ?">
+    <LayoutStep title={`Quelle est la surface de votre ${type} ?`}>
       <div className="mb-2">
         <Text textSize="bigLight" color="purple" children="Valeur en m²" />
       </div>
