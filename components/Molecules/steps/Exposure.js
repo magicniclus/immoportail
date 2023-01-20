@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LayoutStep from "../../Layout/LayoutStep";
 import Text from "../../Atoms/texts/Text";
 import SelectValue from "../../Atoms/select/SelectValue";
+import { useDispatch } from "react-redux";
+import { updateExposure } from "../../../redux/action";
 
 const Exposure = () => {
   const exposure = ["Nord", "Sud", "Est", "Ouest"];
   const view = ["Exceptionnelle", "Dégagé", "Vis-à-vis"];
+
+  const [exposureValue, setExposureValue] = useState(null);
+  const [viewValue, setViewValue] = useState(null);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      updateExposure({
+        exposure: exposureValue,
+        view: viewValue,
+      })
+    );
+  }, [exposureValue, viewValue]);
   return (
     <LayoutStep title="Exposition/vue ? ">
       <div className="mb-2">
@@ -16,7 +32,11 @@ const Exposure = () => {
         />
       </div>
       <div className="flex">
-        <SelectValue option={exposure} />
+        <SelectValue
+          option={exposure}
+          callback={setExposureValue}
+          callbackValue={exposureValue}
+        />
       </div>
       <div className="mt-5 mb-2">
         <Text
@@ -26,7 +46,11 @@ const Exposure = () => {
         />
       </div>
       <div className="flex">
-        <SelectValue option={view} />
+        <SelectValue
+          option={view}
+          callback={setViewValue}
+          callbackValue={viewValue}
+        />
       </div>
     </LayoutStep>
   );
