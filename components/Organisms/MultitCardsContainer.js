@@ -138,6 +138,12 @@ const MultitCardsContainer = () => {
         estimation.works !== null ? setDisabled(false) : setDisabled(true);
         break;
 
+      case 7:
+        estimation.livingArea !== null && estimation.landArea !== null
+          ? setDisabled(false)
+          : setDisabled(true);
+        break;
+
       default:
         setDisabled(false);
         break;
