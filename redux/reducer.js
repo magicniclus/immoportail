@@ -12,6 +12,14 @@ const initState = {
     works: null,
     livingArea: null,
     landArea: null,
+    cave: null,
+    dependence: null,
+    piscine: null,
+    parking: null,
+    box: null,
+    balcon: null,
+    exposure: null,
+    view: null,
   },
 };
 
@@ -110,6 +118,84 @@ const reducer = (state = initState, action) => {
         estimationElements: {
           ...state.estimationElements,
           landArea: action.payload,
+        },
+      };
+
+    case "updateCave":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          cave: action.payload,
+        },
+      };
+
+    case "updateDependence":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          dependence: action.payload,
+        },
+      };
+
+    case "updatePiscine":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          Piscine: action.payload,
+        },
+      };
+
+    case "updateParking":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          parking: action.payload,
+        },
+      };
+
+    case "updateBox":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          box: action.payload,
+        },
+      };
+
+    case "updateBalcon":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          balcon: action.payload,
+        },
+      };
+
+    case "updateOutdoorSpace":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          cave: action.payload.cave,
+          dependence: action.payload.dependence,
+          piscine: action.payload.piscine,
+          parking: action.payload.parking,
+          box: action.payload.box,
+          balcon: action.payload.balcon,
+        },
+      };
+
+    case "updateExposure":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          exposure: action.payload.exposure,
+          view: action.payload.view,
         },
       };
 
