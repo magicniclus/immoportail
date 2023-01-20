@@ -40,23 +40,36 @@ export const updateAccommodationType = (type) => {
   };
 };
 
-export const updateASurface = (type) => {
+export const updateASurface = (number) => {
   return {
     type: "updateASurface",
-    payload: type,
+    payload: number,
   };
 };
 
-export const updateParts = (type) => {
+export const updateParts = (number) => {
   return {
     type: "updateParts",
-    payload: type,
+    payload: number,
   };
 };
 
-export const updateRooms = (type) => {
+export const updateRooms = (number) => {
   return {
     type: "updateRooms",
-    payload: type,
+    payload: number,
+  };
+};
+
+export const updateYears = (year) => {
+  return {
+    type: "updateYears",
+    payload: year,
+  };
+};
+export const updateWorks = (bool) => {
+  return {
+    type: "updateWorks",
+    payload: bool,
   };
 };
