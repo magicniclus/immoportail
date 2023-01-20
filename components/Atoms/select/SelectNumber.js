@@ -1,15 +1,26 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const SelectNumber = (props) => {
   const [value, setValue] = useState(0);
 
   const placeholder = props.placeholder;
 
+  const valueCallback = props.valueCallback;
+  const callback = props.callback;
+
   const updateMoreValue = () => {
     if ((value) => 0) setValue(value + 1);
     else null;
   };
+
+  useEffect(() => {
+    if (callback) {
+      if (value > 0) {
+        callback(value);
+      } else callback(null);
+    }
+  }, [value]);
 
   const updateLessValue = () => {
     if (value > 0) setValue(value - 1);
