@@ -2,11 +2,20 @@ import React, { useEffect, useState } from "react";
 import LayoutStep from "../../Layout/LayoutStep";
 import Text from "../../Atoms/texts/Text";
 import Check from "../../Molecules/cards/Check";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateStanding } from "../../../redux/action";
 
 const Standing = (props) => {
   const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+
+  const [type, setType] = useState("bien");
+
+  useEffect(() => {
+    if (state.estimationElements.accommodation !== null)
+      setType(state.estimationElements.accommodation);
+    else setType("bien");
+  }, [state.estimationElements.accommodation]);
 
   const isValid = props.isValid;
 
@@ -39,7 +48,7 @@ const Standing = (props) => {
   }, [aCardIsSelectedTwo]);
 
   return (
-    <LayoutStep title="Quel est le standing de votre bien ? ">
+    <LayoutStep title={`Quel est le standing de votre ${type} ? `}>
       <div className="mb-5">
         <div className="flex">
           <Check
@@ -63,7 +72,7 @@ const Standing = (props) => {
       </div>
       <div className="mb-2">
         <Text
-          children="Votre bien est dans un secteur ?"
+          children={`Votre ${type} est dans un secteur ?`}
           color="purple"
           textSize="bigLight"
         />
