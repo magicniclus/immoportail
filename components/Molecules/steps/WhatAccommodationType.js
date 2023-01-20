@@ -1,12 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import LayoutStep from "../../Layout/LayoutStep";
 import CheckWithImage from "../cards/CheckWithImage";
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateAccommodationType } from "../../../redux/action";
 
 const WhatAccommodationType = (props) => {
+  const dispatch = useDispatch();
+
   const isValid = props.isValid;
 
   const [aCardIsSelected, setACardIsSelected] = useState(null);
+
+  useEffect(() => {
+    dispatch(updateAccommodationType(aCardIsSelected));
+  }, [aCardIsSelected]);
 
   useEffect(() => {
     if (isValid) {
@@ -30,9 +37,9 @@ const WhatAccommodationType = (props) => {
         />
         <CheckWithImage
           image="immeuble"
-          imageAlt="immeuble"
+          imageAlt="appartement"
           imageSize={{ width: 42, height: 55 }}
-          text="Immeuble"
+          text="Appartement"
           valueCallback={aCardIsSelected}
           callback={setACardIsSelected}
           value={2}
