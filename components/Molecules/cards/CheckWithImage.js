@@ -16,7 +16,7 @@ const CheckWithImage = (props) => {
   const value = props.value;
 
   useEffect(() => {
-    if (valueCallback !== value) setIsValid(false);
+    if (valueCallback !== text) setIsValid(false);
   }, [valueCallback]);
 
   const handleValid = (e) => {
@@ -27,7 +27,7 @@ const CheckWithImage = (props) => {
     }
     if (!isValid) {
       setIsValid(true);
-      callback(value);
+      callback(text);
     }
   };
 
