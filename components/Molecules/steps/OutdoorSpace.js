@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LayoutStep from "../../Layout/LayoutStep";
 import Text from "../../Atoms/texts/Text";
 import Check from "../../Molecules/cards/Check";
 import SelectValue from "../../Atoms/select/SelectValue";
+import { useDispatch } from "react-redux";
+import { updateOutdoorSpace } from "../../../redux/action";
 
 const OutdoorSpace = () => {
   const number = [
@@ -23,6 +25,29 @@ const OutdoorSpace = () => {
     "15",
     "+15",
   ];
+
+  const dispatch = useDispatch();
+
+  const [cave, setCave] = useState(null);
+  const [dependence, setDependence] = useState(null);
+  const [piscine, setPiscine] = useState(null);
+  const [parking, setParking] = useState(null);
+  const [box, setBox] = useState(null);
+  const [balcon, setBalcon] = useState(null);
+
+  useEffect(() => {
+    dispatch(
+      updateOutdoorSpace({
+        cave,
+        dependence,
+        piscine,
+        parking,
+        box,
+        balcon,
+      })
+    );
+  }, [cave, dependence, piscine, parking, balcon, box]);
+
   return (
     <LayoutStep title="Espaces extérieurs ?">
       <div className="">
@@ -34,9 +59,26 @@ const OutdoorSpace = () => {
           />
         </div>
         <div className="flex">
-          <Check title="Une cave" updateStyle={"mr-3 md:mr-10"} />
-          <Check title="Une dépendence" updateStyle={"mr-3 md:mr-10"} />
-          <Check title="Une piscine" />
+          <Check
+            title="Une cave"
+            updateStyle={"mr-3 md:mr-10"}
+            valueCallback={cave}
+            callback={setCave}
+            value={1}
+          />
+          <Check
+            title="Une dépendence"
+            updateStyle={"mr-3 md:mr-10"}
+            valueCallback={dependence}
+            callback={setDependence}
+            value={1}
+          />
+          <Check
+            title="Une piscine"
+            valueCallback={piscine}
+            callback={setPiscine}
+            value={1}
+          />
         </div>
         <div className="flex flex-col mt-5">
           <div className="mb-5">
@@ -46,16 +88,24 @@ const OutdoorSpace = () => {
               textSize="bigLight"
               marginX="mb-2"
             />
-            <SelectValue option={number} />
+            <SelectValue
+              option={number}
+              callback={setParking}
+              callbackValue={parking}
+            />
           </div>
           <div className="mb-5">
             <Text
-              children="Boxe"
+              children="Box"
               color="purple"
               textSize="bigLight"
               marginX="mb-2"
             />
-            <SelectValue option={number} />
+            <SelectValue
+              option={number}
+              callback={setBox}
+              callbackValue={box}
+            />
           </div>
           <div className="">
             <Text
@@ -64,7 +114,11 @@ const OutdoorSpace = () => {
               textSize="bigLight"
               marginX="mb-2"
             />
-            <SelectValue option={number} />
+            <SelectValue
+              option={number}
+              callback={setBalcon}
+              callbackValue={balcon}
+            />
           </div>
         </div>
       </div>
