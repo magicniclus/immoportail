@@ -20,6 +20,11 @@ const initState = {
     balcon: null,
     exposure: null,
     view: null,
+    standing: null,
+    secteur: null,
+    adjoining: null,
+    contract: null,
+    when: null,
   },
 };
 
@@ -196,6 +201,35 @@ const reducer = (state = initState, action) => {
           ...state.estimationElements,
           exposure: action.payload.exposure,
           view: action.payload.view,
+        },
+      };
+
+    case "updateStanding":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          standing: action.payload.standing,
+          secteur: action.payload.secteur,
+        },
+      };
+
+    case "updateAdjoining":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          adjoining: action.payload,
+        },
+      };
+
+    case "updateProfil":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          contract: action.payload.contract,
+          when: action.payload.when,
         },
       };
 
