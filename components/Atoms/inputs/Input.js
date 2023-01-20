@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Input = (props) => {
   const placeholder = props.placeholder;
@@ -7,6 +7,15 @@ const Input = (props) => {
   const minLenght = props.minLenght;
 
   const [value, setValue] = useState("");
+
+  const valueCallback = props.valueCallback;
+  const callback = props.callback;
+
+  useEffect(() => {
+    if (callback) {
+      callback(value);
+    }
+  }, [value]);
 
   return (
     <input
