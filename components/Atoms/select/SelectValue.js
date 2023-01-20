@@ -12,7 +12,7 @@ const SelectValue = (props) => {
     if (callback) {
       if (value > "") {
         callback(value);
-      } else callback("");
+      } else callback(null);
     }
   }, [value]);
 
