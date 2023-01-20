@@ -73,3 +73,17 @@ export const updateWorks = (bool) => {
     payload: bool,
   };
 };
+
+export const updateLivingArea = (value) => {
+  return {
+    type: "updateLivingArea",
+    payload: value,
+  };
+};
+
+export const updateLandArea = (value) => {
+  return {
+    type: "updateLandArea",
+    payload: value,
+  };
+};
