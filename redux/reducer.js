@@ -3,6 +3,10 @@ const initState = {
   addressCoordinate: null,
   stepOfProjectProgress: 1,
   stepNumber: null,
+  estimationElements: {
+    accommodation: null,
+    years: null,
+  },
 };
 
 const reducer = (state = initState, action) => {
@@ -29,6 +33,15 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         stepNumber: action.payload,
+      };
+
+    case "updateAccommodationType":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          accommodation: action.payload,
+        },
       };
 
     default:
