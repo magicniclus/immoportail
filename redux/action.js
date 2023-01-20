@@ -101,3 +101,23 @@ export const updateExposure = (object) => {
     payload: object,
   };
 };
+
+export const updateStanding = (object) => {
+  return {
+    type: "updateStanding",
+    payload: object,
+  };
+};
+export const updateAdjoining = (bool) => {
+  return {
+    type: "updateAdjoining",
+    payload: bool,
+  };
+};
+
+export const updateProfil = (object) => {
+  return {
+    type: "updateProfil",
+    payload: object,
+  };
+};
