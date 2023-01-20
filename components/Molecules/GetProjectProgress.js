@@ -10,19 +10,53 @@ const GetProjectProgress = () => {
 
   const [trackStep, setTrackStep] = useState(state.stepOfProjectProgress);
 
+  const estimationElements = state.estimationElements;
+
   const stepName = [
     state.address !== "" ? state.address : "Adresse",
-    "Type de bien",
-    "Surface",
-    "Nombre de pièce",
-    "Année de construction",
-    "Travaux",
-    "Séjour/bâti",
-    "Espaces exterieurs",
-    "Exposition/Vue",
-    "Standing",
-    "Mitoyenneté",
-    "Profil",
+    estimationElements.accommodation !== null
+      ? estimationElements.accommodation
+      : "Type de bien",
+    estimationElements.surface !== null
+      ? estimationElements.surface + "m²"
+      : "Surface",
+    estimationElements.partNumber !== null
+      ? estimationElements.partNumber +
+        `${estimationElements.partNumber > 1 ? " pièces" : " pièce"}`
+      : "Nombre de pièce",
+    estimationElements.years !== null
+      ? estimationElements.years
+      : "Année de construction",
+    estimationElements.works !== null
+      ? estimationElements.works === "Oui"
+        ? "Avec travaux"
+        : "Sans travaux"
+      : "Travaux",
+    estimationElements.livingArea !== null
+      ? estimationElements.livingArea + "m²"
+      : "Séjour/bâti",
+    estimationElements.cave ||
+    estimationElements.dependence ||
+    estimationElements.piscine ||
+    estimationElements.parking ||
+    estimationElements.box ||
+    estimationElements.balcon
+      ? "Avec espaces exterieurs"
+      : "Espaces exterieurs",
+    estimationElements.exposure
+      ? estimationElements.exposure
+      : "Exposition/Vue",
+    estimationElements.standing ? estimationElements.standing : "Standing",
+    estimationElements.adjoining
+      ? estimationElements.adjoining === "Oui"
+        ? "Mitoyen"
+        : "Non mitoyen"
+      : "Mitoyenneté",
+    estimationElements.contract
+      ? estimationElements.contract === "Oui"
+        ? "Proprietaire"
+        : "Locataire"
+      : "Profil",
   ];
 
   useEffect(() => {
