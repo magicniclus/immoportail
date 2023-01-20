@@ -144,6 +144,12 @@ const MultitCardsContainer = () => {
           : setDisabled(true);
         break;
 
+      case 9:
+        estimation.exposure !== null && estimation.view !== null
+          ? setDisabled(false)
+          : setDisabled(true);
+        break;
+
       default:
         setDisabled(false);
         break;
