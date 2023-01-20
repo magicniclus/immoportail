@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import LayoutStep from "../../Layout/LayoutStep";
 import CheckWithImage from "../cards/CheckWithImage";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateAccommodationType } from "../../../redux/action";
 
 const WhatAccommodationType = (props) => {
   const dispatch = useDispatch();
+  const state = useSelector((state) => state);
 
   const isValid = props.isValid;
 
