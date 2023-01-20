@@ -25,6 +25,7 @@ const MultitCardsContainer = () => {
   const state = useSelector((state) => state);
 
   const [index, setIndex] = useState(0);
+  const [disabled, setDisabled] = useState(true);
 
   const array = [
     "one",
@@ -46,6 +47,9 @@ const MultitCardsContainer = () => {
     .map(() => useRef());
 
   const handleRef = (idx) => {
+    setTimeout(() => {
+      dispatch(updateStepOfProjectProgress(idx + 2));
+    }, 50);
     if (index < array.length - 1) {
       setIndex(idx + 1);
       const element = refs[idx + 1].current;
@@ -57,7 +61,6 @@ const MultitCardsContainer = () => {
           behavior: "smooth",
         });
       }
-      dispatch(updateStepOfProjectProgress(idx + 2));
     } else e.preventDefault();
   };
 
@@ -103,6 +106,27 @@ const MultitCardsContainer = () => {
       })
       .catch((error) => console.log(error));
   };
+
+  useEffect(() => {
+    const estimation = state.estimationElements;
+    const stepNumber = state.stepOfProjectProgress;
+    setDisabled(true);
+    switch (stepNumber) {
+      case 1:
+        state.address !== "" ? setDisabled(false) : setDisabled(true);
+        break;
+
+      case 2:
+        estimation.accommodation !== null
+          ? setDisabled(false)
+          : setDisabled(true);
+        break;
+
+      default:
+        setDisabled(false);
+        break;
+    }
+  }, [state.address, state.estimationElements, state.stepOfProjectProgress]);
 
   const handleFunction = (idx) => {
     switch (idx) {
@@ -185,6 +209,7 @@ const MultitCardsContainer = () => {
                 {handleFunction(idx)}
                 {idx === array.length - 1 ? (
                   <ButtonPrimary
+                    disabled={disabled}
                     text="Estimer"
                     updateClass={idx === index ? null : "hidden"}
                     callback={handleSubmit}
@@ -192,6 +217,7 @@ const MultitCardsContainer = () => {
                   />
                 ) : (
                   <ButtonPrimary
+                    disabled={disabled}
                     text="Suivant"
                     type="button"
                     updateClass={idx === index ? null : "hidden"}
