@@ -122,6 +122,14 @@ const MultitCardsContainer = () => {
           : setDisabled(true);
         break;
 
+      case 3:
+        estimation.surface !== null ? setDisabled(false) : setDisabled(true);
+        break;
+
+      case 4:
+        estimation.partNumber !== null ? setDisabled(false) : setDisabled(true);
+        break;
+
       default:
         setDisabled(false);
         break;
