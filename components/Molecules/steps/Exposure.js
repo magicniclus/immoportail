@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import LayoutStep from "../../Layout/LayoutStep";
 import Text from "../../Atoms/texts/Text";
 import SelectValue from "../../Atoms/select/SelectValue";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateExposure } from "../../../redux/action";
 
 const Exposure = () => {
@@ -13,6 +13,14 @@ const Exposure = () => {
   const [viewValue, setViewValue] = useState(null);
 
   const dispatch = useDispatch();
+
+  const state = useSelector((state) => state);
+  const [type, setType] = useState("bien");
+
+  useEffect(() => {
+    if (state.accommodation) setType(state.accommodation);
+    else setType("bien");
+  }, [state.accommodation]);
 
   useEffect(() => {
     dispatch(
@@ -26,7 +34,7 @@ const Exposure = () => {
     <LayoutStep title="Exposition/vue ? ">
       <div className="mb-2">
         <Text
-          children="Quelle est l'exposition de votre bien ?"
+          children={`Quelle est l'exposition de votre ${type} ?`}
           color="purple"
           textSize="bigLight"
         />
