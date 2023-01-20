@@ -2,11 +2,19 @@ import React, { useEffect, useState } from "react";
 import LayoutStep from "../../Layout/LayoutStep";
 import Text from "../../Atoms/texts/Text";
 import Input from "../../Atoms/inputs/Input";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateLivingArea, updateLandArea } from "../../../redux/action";
 
 const ImportantSurfaces = () => {
   const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+
+  const [type, setType] = useState("bien");
+
+  useEffect(() => {
+    if (state.accommodation) setType(state.accommodation);
+    else setType("bien");
+  }, [state.accommodation]);
 
   const [livingAreaValue, setLivingAreaValue] = useState(null);
   const [landAreaValue, setLandAreaValue] = useState(null);
@@ -38,7 +46,7 @@ const ImportantSurfaces = () => {
       <div className="mt-5">
         <div className="mb-2">
           <Text
-            children="Quelle est la surface de votre terrain (bâti de votre bien inclus ?) en m² ?"
+            children={`Quelle est la surface de votre terrain (bâti de votre ${type} inclus ?) en m² ?`}
             color="purple"
             textSize="bigLight"
           />
