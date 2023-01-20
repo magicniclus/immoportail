@@ -3,7 +3,7 @@ import LayoutStep from "../../Layout/LayoutStep";
 import Text from "../../Atoms/texts/Text";
 import Check from "../../Molecules/cards/Check";
 import SelectValue from "../../Atoms/select/SelectValue";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateOutdoorSpace } from "../../../redux/action";
 
 const OutdoorSpace = () => {
@@ -27,6 +27,7 @@ const OutdoorSpace = () => {
   ];
 
   const dispatch = useDispatch();
+  const state = useSelector((state) => state);
 
   const [cave, setCave] = useState(null);
   const [dependence, setDependence] = useState(null);
@@ -34,6 +35,13 @@ const OutdoorSpace = () => {
   const [parking, setParking] = useState(null);
   const [box, setBox] = useState(null);
   const [balcon, setBalcon] = useState(null);
+
+  const [type, setType] = useState("bien");
+
+  useEffect(() => {
+    if (state.accommodation) setType(state.accommodation);
+    else setType("bien");
+  }, [state.accommodation]);
 
   useEffect(() => {
     dispatch(
@@ -53,7 +61,7 @@ const OutdoorSpace = () => {
       <div className="">
         <div className="mb-2">
           <Text
-            children="Votre bien à t'il ?"
+            children={`Votre ${type} à t'il ?`}
             color="purple"
             textSize="bigLight"
           />
