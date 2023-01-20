@@ -39,3 +39,24 @@ export const updateAccommodationType = (type) => {
     payload: type,
   };
 };
+
+export const updateASurface = (type) => {
+  return {
+    type: "updateASurface",
+    payload: type,
+  };
+};
+
+export const updateParts = (type) => {
+  return {
+    type: "updateParts",
+    payload: type,
+  };
+};
+
+export const updateRooms = (type) => {
+  return {
+    type: "updateRooms",
+    payload: type,
+  };
+};
