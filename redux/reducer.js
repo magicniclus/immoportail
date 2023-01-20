@@ -10,6 +10,8 @@ const initState = {
     partNumber: null,
     roomNumber: null,
     works: null,
+    livingArea: null,
+    landArea: null,
   },
 };
 
@@ -90,6 +92,24 @@ const reducer = (state = initState, action) => {
         estimationElements: {
           ...state.estimationElements,
           works: action.payload,
+        },
+      };
+
+    case "updateLivingArea":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          livingArea: action.payload,
+        },
+      };
+
+    case "updateLandArea":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          landArea: action.payload,
         },
       };
 
