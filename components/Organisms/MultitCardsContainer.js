@@ -130,6 +130,14 @@ const MultitCardsContainer = () => {
         estimation.partNumber !== null ? setDisabled(false) : setDisabled(true);
         break;
 
+      case 5:
+        estimation.years !== null ? setDisabled(false) : setDisabled(true);
+        break;
+
+      case 6:
+        estimation.works !== null ? setDisabled(false) : setDisabled(true);
+        break;
+
       default:
         setDisabled(false);
         break;
