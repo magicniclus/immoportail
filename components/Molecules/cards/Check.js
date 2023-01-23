@@ -35,10 +35,10 @@ const Check = (props) => {
   return (
     <div
       onClick={handleValid}
-      className={`w-20 h-14 md:w-32 md:h-28 border border-purple rounded-lg relative flex flex-col items-center justify-around p-3 cursor-pointer ${updateStyle}`}
+      className={`w-20 h-14 md:w-32 md:h-16 border border-purple rounded-lg relative flex flex-col items-center justify-around p-3 cursor-pointer ${updateStyle}`}
     >
       <div
-        className={`absolute top-1 right-1 md:top-2 md:right-2 rounded-full bg-newGray h-3 w-3 md:h-5 md:w-5 ${
+        className={`absolute top-1 right-1 rounded-full bg-newGray h-3 w-3 md:h-5 md:w-5 ${
           isValid ? afterValidButton : null
         }`}
       ></div>
