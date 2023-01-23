@@ -6,7 +6,7 @@ import LayoutStep from "../../Layout/LayoutStep";
 const WhatAddress = () => {
   const state = useSelector((state) => state);
   return (
-    <LayoutStep title="Adresse du bien à estimer ?">
+    <LayoutStep title="Adresse du bien à estimer ?*">
       <InputWithLogo
         componentIsForAdress={true}
         image="/Vectorlocalization.png"
