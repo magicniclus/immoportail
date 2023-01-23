@@ -5,7 +5,7 @@ const PourcentageBar = (props) => {
   return (
     <div className="w-5/6 h-2 bg-white rounded-lg relative">
       <div
-        className={`h-full rounded-lg absolute top-0 left-0 bg-purple`}
+        className={`h-full rounded-lg absolute top-0 left-0 bg-gray-400`}
         style={{ width: `${value}%` }}
       ></div>
     </div>
