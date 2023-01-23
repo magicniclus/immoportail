@@ -31,7 +31,7 @@ const YearOfContruction = () => {
   }, [value]);
 
   return (
-    <LayoutStep title={`Année de contruction de votre ${type} ? `}>
+    <LayoutStep title={`Année de contruction de votre ${type} ?* `}>
       <SelectValue option={years} callback={setValue} callbackValue={value} />
     </LayoutStep>
   );
