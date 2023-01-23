@@ -24,9 +24,12 @@ const WhatIsASurface = () => {
   }, [value]);
 
   return (
-    <LayoutStep title={`Quelle est la surface de votre ${type} ?*`}>
+    <LayoutStep
+      title={`Quelle est la surface de votre ${type} ?*`}
+      indication="En m²"
+    >
       <div className="mb-2">
-        <Text textSize="bigLight" color="purple" children="Valeur en m²" />
+        {/* <Text textSize="bigLight" color="purple" children="Valeur en m²" /> */}
       </div>
       <Input
         placeholder="Exemple: 100m²"
