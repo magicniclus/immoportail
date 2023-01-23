@@ -34,7 +34,7 @@ const BottomStepContainer = () => {
   }, [state.stepOfProjectProgress]);
 
   return (
-    <div className="h-24 w-full bg-newGray block md:hidden fixed bottom-0 px-5">
+    <div className="h-24 w-full bg-purple block md:hidden fixed bottom-0 px-5">
       <div className="h-full flex flex-col justify-center">
         <div className="flex mb-2">
           <TitleTertiary
@@ -49,7 +49,7 @@ const BottomStepContainer = () => {
           <TitleSecondary
             color="white"
             marginY={`ml-1 ${
-              state.stepOfProjectProgress === 1 ? "text-center" : null
+              state.stepOfProjectProgress === 1 ? "text-center " : null
             }`}
             text={textValue}
           />
