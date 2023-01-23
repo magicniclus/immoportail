@@ -35,7 +35,7 @@ const Adjoining = (props) => {
     <LayoutStep
       title={`Votre ${type} ${
         type === "Appartement" ? "est-il" : "est-elle"
-      } mitoyen ?`}
+      } mitoyen ?*`}
     >
       <div className="flex mt-2">
         <Check
