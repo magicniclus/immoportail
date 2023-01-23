@@ -59,7 +59,7 @@ const OutdoorSpace = () => {
   return (
     <LayoutStep
       title="Espaces extérieurs ?"
-      indication="Plusieurs choix possible"
+      indication="Plusieurs choix possibles"
     >
       <div className="">
         <div className="mb-2">
