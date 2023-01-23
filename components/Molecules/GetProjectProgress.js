@@ -20,6 +20,23 @@ const GetProjectProgress = () => {
     estimationElements.surface !== null
       ? estimationElements.surface + "m²"
       : "Surface",
+    estimationElements.level !== null
+      ? estimationElements.accommodation === "Maison"
+        ? `${
+            estimationElements.level === 0
+              ? "Plein pied"
+              : estimationElements.level > 1
+              ? estimationElements.level + " niveaux"
+              : estimationElements.level + " niveau"
+          }`
+        : `${
+            estimationElements.level === 0
+              ? "Rez-de-chaussé"
+              : estimationElements.level > 1
+              ? estimationElements.level + " etages"
+              : estimationElements.level + " etage"
+          }`
+      : "Étages",
     estimationElements.partNumber !== null
       ? estimationElements.partNumber +
         `${estimationElements.partNumber > 1 ? " pièces" : " pièce"}`
