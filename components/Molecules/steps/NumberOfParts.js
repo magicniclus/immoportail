@@ -28,7 +28,7 @@ const NumberOfParts = () => {
   }, [valueParts, valueRooms]);
 
   return (
-    <LayoutStep title={`Combien de pièce comporte votre ${type} ?`}>
+    <LayoutStep title={`Combien de pièce comporte votre ${type} ?*`}>
       <div className="">
         <div className="mb-2">
           <Text children="Nombre de pièce" color="purple" textSize="bigLight" />
