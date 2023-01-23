@@ -57,7 +57,10 @@ const OutdoorSpace = () => {
   }, [cave, dependence, piscine, parking, balcon, box]);
 
   return (
-    <LayoutStep title="Espaces extérieurs ?">
+    <LayoutStep
+      title="Espaces extérieurs ?"
+      indication="Plusieurs choix possible"
+    >
       <div className="">
         <div className="mb-2">
           <Text
@@ -117,7 +120,7 @@ const OutdoorSpace = () => {
           </div>
           <div className="">
             <Text
-              children="Balcon"
+              children="Terrasse/Balcon"
               color="purple"
               textSize="bigLight"
               marginX="mb-2"
