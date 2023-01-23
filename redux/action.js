@@ -121,3 +121,10 @@ export const updateProfil = (object) => {
     payload: object,
   };
 };
+
+export const updateLevel = (number) => {
+  return {
+    type: "updateLevel",
+    payload: number,
+  };
+};
