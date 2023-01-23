@@ -31,7 +31,7 @@ const Works = (props) => {
   }, [aCardIsSelected]);
 
   return (
-    <LayoutStep title={`Y'a t'il des travaux à prévoir dans votre ${type} ?`}>
+    <LayoutStep title={`Y'a t'il des travaux à prévoir dans votre ${type} ?*`}>
       <div className="flex mt-2">
         <Check
           title="Oui"
