@@ -37,7 +37,7 @@ const GetAdressInMap = (props) => {
     if (state.address !== "" && state.addressCoordinate !== null) {
       setScriptLoaded(true);
     }
-  }, [state.addressCoordinate]);
+  }, [state.addressCoordinate, state.address]);
 
   // Fonction qui renvoie la carte de chargement
   const getLoading = () => {
