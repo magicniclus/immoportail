@@ -14,7 +14,7 @@ const BottomStepContainer = () => {
 
   useEffect(() => {
     setPourcentage(
-      Math.round((state.stepOfProjectProgress / stepNumber) * 100)
+      Math.round(((state.stepOfProjectProgress - 1) / stepNumber) * 100)
     );
   }, [state.stepOfProjectProgress]);
 
