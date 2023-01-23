@@ -11,7 +11,13 @@ const Level = () => {
   const [title, setTitle] = useState("Étage");
   const [text, setText] = useState("");
 
-  const [valueLevel, setValueLevel] = useState("");
+  const [valueLevel, setValueLevel] = useState(
+    state === "Appartement" ? 0 : null
+  );
+
+  useEffect(() => {
+    dispatch(updateLevel(valueLevel));
+  }, []);
 
   useEffect(() => {
     if (state === "Maison") {
@@ -29,9 +35,14 @@ const Level = () => {
   }, [state]);
 
   useEffect(() => {
-    if (valueLevel !== "") dispatch(updateLevel(valueLevel));
-    else dispatch(updateLevel(null));
-  }, [valueLevel]);
+    if (state === "Appartement") {
+      if (valueLevel === 0 || valueLevel === null) dispatch(updateLevel(0));
+      else dispatch(updateLevel(valueLevel));
+    } else {
+      if (valueLevel === 0 || valueLevel === null) dispatch(updateLevel(null));
+      else dispatch(updateLevel(valueLevel));
+    }
+  }, [valueLevel, state]);
 
   return (
     <LayoutStep title={title + "*"}>
