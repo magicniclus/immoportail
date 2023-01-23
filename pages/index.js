@@ -21,18 +21,6 @@ export default function Home() {
     state.address !== "" ? setDisabled(false) : setDisabled(true);
   }, [state.address]);
 
-  // useEffect(() => {
-  //   PromptInChatGPT("Say this is a test")
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  //   dispatch(updateAddress(""));
-  //   dispatch(updateAddressCoordinate(null));
-  // }, []);
-
   return (
     <Layout
       title="Estimez votre bien | ImmoPortail"
