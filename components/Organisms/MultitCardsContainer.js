@@ -9,6 +9,7 @@ import ButtonPrimary from "../Atoms/buttons/ButtonPrimary";
 import Adjoining from "../Molecules/steps/Adjoining";
 import Exposure from "../Molecules/steps/Exposure";
 import ImportantSurfaces from "../Molecules/steps/ImportantSurfaces";
+import Level from "../Molecules/steps/Level";
 import NumberOfParts from "../Molecules/steps/NumberOfParts";
 import OutdoorSpace from "../Molecules/steps/OutdoorSpace";
 import Profil from "../Molecules/steps/Profil";
@@ -40,6 +41,7 @@ const MultitCardsContainer = () => {
     "ten",
     "eleven",
     "twelve",
+    "thirteen",
   ];
 
   const refs = Array(array.length)
@@ -127,40 +129,44 @@ const MultitCardsContainer = () => {
         break;
 
       case 4:
-        estimation.partNumber !== null ? setDisabled(false) : setDisabled(true);
+        estimation.level !== null ? setDisabled(false) : setDisabled(true);
         break;
 
       case 5:
-        estimation.years !== null ? setDisabled(false) : setDisabled(true);
+        estimation.partNumber !== null ? setDisabled(false) : setDisabled(true);
         break;
 
       case 6:
-        estimation.works !== null ? setDisabled(false) : setDisabled(true);
+        estimation.years !== null ? setDisabled(false) : setDisabled(true);
         break;
 
       case 7:
+        estimation.works !== null ? setDisabled(false) : setDisabled(true);
+        break;
+
+      case 8:
         estimation.livingArea !== null && estimation.landArea !== null
           ? setDisabled(false)
           : setDisabled(true);
         break;
 
-      case 9:
+      case 10:
         estimation.exposure !== null && estimation.view !== null
           ? setDisabled(false)
           : setDisabled(true);
         break;
 
-      case 10:
+      case 11:
         estimation.standing !== null && estimation.secteur !== null
           ? setDisabled(false)
           : setDisabled(true);
         break;
 
-      case 11:
+      case 12:
         estimation.adjoining !== null ? setDisabled(false) : setDisabled(true);
         break;
 
-      case 12:
+      case 13:
         estimation.contract !== null && estimation.when !== null
           ? setDisabled(false)
           : setDisabled(true);
@@ -184,30 +190,33 @@ const MultitCardsContainer = () => {
         return <WhatIsASurface />;
 
       case 3:
-        return <NumberOfParts />;
+        return <Level />;
 
       case 4:
-        return <YearOfContruction />;
+        return <NumberOfParts />;
 
       case 5:
-        return <Works />;
+        return <YearOfContruction />;
 
       case 6:
-        return <ImportantSurfaces />;
+        return <Works />;
 
       case 7:
-        return <OutdoorSpace />;
+        return <ImportantSurfaces />;
 
       case 8:
-        return <Exposure />;
+        return <OutdoorSpace />;
 
       case 9:
-        return <Standing />;
+        return <Exposure />;
 
       case 10:
-        return <Adjoining />;
+        return <Standing />;
 
       case 11:
+        return <Adjoining />;
+
+      case 12:
         return <Profil />;
 
       default:
