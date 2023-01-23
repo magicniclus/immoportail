@@ -31,7 +31,10 @@ const Exposure = () => {
     );
   }, [exposureValue, viewValue]);
   return (
-    <LayoutStep title="Exposition/vue ? ">
+    <LayoutStep
+      title="Exposition/vue ?* "
+      indication="Plusieurs choix possibles"
+    >
       <div className="mb-2">
         <Text
           children={`Quelle est l'exposition de votre ${type} ?`}
