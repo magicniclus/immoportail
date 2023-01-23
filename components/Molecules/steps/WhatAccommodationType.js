@@ -24,7 +24,7 @@ const WhatAccommodationType = (props) => {
   }, [aCardIsSelected]);
 
   return (
-    <LayoutStep title="Quel type de bien souhaitez-vous estimer ?">
+    <LayoutStep title="Quel type de bien souhaitez-vous estimer ?*">
       <div className="flex mt-2">
         <CheckWithImage
           updateStyle={"mr-5 md:mr-10"}
