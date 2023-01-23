@@ -48,7 +48,7 @@ const Standing = (props) => {
   }, [aCardIsSelectedTwo]);
 
   return (
-    <LayoutStep title={`Quel est le standing de votre ${type} ? `}>
+    <LayoutStep title={`Quel est le standing de votre ${type} ?* `}>
       <div className="mb-5">
         <div className="flex">
           <Check
