@@ -77,7 +77,7 @@ const GetProjectProgress = () => {
   ];
 
   useEffect(() => {
-    dispatch(updateStepNumber(stepName.length));
+    dispatch(updateStepNumber(stepName.length + 1));
   }, []);
 
   useEffect(() => {
