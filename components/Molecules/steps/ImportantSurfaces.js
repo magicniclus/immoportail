@@ -27,7 +27,7 @@ const ImportantSurfaces = () => {
   }, [livingAreaValue, landAreaValue]);
 
   return (
-    <LayoutStep title="Quels est la surface de votre séjour et de votre bâti ?">
+    <LayoutStep title="Quels est la surface de votre séjour et de votre bâti ?*">
       <div className="">
         <div className="mb-2">
           <Text
