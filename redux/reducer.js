@@ -7,6 +7,7 @@ const initState = {
     accommodation: null,
     years: null,
     surface: null,
+    level: null,
     partNumber: null,
     roomNumber: null,
     works: null,
@@ -230,6 +231,15 @@ const reducer = (state = initState, action) => {
           ...state.estimationElements,
           contract: action.payload.contract,
           when: action.payload.when,
+        },
+      };
+
+    case "updateLevel":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          level: action.payload,
         },
       };
 
