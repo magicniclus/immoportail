@@ -9,6 +9,7 @@ const BottomStepContainer = () => {
 
   const [pourcentage, setPourcentage] = useState(0);
   const [textValue, setTextValue] = useState("");
+  const [displayElement, setDisplayElement] = useState(true);
 
   const stepNumber = state.stepNumber;
 
@@ -19,6 +20,12 @@ const BottomStepContainer = () => {
   }, [state.stepOfProjectProgress]);
 
   useEffect(() => {
+    if (state.stepOfProjectProgress === "analyse") setDisplayElement(false);
+    else setDisplayElement(true);
+    if (state.stepOfProjectProgress === "lastStep")
+      setTextValue(
+        "Bravo! Vous aurez ensuite accès à votre estimation dans votre espace."
+      );
     if (state.stepOfProjectProgress === 1) {
       setTextValue(
         "Veuillez saisir votre adress pour commencer votre estimation"
@@ -34,7 +41,11 @@ const BottomStepContainer = () => {
   }, [state.stepOfProjectProgress]);
 
   return (
-    <div className="h-24 w-full bg-purple block md:hidden fixed bottom-0 px-5">
+    <div
+      className={`h-24 w-full bg-purple block md:hidden fixed bottom-0 px-5 ${
+        displayElement ? null : "hidden"
+      }`}
+    >
       <div className="h-full flex flex-col justify-center">
         <div className="flex mb-2">
           <TitleTertiary
