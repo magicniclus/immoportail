@@ -5,6 +5,8 @@ const inputText = (props) => {
   const type = props.type;
   const minLenght = props.minLenght;
   const required = props.required;
+  const phone = props.phone || null;
+  const mail = props.mail || null;
 
   const [value, setValue] = useState("");
 
