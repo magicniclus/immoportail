@@ -31,7 +31,7 @@ const Inscription = () => {
 
   return (
     <form
-      className="mx-auto w-10/12 sm:w-4/6 md:w-2/6 flex flex-col py-10 md:mb-0 mb-20 mt-0 md:mt-10"
+      className="mx-auto w-10/12 sm:w-4/6 md:w-2/6 flex flex-col py-10 md:py-0 md:mb-0 mb-20 mt-0 md:mt-10"
       onSubmit={handleSubmit}
     >
       <TitlePrimary text="Dernière étape !" color="purple" />
