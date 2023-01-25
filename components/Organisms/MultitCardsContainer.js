@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCoordinateOfAddress } from "../../lib/googleMap/googleMap";
@@ -27,6 +28,8 @@ const MultitCardsContainer = () => {
 
   const [index, setIndex] = useState(0);
   const [disabled, setDisabled] = useState(true);
+
+  const router = useRouter();
 
   const array = [
     "one",
@@ -98,6 +101,7 @@ const MultitCardsContainer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    router.push("/estimation-immobiliere/analyse");
   };
 
   const updateAddress = async (idx) => {
