@@ -18,7 +18,7 @@ const Text = (props) => {
         center +
         " ",
       purple:
-        "text-purple text-xs md:text-sm font-light w-/6 " +
+        "text-purple text-xs md:text-sm font-light w-6/6 " +
         marginY +
         " " +
         marginX +
@@ -73,6 +73,24 @@ const Text = (props) => {
         " ",
       purple:
         "text-purple text-sm md:text-base font-light " +
+        marginY +
+        " " +
+        marginX +
+        " " +
+        center +
+        " ",
+    },
+    normalLight: {
+      white:
+        "text-white text-sm md:text-base font-light w-9/12 " +
+        marginY +
+        " " +
+        marginX +
+        " " +
+        center +
+        " ",
+      purple:
+        "text-purple text-sm md:text-base font-light w-9/12 " +
         marginY +
         " " +
         marginX +
