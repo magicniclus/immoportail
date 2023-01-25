@@ -8,6 +8,24 @@ const Text = (props) => {
   const center = props.center;
 
   const classDesign = {
+    litleText: {
+      white:
+        "text-white text-xs md:text-sm font-light w-5/6 " +
+        marginY +
+        " " +
+        marginX +
+        " " +
+        center +
+        " ",
+      purple:
+        "text-purple text-xs md:text-sm font-light w-5/6 " +
+        marginY +
+        " " +
+        marginX +
+        " " +
+        center +
+        " ",
+    },
     titleCard: {
       white:
         "text-white text-xs md:text-sm font-light w-6/6 " +
