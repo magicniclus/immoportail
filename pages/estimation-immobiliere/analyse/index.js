@@ -4,13 +4,20 @@ import TitlePrimary from "../../../components/Atoms/titles/TitlePrimary";
 import Text from "../../../components/Atoms/texts/Text";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { updateStepOfProjectProgress } from "../../../redux/action";
 
 const index = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const [elementOne, setElementOne] = useState(false);
   const [elementTwo, setElementTwo] = useState(false);
   const [elementThree, setElementThree] = useState(false);
+
+  useEffect(() => {
+    dispatch(updateStepOfProjectProgress("analyse"));
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
