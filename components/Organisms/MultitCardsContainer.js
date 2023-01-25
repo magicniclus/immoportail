@@ -100,8 +100,27 @@ const MultitCardsContainer = () => {
   }, []);
 
   const handleSubmit = (e) => {
+    const estimation = state.estimationElements;
     e.preventDefault();
-    router.push("/estimation-immobiliere/analyse");
+    if (
+      estimation.accommodation !== null &&
+      estimation.years !== null &&
+      estimation.surface !== null &&
+      estimation.level !== null &&
+      estimation.partNumber !== null &&
+      estimation.works !== null &&
+      estimation.livingArea !== null &&
+      estimation.landArea !== null &&
+      estimation.exposure !== null &&
+      estimation.view !== null &&
+      estimation.standing !== null &&
+      estimation.secteur !== null &&
+      estimation.adjoining !== null &&
+      estimation.contract !== null &&
+      estimation.when !== null
+    ) {
+      router.push("/estimation-immobiliere/analyse");
+    }
   };
 
   const updateAddress = async (idx) => {
