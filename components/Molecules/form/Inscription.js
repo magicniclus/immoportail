@@ -22,19 +22,12 @@ const Inscription = () => {
     if (
       firstName !== null &&
       lastName !== null &&
-      phone !== null &&
-      // phoneRegex.test(phone) &&
-      mail !== null
-      // emailRegex.test(mail)
+      phoneRegex.test(phone) &&
+      emailRegex.test(mail)
     )
       setDisabled(false);
     else setDisabled(true);
   }, [firstName, lastName, phone, mail]);
-
-  const regexText = (regex, word, setter) => {
-    console.log(regex.text(word));
-    setter(word);
-  };
 
   return (
     <form
@@ -46,7 +39,7 @@ const Inscription = () => {
         children="Vous aurez ensuite accès à votre estimation dans votre espace."
         color="purple"
         textSize="normal"
-        marginX="mt-3"
+        marginX={`mt-3 hidden md:flex`}
       />
       <div className="flex flex-col mb-5 mt-7">
         <Label text="Nom" nessessary={true} />
@@ -68,7 +61,7 @@ const Inscription = () => {
         />
       </div>
       <div className="flex flex-col mb-5">
-        <Label text="Email" nessessary={true} />
+        <Label text="Téléphone" nessessary={true} />
         <InputText
           valueCallback={phone}
           callback={setPhone}
@@ -77,7 +70,7 @@ const Inscription = () => {
         />
       </div>
       <div className="flex flex-col mb-7">
-        <Label text="Téléphone" nessessary={true} />
+        <Label text="Email" nessessary={true} />
         <InputText
           valueCallback={mail}
           callback={setMail}
@@ -93,7 +86,7 @@ const Inscription = () => {
       />
       <Text
         color="purple"
-        textSize="light"
+        textSize="litleText"
         children="En validant ce formulaire vous avez directement accès à votre estimation et vous acceptez d’être recontacter dans le cadre de votre projet par un de nos conseillers partenaire."
       />
     </form>
