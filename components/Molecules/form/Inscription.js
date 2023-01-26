@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { phoneRegex, emailRegex } from "../../../lib/regex/Regex";
+import { updateUserInformations } from "../../../redux/action";
 import ButtonPrimary from "../../Atoms/buttons/ButtonPrimary";
 import InputText from "../../Atoms/inputs/InputText";
 import Label from "../../Atoms/labels/Label";
 import Text from "../../Atoms/texts/Text";
 import TitlePrimary from "../../Atoms/titles/TitlePrimary";
 
-const Inscription = () => {
+const Inscription = (props) => {
+  const dispatch = useDispatch();
+
   const [disabled, setDisabled] = useState(true);
 
   const [firstName, setFirstName] = useState(null);
@@ -16,6 +20,14 @@ const Inscription = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(
+      updateUserInformations({
+        firstName,
+        lastName,
+        phone,
+        mail,
+      })
+    );
   };
 
   useEffect(() => {
@@ -31,7 +43,7 @@ const Inscription = () => {
 
   return (
     <form
-      className="mx-auto w-10/12 sm:w-4/6 md:w-2/6 flex flex-col py-10 md:py-0 md:mb-0 mb-20 mt-0 md:mt-10"
+      className="mx-auto w-10/12 sm:w-4/6 md:w-2/6 flex flex-col py-10 md:py-0 md:mb-0 mb-20 mt-0 md:mt-10 max-w-[450px]"
       onSubmit={handleSubmit}
     >
       <TitlePrimary text="Dernière étape !" color="purple" />
