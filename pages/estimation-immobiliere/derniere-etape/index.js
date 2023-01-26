@@ -50,7 +50,7 @@ const index = () => {
     setUserDoc(allEstimaitonInformations)
       .then((success) => {
         setLoader(false);
-        router.push("/");
+        router.push("/estimation-immobiliere/resultat");
       })
       .catch((err) => {
         alert("Une erreur est survenue, veuillez essayer à nouveau.");
