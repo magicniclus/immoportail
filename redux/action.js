@@ -128,3 +128,10 @@ export const updateLevel = (number) => {
     payload: number,
   };
 };
+
+export const updateUserInformations = (object) => {
+  return {
+    type: "updateUserInformations",
+    payload: object,
+  };
+};
