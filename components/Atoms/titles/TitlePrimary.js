@@ -5,14 +5,15 @@ const TitlePrimary = (props) => {
   const textWithColor = props.textWithColor;
   const color = props.color;
   const updateWidth = props.updateWidth || null;
+  const updateWeight = props.updateWeight || null;
 
   const classDesign = {
     white: `text-white text-2xl md:text-4xl font-bold ${
-      updateWidth !== null ? updateWidth : "md:w-10/12"
-    }`,
+      updateWeight !== null ? updateWeight : "font-bold"
+    } ${updateWidth !== null ? updateWidth : "md:w-10/12"}`,
     purple: `text-purple text-2xl md:text-4xl font-bold ${
-      updateWidth !== null ? updateWidth : "md:w-10/12"
-    }`,
+      updateWeight !== null ? updateWeight : "font-bold"
+    } ${updateWidth !== null ? updateWidth : "md:w-10/12"}`,
   };
 
   return (
