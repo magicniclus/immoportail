@@ -1,4 +1,10 @@
 const initState = {
+  userInformations: {
+    firstName: null,
+    lastName: null,
+    phone: null,
+    mail: null,
+  },
   address: "",
   addressCoordinate: null,
   stepOfProjectProgress: 1,
@@ -240,6 +246,17 @@ const reducer = (state = initState, action) => {
         estimationElements: {
           ...state.estimationElements,
           level: action.payload,
+        },
+      };
+    case "updateUserInformations":
+      return {
+        ...state,
+        userInformations: {
+          ...state.userInformations,
+          firstName: action.payload.firstName,
+          lastName: action.payload.lastName,
+          phone: action.payload.phone,
+          mail: action.payload.mail,
         },
       };
 
