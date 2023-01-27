@@ -136,7 +136,7 @@ const Text = (props) => {
     },
     bigTitle: {
       white:
-        "text-white font-semibold md:text-6xl text-4xl " +
+        "text-white font-normal md:text-6xl text-4xl " +
         marginY +
         " " +
         marginX +
@@ -144,7 +144,7 @@ const Text = (props) => {
         center +
         " ",
       purple:
-        "text-purple font-semibold md:text-6xl text-4xl " +
+        "text-purple font-normal md:text-6xl text-4xl " +
         marginY +
         " " +
         marginX +
