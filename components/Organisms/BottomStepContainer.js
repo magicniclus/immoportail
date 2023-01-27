@@ -9,7 +9,7 @@ const BottomStepContainer = () => {
 
   const [pourcentage, setPourcentage] = useState(0);
   const [textValue, setTextValue] = useState("");
-  const [displayElement, setDisplayElement] = useState(true);
+  const [displayElement, setDisplayElement] = useState(false);
 
   const stepNumber = state.stepNumber;
 
@@ -20,7 +20,11 @@ const BottomStepContainer = () => {
   }, [state.stepOfProjectProgress]);
 
   useEffect(() => {
-    if (state.stepOfProjectProgress === "analyse") setDisplayElement(false);
+    if (
+      state.stepOfProjectProgress === "analyse" ||
+      state.stepOfProjectProgress === "resultat"
+    )
+      setDisplayElement(false);
     else setDisplayElement(true);
     if (state.stepOfProjectProgress === "lastStep")
       setTextValue(
