@@ -1,4 +1,5 @@
 const initState = {
+  loader: false,
   userInformations: {
     firstName: null,
     lastName: null,
@@ -37,6 +38,12 @@ const initState = {
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
+    case "handleLoader":
+      return {
+        ...state,
+        loader: action.payload,
+      };
+
     case "updateAddress":
       return {
         ...state,
