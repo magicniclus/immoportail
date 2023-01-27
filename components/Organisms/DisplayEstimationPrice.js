@@ -3,15 +3,17 @@ import { useSelector } from "react-redux";
 import { removeDecimals } from "../../lib/utils/func";
 import Text from "../Atoms/texts/Text";
 
-const DisplayEstimationPrice = () => {
+const DisplayEstimationPrice = (props) => {
   const state = useSelector((state) => state);
+  const updateStyle = props.updateStyle || null;
+
   return (
-    <div>
-      <div className="">
-        <div className="">
+    <div className={`flex flex-col items-center ${updateStyle}`}>
+      <div className="flex md:items-end md:flex-row flex-col">
+        <div className=" flex flex-col items-center">
           <Text textSize="titleCard" color="purple" children="Prix bas" />
           <Text
-            textSize="normal"
+            textSize="bigSubTitle"
             color="purple"
             children={
               removeDecimals(
@@ -20,14 +22,14 @@ const DisplayEstimationPrice = () => {
             }
           />
         </div>
-        <div className="">
+        <div className="md:mx-28 md:my-0 my-5 flex flex-col items-center">
           <Text
             textSize="titleCard"
             color="purple"
             children="Prix net vendeur"
           />
           <Text
-            textSize="big"
+            textSize="bigTitle"
             color="purple"
             children={
               removeDecimals(
@@ -36,10 +38,10 @@ const DisplayEstimationPrice = () => {
             }
           />
         </div>
-        <div>
+        <div className=" flex flex-col items-center">
           <Text textSize="titleCard" color="purple" children="Prix haut" />
           <Text
-            textSize="normal"
+            textSize="bigSubTitle"
             color="purple"
             children={
               removeDecimals(
@@ -49,7 +51,7 @@ const DisplayEstimationPrice = () => {
           />
         </div>
       </div>
-      <div className="">
+      <div className="text-purple mt-2">
         Soit {removeDecimals(state.resultatEstimation.mainValuation.price_m2)}
         /m2
       </div>
