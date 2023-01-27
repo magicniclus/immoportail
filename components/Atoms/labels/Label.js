@@ -5,7 +5,7 @@ const Label = (props) => {
   const nessessary = props.nessessary;
 
   return (
-    <label className="text-purple md:text-xl text-base">
+    <label className="text-purple md:text-base text-md font-light">
       {text ? text : null} :{nessessary ? "*" : null}
     </label>
   );
