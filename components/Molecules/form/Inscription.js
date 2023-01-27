@@ -43,18 +43,22 @@ const Inscription = (props) => {
 
   return (
     <form
-      className="mx-auto w-10/12 sm:w-4/6 md:w-2/6 flex flex-col py-10 md:py-0 md:mb-0 mb-20 mt-0 md:mt-10 max-w-[450px]"
+      className="mx-auto w-10/12 sm:w-4/6 md:w-2/6 flex flex-col py-10 md:py-10 my-auto max-w-[450px]"
       onSubmit={handleSubmit}
     >
-      <TitlePrimary text="Dernière étape !" color="purple" />
+      <TitlePrimary
+        text="Dernière étape !"
+        color="purple"
+        updateWeight="font-extralight"
+      />
       <Text
         children="Vous aurez ensuite accès à votre estimation dans votre espace."
         color="purple"
         textSize="normal"
         marginX={`mt-3 hidden md:flex`}
       />
-      <div className="flex flex-col mb-5 mt-7">
-        <Label text="Nom" nessessary={true} />
+      <div className="flex flex-col mb-3 mt-3">
+        <Label text="Nom" nessessary={true} className="text-sm font-light" />
         <InputText
           valueCallback={firstName}
           callback={setFirstName}
@@ -63,8 +67,8 @@ const Inscription = (props) => {
           required
         />
       </div>
-      <div className="flex flex-col mb-5">
-        <Label text="Prenom" nessessary={true} />
+      <div className="flex flex-col mb-3">
+        <Label text="Prenom" nessessary={true} className="text-sm font-light" />
         <InputText
           valueCallback={lastName}
           callback={setLastName}
@@ -72,8 +76,12 @@ const Inscription = (props) => {
           required
         />
       </div>
-      <div className="flex flex-col mb-5">
-        <Label text="Téléphone" nessessary={true} />
+      <div className="flex flex-col mb-3">
+        <Label
+          text="Téléphone"
+          nessessary={true}
+          className="text-sm font-light"
+        />
         <InputText
           valueCallback={phone}
           callback={setPhone}
@@ -81,8 +89,8 @@ const Inscription = (props) => {
           required
         />
       </div>
-      <div className="flex flex-col mb-7">
-        <Label text="Email" nessessary={true} />
+      <div className="flex flex-col mb-5">
+        <Label text="Email" nessessary={true} className="text-sm font-light" />
         <InputText
           valueCallback={mail}
           callback={setMail}
