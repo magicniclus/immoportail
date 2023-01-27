@@ -51,6 +51,7 @@ const index = () => {
               text="Analyse de vos données"
               color="purple"
               updateWidth="6/6"
+              updateWeight="font-light"
             />
             <Text
               textSize="titleCard"
