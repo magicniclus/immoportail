@@ -7,8 +7,8 @@ const TitleSecondary = (props) => {
   const marginY = props.marginY;
 
   const classDesign = {
-    white: "text-white text-ligth md:text-3xl " + marginY,
-    purple: "text-purple text-ligth md:text-3xl " + marginY,
+    white: "text-white text-normal md:text-3xl " + marginY,
+    purple: "text-purple text-normal md:text-3xl " + marginY,
   };
 
   return (
