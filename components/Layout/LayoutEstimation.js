@@ -4,6 +4,7 @@ import HeaderEstimation from "../Organisms/headers/HeaderEstimation";
 import BottomStepContainer from "../Organisms/BottomStepContainer";
 import { useSelector } from "react-redux";
 import Loader from "../Organisms/Loader";
+import ContactBottomStepContainer from "../Organisms/ContactBottomStepContainer";
 
 const LayoutEstimation = (props) => {
   const state = useSelector((state) => state);
@@ -36,6 +37,7 @@ const LayoutEstimation = (props) => {
         {loading ? <Loader /> : props.children}
       </main>
       <BottomStepContainer />
+      <ContactBottomStepContainer />
     </>
   );
 };
