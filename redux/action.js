@@ -142,3 +142,17 @@ export const updateUserInformations = (object) => {
     payload: object,
   };
 };
+
+export const makeResultatEstimation = (object) => {
+  return {
+    type: "makeResultatEstimation",
+    payload: object,
+  };
+};
+
+export const updateId = (id) => {
+  return {
+    type: "updateId",
+    payload: id,
+  };
+};
