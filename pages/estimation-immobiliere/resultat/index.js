@@ -1,20 +1,33 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import TitlePrimary from "../../../components/Atoms/titles/TitlePrimary";
-import Layout from "../../../components/Layout/Layout";
+import { useDispatch, useSelector } from "react-redux";
+import LayoutEstimation from "../../../components/Layout/LayoutEstimation";
 import { getEstimation } from "../../api/homadata/estimation";
-import { handleLoader } from "../../../redux/action";
+import { handleLoader, makeResultatEstimation } from "../../../redux/action";
+import { addDataToUserDoc } from "../../api/firebase/Doc";
+import ResultEstimationBanner from "../../../components/Organisms/ResultEstimationBanner";
 
 const index = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+
+  const updateDate = (id, newData) => {
+    addDataToUserDoc(id, newData)
+      .then(() => {
+        console.log("Data added successfully!");
+      })
+      .catch((error) => {
+        console.error("Error adding data: ", error);
+      });
+  };
 
   useEffect(() => {
     dispatch(handleLoader(true));
     getEstimation()
       .then((value) => {
-        console.log(value);
+        updateDate(state.id, value);
+        dispatch(makeResultatEstimation(value));
         dispatch(handleLoader(false));
       })
       .catch((err) => {
@@ -25,14 +38,9 @@ const index = () => {
   }, []);
 
   return (
-    <Layout>
-      <TitlePrimary
-        color="purple"
-        text="Voici le resultat de votre"
-        textWithColor="estimation"
-        updateWeight="font-light"
-      />
-    </Layout>
+    <LayoutEstimation>
+      <ResultEstimationBanner />
+    </LayoutEstimation>
   );
 };
 
