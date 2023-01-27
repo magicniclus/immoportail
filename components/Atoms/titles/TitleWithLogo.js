@@ -8,15 +8,20 @@ const TitleWithLogo = (props) => {
   const image = props.image;
   const marginX = props.marginX;
   const marginY = props.marginY;
+  const updateWidth = props.updateWidth || null;
 
   const classDesign = {
     white:
-      "text-white text-2xl md:text-2xl font-normal md:w-10/12 lg:mb-0 " +
+      `text-white text-xl md:text-2xl font-normal ${
+        updateWidth ? updateWidth + " " : "md:w-10/12 "
+      } lg:mb-0 text-center ` +
       marginX +
       " " +
       marginY,
     purple:
-      "text-purple text-2xl md:text-2xl font-normal md:w-10/12 lg:mb-0 " +
+      `text-purple text-xl md:text-2xl font-normal ${
+        updateWidth ? updateWidth + " " : "md:w-10/12 "
+      } lg:mb-0 text-center ` +
       marginX +
       " " +
       marginY,
