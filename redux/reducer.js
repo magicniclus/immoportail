@@ -6,6 +6,7 @@ const initState = {
     phone: null,
     mail: null,
   },
+  id: null,
   address: "",
   addressCoordinate: null,
   stepOfProjectProgress: 1,
@@ -34,6 +35,7 @@ const initState = {
     contract: null,
     when: null,
   },
+  resultatEstimation: null,
 };
 
 const reducer = (state = initState, action) => {
@@ -255,6 +257,7 @@ const reducer = (state = initState, action) => {
           level: action.payload,
         },
       };
+
     case "updateUserInformations":
       return {
         ...state,
@@ -265,6 +268,18 @@ const reducer = (state = initState, action) => {
           phone: action.payload.phone,
           mail: action.payload.mail,
         },
+      };
+
+    case "makeResultatEstimation":
+      return {
+        ...state,
+        resultatEstimation: action.payload,
+      };
+
+    case "updateId":
+      return {
+        ...state,
+        id: action.payload,
       };
 
     default:
