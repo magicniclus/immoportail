@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import TagsContainer from "../Molecules/TagsContainer";
+import TitlePrimary from "../Atoms/titles/TitlePrimary";
+import TitleWithLogo from "../Atoms/titles/TitleWithLogo";
+import DisplayEstimationPrice from "./DisplayEstimationPrice";
 
 const ResultEstimationBanner = () => {
   const state = useSelector((state) => state);
@@ -22,7 +25,23 @@ const ResultEstimationBanner = () => {
       : null,
   ]);
 
-  return <TagsContainer tags={array} />;
+  return (
+    <>
+      <TitlePrimary
+        text="Voici le resultat de votre "
+        textWithColor="estimation"
+        color="purple"
+        updateWeight="font-light"
+      />
+      <TitleWithLogo
+        text={state.address}
+        color="purple"
+        image="VectorlocalizationPurple"
+      />
+      <TagsContainer tags={array} />
+      <DisplayEstimationPrice />
+    </>
+  );
 };
 
 export default ResultEstimationBanner;
