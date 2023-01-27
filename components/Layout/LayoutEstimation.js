@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import Footer from "../Organisms/Footer";
 import HeaderEstimation from "../Organisms/headers/HeaderEstimation";
 import BottomStepContainer from "../Organisms/BottomStepContainer";
+import { useSelector } from "react-redux";
+import Loader from "../Organisms/Loader";
 
 const LayoutEstimation = (props) => {
+  const state = useSelector((state) => state);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (state.loader) setLoading(true);
+    else setLoading(false);
+  }, [state.loader]);
+
+  useEffect(() => {
+    if (state.loader) setLoading(true);
+    else setLoading(false);
+  }, []);
+
   return (
     <>
       <Head>
@@ -19,10 +33,9 @@ const LayoutEstimation = (props) => {
         <HeaderEstimation />
       </header>
       <main className="flex flex-col item-center relative min-h-[calc(100vh-7rem)] h-max mx-auto drop-shadow-md w-full">
-        {props.children}
+        {loading ? <Loader /> : props.children}
       </main>
       <BottomStepContainer />
-      {/* <Footer /> */}
     </>
   );
 };
