@@ -8,10 +8,10 @@ const SubTitle = (props) => {
   const updateWeight = props.updateWeight || null;
 
   const classDesign = {
-    white: `text-white text-xl md:text-4xl ${
+    white: `text-white text-2xl md:text-4xl ${
       updateWeight !== null ? updateWeight : "font-bold "
     } ${updateWidth !== null ? updateWidth : " md:w-10/12"}`,
-    purple: `text-purple text-xl md:text-4xl ${
+    purple: `text-purple text-2xl md:text-4xl ${
       updateWeight !== null ? updateWeight : "font-bold "
     } ${updateWidth !== null ? updateWidth : "md:w-10/12"}`,
   };
