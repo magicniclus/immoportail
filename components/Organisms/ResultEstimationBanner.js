@@ -4,6 +4,7 @@ import TagsContainer from "../Molecules/TagsContainer";
 import TitlePrimary from "../Atoms/titles/TitlePrimary";
 import TitleWithLogo from "../Atoms/titles/TitleWithLogo";
 import DisplayEstimationPrice from "./DisplayEstimationPrice";
+import ConfidenceIndex from "../Molecules/ConfidenceIndex";
 
 const ResultEstimationBanner = () => {
   const state = useSelector((state) => state);
@@ -26,21 +27,24 @@ const ResultEstimationBanner = () => {
   ]);
 
   return (
-    <>
+    <div className="flex flex-col justify-center items-center px-5 md:px-40 pt-5 md:pt-20">
       <TitlePrimary
         text="Voici le resultat de votre "
         textWithColor="estimation"
         color="purple"
-        updateWeight="font-light"
+        updateWeight="font-light text-center"
       />
       <TitleWithLogo
         text={state.address}
         color="purple"
         image="VectorlocalizationPurple"
+        updateWidth="w-fit"
+        marginX="mt-7 md:mt-3 "
       />
-      <TagsContainer tags={array} />
-      <DisplayEstimationPrice />
-    </>
+      <TagsContainer tags={array} updateStyle="mt-3" />
+      <DisplayEstimationPrice updateStyle="mt-10" />
+      <ConfidenceIndex />
+    </div>
   );
 };
 
