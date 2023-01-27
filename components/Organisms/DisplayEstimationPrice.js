@@ -16,9 +16,11 @@ const DisplayEstimationPrice = (props) => {
             textSize="bigSubTitle"
             color="purple"
             children={
-              removeDecimals(
-                state.resultatEstimation.mainValuation.confidence_min
-              ) + " €"
+              state.resultatEstimation.mainValuation.confidence_min
+                ? removeDecimals(
+                    state.resultatEstimation.mainValuation.confidence_min
+                  ) + " €"
+                : null
             }
           />
         </div>
@@ -32,9 +34,11 @@ const DisplayEstimationPrice = (props) => {
             textSize="bigTitle"
             color="purple"
             children={
-              removeDecimals(
-                state.resultatEstimation.mainValuation.predicted_price
-              ) + " €"
+              state.resultatEstimation.mainValuation.predicted_price
+                ? removeDecimals(
+                    state.resultatEstimation.mainValuation.predicted_price
+                  ) + " €"
+                : null
             }
           />
         </div>
@@ -44,9 +48,11 @@ const DisplayEstimationPrice = (props) => {
             textSize="bigSubTitle"
             color="purple"
             children={
-              removeDecimals(
-                state.resultatEstimation.mainValuation.confidence_max
-              ) + " €"
+              state.resultatEstimation.mainValuation.confidence_max
+                ? removeDecimals(
+                    state.resultatEstimation.mainValuation.confidence_max
+                  ) + " €"
+                : null
             }
           />
         </div>
