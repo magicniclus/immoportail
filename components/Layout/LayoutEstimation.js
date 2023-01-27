@@ -32,7 +32,7 @@ const LayoutEstimation = (props) => {
       <header className=" mx-auto">
         <HeaderEstimation />
       </header>
-      <main className="flex flex-col item-center relative min-h-[calc(100vh-7rem)] h-max mx-auto drop-shadow-md w-full">
+      <main className="flex flex-col item-center justify-between relative min-h-[calc(100vh-7rem)] h-max mx-auto drop-shadow-md w-full">
         {loading ? <Loader /> : props.children}
       </main>
       <BottomStepContainer />
