@@ -6,6 +6,7 @@ import LayoutEstimation from "../../../components/Layout/LayoutEstimation";
 import Inscription from "../../../components/Molecules/form/Inscription";
 import {
   handleLoader,
+  updateId,
   updateStepOfProjectProgress,
 } from "../../../redux/action";
 import { setUserDoc } from "../../api/firebase/Doc";
@@ -52,6 +53,7 @@ const index = () => {
   const udateEstimationInformationInReducer = () => {
     setUserDoc(allEstimaitonInformations)
       .then((success) => {
+        dispatch(updateId(allEstimaitonInformations.id));
         router.push("/estimation-immobiliere/resultat");
       })
       .catch((err) => {
@@ -70,7 +72,7 @@ const index = () => {
     <LayoutEstimation>
       <div className="flex  min-h-[calc(100vh-7rem)]">
         <div className=" min-h-[calc(100vh-7rem)] w-3/6 relative md:flex hidden">
-          <Image src="/houses/campagne.jpg" layout="fill" objectFit="cover" />
+          <Image src="/houses/family.jpg" layout="fill" objectFit="cover" />
         </div>
         <Inscription />
       </div>
