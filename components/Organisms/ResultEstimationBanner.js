@@ -27,7 +27,7 @@ const ResultEstimationBanner = () => {
   ]);
 
   return (
-    <div className="flex flex-col justify-center items-center px-5 md:px-40 pt-5 md:pt-20">
+    <div className="flex flex-col justify-center items-center px-5 md:px-40 py-5 md:py-20">
       <TitlePrimary
         text="Voici le resultat de votre "
         textWithColor="estimation"
