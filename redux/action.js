@@ -1,3 +1,10 @@
+export const handleLoader = (bool) => {
+  return {
+    type: "handleLoader",
+    payload: bool,
+  };
+};
+
 export const updateAddressIsValid = (bool) => {
   return {
     type: "updateAddressIsValid",
