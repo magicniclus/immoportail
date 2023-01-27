@@ -134,6 +134,43 @@ const Text = (props) => {
         center +
         " ",
     },
+    bigTitle: {
+      white:
+        "text-white font-semibold md:text-6xl text-4xl " +
+        marginY +
+        " " +
+        marginX +
+        " " +
+        center +
+        " ",
+      purple:
+        "text-purple font-semibold md:text-6xl text-4xl " +
+        marginY +
+        " " +
+        marginX +
+        " " +
+        center +
+        " ",
+    },
+
+    bigSubTitle: {
+      white:
+        "text-white font-semibold md:text-2xl text-xl " +
+        marginY +
+        " " +
+        marginX +
+        " " +
+        center +
+        " ",
+      purple:
+        "text-purple font-semibold md:text-2xl text-xl " +
+        marginY +
+        " " +
+        marginX +
+        " " +
+        center +
+        " ",
+    },
   };
 
   return (
