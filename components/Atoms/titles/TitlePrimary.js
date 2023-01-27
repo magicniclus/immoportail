@@ -8,11 +8,11 @@ const TitlePrimary = (props) => {
   const updateWeight = props.updateWeight || null;
 
   const classDesign = {
-    white: `text-white text-2xl md:text-4xl font-bold ${
-      updateWeight !== null ? updateWeight : "font-bold"
-    } ${updateWidth !== null ? updateWidth : "md:w-10/12"}`,
-    purple: `text-purple text-2xl md:text-4xl font-bold ${
-      updateWeight !== null ? updateWeight : "font-bold"
+    white: `text-white text-2xl md:text-4xl ${
+      updateWeight !== null ? updateWeight : "font-bold "
+    } ${updateWidth !== null ? updateWidth : " md:w-10/12"}`,
+    purple: `text-purple text-2xl md:text-4xl ${
+      updateWeight !== null ? updateWeight : "font-bold "
     } ${updateWidth !== null ? updateWidth : "md:w-10/12"}`,
   };
 
