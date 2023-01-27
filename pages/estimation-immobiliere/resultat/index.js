@@ -6,6 +6,7 @@ import { getEstimation } from "../../api/homadata/estimation";
 import { handleLoader, makeResultatEstimation } from "../../../redux/action";
 import { addDataToUserDoc } from "../../api/firebase/Doc";
 import ResultEstimationBanner from "../../../components/Organisms/ResultEstimationBanner";
+import HowToStandOutBanner from "../../../components/Organisms/HowToStandOutBanner";
 
 const index = () => {
   const router = useRouter();
@@ -40,6 +41,7 @@ const index = () => {
   return (
     <LayoutEstimation>
       <ResultEstimationBanner />
+      <HowToStandOutBanner />
     </LayoutEstimation>
   );
 };
