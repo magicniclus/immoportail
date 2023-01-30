@@ -18,11 +18,11 @@ const index = () => {
     dispatch(updateStepOfProjectProgress("resultat"));
   }, []);
 
-  useEffect(() => {
-    if (state.estimationElements.accommodation === null) {
-      router.push("/estimation-immobiliere");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (state.estimationElements.accommodation === null) {
+  //     router.push("/estimation-immobiliere");
+  //   }
+  // }, []);
 
   const updateDate = (id, newData) => {
     addDataToUserDoc(id, newData)
@@ -45,7 +45,7 @@ const index = () => {
       .catch((err) => {
         dispatch(handleLoader(false));
         // alert("Erreur du chargement de vos données...");
-        router.push("/estimation-immobiliere");
+        // router.push("/estimation-immobiliere");
       });
   }, []);
 
