@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import Loader from "../Organisms/Loader";
 import React, { useEffect, useState } from "react";
 import CookieBanner from "../Organisms/CookieBanner";
+import Modal from "../Molecules/modals/Modal";
 
 export default function Layout(props) {
   const state = useSelector((state) => state);
@@ -33,9 +34,12 @@ export default function Layout(props) {
       <header>
         <Header />
       </header>
-      <main className="relative">{loading ? <Loader /> : props.children}</main>
+      <main className="relative min-h-[calc((100vh-7rem))]">
+        {loading ? <Loader /> : props.children}
+      </main>
       <Footer />
       <CookieBanner />
+      <Modal />
     </>
   );
 }
