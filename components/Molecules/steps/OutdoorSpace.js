@@ -107,7 +107,7 @@ const OutdoorSpace = () => {
           </div>
           <div className="mb-5">
             <Text
-              children="Box"
+              children="Parking/Box"
               color="purple"
               textSize="bigLight"
               marginX="mb-2"
