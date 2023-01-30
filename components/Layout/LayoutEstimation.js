@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import Loader from "../Organisms/Loader";
 import ContactBottomStepContainer from "../Organisms/ContactBottomStepContainer";
 import CookieBanner from "../Organisms/CookieBanner";
+import Modal from "../Molecules/modals/Modal";
 
 const LayoutEstimation = (props) => {
   const state = useSelector((state) => state);
@@ -40,6 +41,7 @@ const LayoutEstimation = (props) => {
       <BottomStepContainer />
       <ContactBottomStepContainer />
       <CookieBanner />
+      <Modal />
     </>
   );
 };
