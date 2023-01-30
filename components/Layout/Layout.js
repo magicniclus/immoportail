@@ -4,6 +4,7 @@ import Footer from "../Organisms/Footer";
 import { useSelector } from "react-redux";
 import Loader from "../Organisms/Loader";
 import React, { useEffect, useState } from "react";
+import CookieBanner from "../Organisms/CookieBanner";
 
 export default function Layout(props) {
   const state = useSelector((state) => state);
@@ -34,6 +35,7 @@ export default function Layout(props) {
       </header>
       <main className="relative">{loading ? <Loader /> : props.children}</main>
       <Footer />
+      <CookieBanner />
     </>
   );
 }
