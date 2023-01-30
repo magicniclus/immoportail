@@ -17,11 +17,18 @@ const index = () => {
   const [loader, setLoader] = useState(false);
 
   const dispatch = useDispatch();
+  const state = useSelector((state) => state);
   const stateUserInformations = useSelector((state) => state.userInformations);
   const stateEstimationElements = useSelector(
     (state) => state.estimationElements
   );
   const date = new Date();
+
+  useEffect(() => {
+    if (state.estimationElements.accommodation === null) {
+      router.push("/estimation-immobiliere");
+    }
+  }, []);
 
   const allEstimaitonInformations = {
     id: Date.now().toString(),
