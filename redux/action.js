@@ -156,3 +156,10 @@ export const updateId = (id) => {
     payload: id,
   };
 };
+
+export const updateModal = (object) => {
+  return {
+    type: "updateModal",
+    payload: object,
+  };
+};
