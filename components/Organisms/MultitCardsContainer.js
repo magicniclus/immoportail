@@ -95,7 +95,7 @@ const MultitCardsContainer = () => {
           behavior: "smooth",
         });
       }
-      dispatch(updateStepOfProjectProgress(1));
+      dispatch(updateStepOfProjectProgress(2));
     }
   }, []);
 
