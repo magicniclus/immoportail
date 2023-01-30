@@ -44,7 +44,7 @@ const index = () => {
       })
       .catch((err) => {
         dispatch(handleLoader(false));
-        alert("Erreur du chargement de vos données...");
+        // alert("Erreur du chargement de vos données...");
         router.push("/estimation-immobiliere");
       });
   }, []);
