@@ -51,7 +51,7 @@ const GetAdressInMap = (props) => {
           options={options}
           style={{ zIndex: 0 }}
         >
-          <Marker position={center} />
+          {/* <Marker position={center} /> */}
         </GoogleMap>
       </LoadScript>
     );
@@ -68,7 +68,7 @@ const GetAdressInMap = (props) => {
         options={options}
         style={{ zIndex: 0 }}
       >
-        <Marker position={center} />
+        {/* <Marker position={center} /> */}
       </GoogleMap>
     );
   };
