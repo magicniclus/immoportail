@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCoordinateOfAddress } from "../../lib/googleMap/googleMap";
 import {
@@ -247,8 +247,15 @@ const MultitCardsContainer = () => {
     }
   };
 
+  const handleTab = useCallback((event) => {
+    if (event.key === "Tab") {
+      event.preventDefault();
+    }
+  }, []);
+
   return (
     <div
+      onKeyDown={handleTab}
       className={`min-h-[750px] md:top-0 top-10 md:w-7/12 w-11/12 xs:w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative pl-5 sm:pl-20 md:pl-24 lg:pl-48`}
     >
       {index > 0 ? (
