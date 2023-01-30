@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import TagsContainer from "../Molecules/TagsContainer";
 import TitlePrimary from "../Atoms/titles/TitlePrimary";
@@ -9,7 +9,51 @@ import ConfidenceIndex from "../Molecules/ConfidenceIndex";
 const ResultEstimationBanner = () => {
   const state = useSelector((state) => state);
   const stateElement = state.estimationElements;
-  const array = ["maison", "90m2", "3 pièces"];
+  const [array, setArray] = useState(["Maison", "90m2", "3 pièces"]);
+
+  useEffect(() => {
+    setArray([]);
+    if (stateElement.accommodation !== null) {
+      setArray([
+        toTitleCase(stateElement.accommodation),
+        stateElement.surface + "m²",
+        stateElement.partNumber !== null
+          ? stateElement.partNumber > 1
+            ? stateElement.partNumber + " pièces"
+            : stateElement.partNumber + " pièce"
+          : null,
+        stateElement.roomNumber !== null
+          ? stateElement.roomNumber > 1
+            ? stateElement.roomNumber + " chambres"
+            : stateElement.roomNumber + " chambre"
+          : null,
+      ]);
+    } else {
+      setArray(["Maison", "90m2", "3 pièces"]);
+    }
+  }, [stateElement]);
+
+  useEffect(() => {
+    setArray([]);
+    if (stateElement.accommodation !== null) {
+      setArray([
+        toTitleCase(stateElement.accommodation),
+        stateElement.surface + "m²",
+        stateElement.partNumber !== null
+          ? stateElement.partNumber + stateElement.partNumber > 1
+            ? stateElement.partNumber + " pièces"
+            : stateElement.partNumber + " pièce"
+          : null,
+        stateElement.roomNumber !== null
+          ? stateElement.roomNumber > 1
+            ? stateElement.roomNumber + " chambres"
+            : stateElement.roomNumber + " chambre"
+          : null,
+      ]);
+    } else {
+      setArray(["Maison", "90m2", "3 pièces"]);
+    }
+  }, []);
 
   const [tags, setTags] = useState([
     stateElement.accommodation !== null ? stateElement.accommodation : null,
