@@ -79,7 +79,7 @@ const ResultEstimationBanner = () => {
         updateWeight="font-light text-center"
       />
       <TitleWithLogo
-        text={state.address}
+        text={state.address || "20 route de la gare, 44000, Angers"}
         color="purple"
         image="VectorlocalizationPurple"
         updateWidth="w-fit"
