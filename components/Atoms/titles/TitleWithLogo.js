@@ -13,14 +13,14 @@ const TitleWithLogo = (props) => {
   const classDesign = {
     white:
       `text-white text-xl md:text-2xl font-normal ${
-        updateWidth ? updateWidth + " " : "md:w-10/12 "
+        updateWidth ? updateWidth + " " : " "
       } lg:mb-0 text-center ` +
       marginX +
       " " +
       marginY,
     purple:
       `text-purple text-xl md:text-2xl font-normal ${
-        updateWidth ? updateWidth + " " : "md:w-10/12 "
+        updateWidth ? updateWidth + " " : ""
       } lg:mb-0 text-center ` +
       marginX +
       " " +
@@ -29,7 +29,7 @@ const TitleWithLogo = (props) => {
 
   return (
     <div className="flex ">
-      <div className={"h-4 w-6 lg:mb-0 " + marginX + " " + marginY}>
+      <div className={"h-4 w-6 lg:mb-0 mr-3 " + marginX + " " + marginY}>
         <Image
           src={"/vector/" + image + ".png"}
           height={80}
@@ -38,21 +38,21 @@ const TitleWithLogo = (props) => {
         />
       </div>
       {textWithColor !== undefined && textWithColor !== null ? (
-        <h1
+        <h3
           className={
             color !== undefined ? classDesign[color] : classDesign.white
           }
         >
           &nbsp;{text}&nbsp;<span className="text-blue">{textWithColor}</span>
-        </h1>
+        </h3>
       ) : (
-        <h1
+        <h3
           className={
             color !== undefined ? classDesign[color] : classDesign.white
           }
         >
           &nbsp;{text}
-        </h1>
+        </h3>
       )}
     </div>
   );
