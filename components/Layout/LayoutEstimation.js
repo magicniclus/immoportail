@@ -5,6 +5,7 @@ import BottomStepContainer from "../Organisms/BottomStepContainer";
 import { useSelector } from "react-redux";
 import Loader from "../Organisms/Loader";
 import ContactBottomStepContainer from "../Organisms/ContactBottomStepContainer";
+import CookieBanner from "../Organisms/CookieBanner";
 
 const LayoutEstimation = (props) => {
   const state = useSelector((state) => state);
@@ -38,6 +39,7 @@ const LayoutEstimation = (props) => {
       </main>
       <BottomStepContainer />
       <ContactBottomStepContainer />
+      <CookieBanner />
     </>
   );
 };
