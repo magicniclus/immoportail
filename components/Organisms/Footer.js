@@ -13,16 +13,18 @@ const Footer = () => {
         <div className="lg:w-4/12 w-8/12">
           <ul>
             <li className="mb-3 text-purple text-base md:text-xl">
-              <Link href="/">Mon espace</Link>
+              <Link href="/connexion">Mon espace</Link>
             </li>
             <li className="mb-3 text-purple text-base md:text-xl">
-              <Link href="/">Espace partenaire</Link>
+              <Link href="/connexion">Espace partenaire</Link>
             </li>
             <li className="mb-3 text-purple text-base md:text-xl">
-              <Link href="/">Nous contacter</Link>
+              <Link href="/nous-contacter">Nous contacter</Link>
             </li>
             <li className="mb-3 text-purple text-base md:text-xl">
-              <Link href="/">Politique de confidentialité</Link>
+              <Link href="/politique-de-confidentialite">
+                Politique de confidentialité
+              </Link>
             </li>
           </ul>
           <p className="text-purple text-base md:text-xl">
