@@ -181,7 +181,9 @@ const Text = (props) => {
           : classDesign.normal.white
       }
     >
-      {props.children}
+      {props.children !== undefined || props.children !== null
+        ? props.children
+        : null}
     </p>
   );
 };
