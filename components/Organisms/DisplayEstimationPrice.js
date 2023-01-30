@@ -22,7 +22,7 @@ const DisplayEstimationPrice = (props) => {
                       state.resultatEstimation.mainValuation.confidence_min
                     )
                   ) + " €"
-                : null
+                : "100000 €"
             }
           />
         </div>
@@ -42,7 +42,7 @@ const DisplayEstimationPrice = (props) => {
                       state.resultatEstimation.mainValuation.predicted_price
                     )
                   ) + " €"
-                : null
+                : "100000 €"
             }
           />
         </div>
@@ -58,7 +58,7 @@ const DisplayEstimationPrice = (props) => {
                       state.resultatEstimation.mainValuation.confidence_max
                     )
                   ) + " €"
-                : null
+                : "100000 €"
             }
           />
         </div>
@@ -69,7 +69,7 @@ const DisplayEstimationPrice = (props) => {
           removeDecimals(
             state.resultatEstimation !== null
               ? state.resultatEstimation.mainValuation.price_m2
-              : 0
+              : "100000 €"
           )
         )}
         /m2
