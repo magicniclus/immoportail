@@ -1,5 +1,9 @@
 const initState = {
   loader: false,
+  modal: {
+    message: null,
+    show: false,
+  },
   userInformations: {
     firstName: null,
     lastName: null,
@@ -280,6 +284,16 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         id: action.payload,
+      };
+
+    case "updateModal":
+      return {
+        ...state,
+        modal: {
+          ...state.modal,
+          message: action.payload.message,
+          show: action.payload.show,
+        },
       };
 
     default:
