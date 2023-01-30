@@ -8,7 +8,7 @@ const LayoutStep = (props) => {
   const indication = props.indication || null;
   return (
     <div className="w-full mb-8 flex flex-col">
-      <TitleSecondary text={title} color="purple" />
+      <TitleSecondary text={title} color="purple" marginY="font-light" />
       <Text
         textSize="bigLight"
         color="purple"
