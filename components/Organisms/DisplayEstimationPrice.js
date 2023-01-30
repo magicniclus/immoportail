@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { removeDecimals } from "../../lib/utils/func";
+import { formatNumber, removeDecimals } from "../../lib/utils/func";
 import Text from "../Atoms/texts/Text";
 
 const DisplayEstimationPrice = (props) => {
@@ -17,8 +17,10 @@ const DisplayEstimationPrice = (props) => {
             color="purple"
             children={
               state.resultatEstimation.mainValuation.confidence_min
-                ? removeDecimals(
-                    state.resultatEstimation.mainValuation.confidence_min
+                ? formatNumber(
+                    removeDecimals(
+                      state.resultatEstimation.mainValuation.confidence_min
+                    )
                   ) + " €"
                 : null
             }
@@ -35,8 +37,10 @@ const DisplayEstimationPrice = (props) => {
             color="purple"
             children={
               state.resultatEstimation.mainValuation.predicted_price
-                ? removeDecimals(
-                    state.resultatEstimation.mainValuation.predicted_price
+                ? formatNumber(
+                    removeDecimals(
+                      state.resultatEstimation.mainValuation.predicted_price
+                    )
                   ) + " €"
                 : null
             }
@@ -49,8 +53,10 @@ const DisplayEstimationPrice = (props) => {
             color="purple"
             children={
               state.resultatEstimation.mainValuation.confidence_max
-                ? removeDecimals(
-                    state.resultatEstimation.mainValuation.confidence_max
+                ? formatNumber(
+                    removeDecimals(
+                      state.resultatEstimation.mainValuation.confidence_max
+                    )
                   ) + " €"
                 : null
             }
@@ -58,7 +64,10 @@ const DisplayEstimationPrice = (props) => {
         </div>
       </div>
       <div className="text-purple mt-2">
-        Soit {removeDecimals(state.resultatEstimation.mainValuation.price_m2)}
+        Soit{" "}
+        {formatNumber(
+          removeDecimals(state.resultatEstimation.mainValuation.price_m2)
+        )}
         /m2
       </div>
     </div>
