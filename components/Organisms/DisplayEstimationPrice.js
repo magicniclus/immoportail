@@ -16,7 +16,7 @@ const DisplayEstimationPrice = (props) => {
             textSize="bigSubTitle"
             color="purple"
             children={
-              state.resultatEstimation.mainValuation.confidence_min
+              state.resultatEstimation !== null
                 ? formatNumber(
                     removeDecimals(
                       state.resultatEstimation.mainValuation.confidence_min
@@ -36,7 +36,7 @@ const DisplayEstimationPrice = (props) => {
             textSize="bigTitle"
             color="purple"
             children={
-              state.resultatEstimation.mainValuation.predicted_price
+              state.resultatEstimation !== null
                 ? formatNumber(
                     removeDecimals(
                       state.resultatEstimation.mainValuation.predicted_price
@@ -52,7 +52,7 @@ const DisplayEstimationPrice = (props) => {
             textSize="bigSubTitle"
             color="purple"
             children={
-              state.resultatEstimation.mainValuation.confidence_max
+              state.resultatEstimation !== null
                 ? formatNumber(
                     removeDecimals(
                       state.resultatEstimation.mainValuation.confidence_max
@@ -66,7 +66,11 @@ const DisplayEstimationPrice = (props) => {
       <div className="text-purple mt-2">
         Soit{" "}
         {formatNumber(
-          removeDecimals(state.resultatEstimation.mainValuation.price_m2)
+          removeDecimals(
+            state.resultatEstimation !== null
+              ? state.resultatEstimation.mainValuation.price_m2
+              : 0
+          )
         )}
         /m2
       </div>
