@@ -4,12 +4,14 @@ import TitlePrimary from "../../../components/Atoms/titles/TitlePrimary";
 import Text from "../../../components/Atoms/texts/Text";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateStepOfProjectProgress } from "../../../redux/action";
 
 const index = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+
+  const state = useSelector((state) => state);
 
   const [elementOne, setElementOne] = useState(false);
   const [elementTwo, setElementTwo] = useState(false);
@@ -17,6 +19,12 @@ const index = () => {
 
   useEffect(() => {
     dispatch(updateStepOfProjectProgress("analyse"));
+  }, []);
+
+  useEffect(() => {
+    if (state.estimationElements.accommodation === null) {
+      router.push("/estimation-immobiliere");
+    }
   }, []);
 
   useEffect(() => {
