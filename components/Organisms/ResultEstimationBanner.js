@@ -5,6 +5,7 @@ import TitlePrimary from "../Atoms/titles/TitlePrimary";
 import TitleWithLogo from "../Atoms/titles/TitleWithLogo";
 import DisplayEstimationPrice from "./DisplayEstimationPrice";
 import ConfidenceIndex from "../Molecules/ConfidenceIndex";
+import { toTitleCase } from "../../lib/utils/func";
 
 const ResultEstimationBanner = () => {
   const state = useSelector((state) => state);
