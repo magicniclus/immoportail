@@ -19,7 +19,7 @@ export const UnsubscribeForm = () => {
   const [phone, setPhone] = useState(null);
   const [mail, setMail] = useState(null);
 
-  const id = createId; //TODO: à tester
+  const id = createId;
 
   const handleSubmit = (e) => {
     e.preventDefault();
