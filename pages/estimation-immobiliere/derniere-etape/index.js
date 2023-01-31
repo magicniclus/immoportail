@@ -78,7 +78,11 @@ const index = () => {
     <LayoutEstimation>
       <div className="flex  min-h-[calc(100vh-7rem)]">
         <div className=" min-h-[calc(100vh-7rem)] 2xl:hidden w-3/6 relative md:flex hidden">
-          <Image src="/houses/family.jpg" layout="fill" objectFit="cover" />
+          <Image
+            src="/tests/moked/familly.jpeg"
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
         <Inscription />
       </div>
