@@ -107,7 +107,7 @@ const Inscription = (props) => {
       <Text
         color="purple"
         textSize="litleText"
-        children="En validant ce formulaire vous avez directement accès à votre estimation et vous acceptez d’être recontacter dans le cadre de votre projet par un de nos conseillers partenaire."
+        children="En soumettant ce formulaire, vous obtenez immédiatement accès à votre estimation et acceptez d'être contacté pour votre projet par l'un de nos conseillers partenaires."
       />
     </form>
   );
