@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import LayoutEstimation from "../../../components/Layout/LayoutEstimation";
 import Inscription from "../../../components/Molecules/form/Inscription";
+import { createId } from "../../../lib/utils/func";
 import {
   handleLoader,
   updateId,
@@ -13,8 +14,6 @@ import { setUserDoc } from "../../api/firebase/Doc";
 
 const index = () => {
   const router = useRouter();
-
-  const [loader, setLoader] = useState(false);
 
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
@@ -31,7 +30,7 @@ const index = () => {
   }, []);
 
   const allEstimaitonInformations = {
-    id: Date.now().toString(),
+    id: createId, //TODO: à tester
     data: {
       date: date.toLocaleDateString("fr-FR"),
       heure: date.toLocaleTimeString("fr-FR"),
@@ -59,7 +58,7 @@ const index = () => {
 
   const udateEstimationInformationInReducer = () => {
     setUserDoc(allEstimaitonInformations)
-      .then((success) => {
+      .then(() => {
         dispatch(updateId(allEstimaitonInformations.id));
         router.push("/estimation-immobiliere/resultat");
       })
