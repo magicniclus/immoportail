@@ -16,6 +16,19 @@ export const setUserDoc = (object) => {
   });
 };
 
+export const setContactUserDoc = (object) => {
+  return new Promise((resolve, reject) => {
+    setDoc(doc(dataBase, "contact", object.id), object)
+      .then((value) => {
+        console.log(value);
+        resolve(true);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
 export const setUnsubcribeUserDoc = (object) => {
   return new Promise((resolve, reject) => {
     setDoc(doc(dataBase, "unsubscribe", object.id), object)
