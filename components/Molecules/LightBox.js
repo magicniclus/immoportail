@@ -26,7 +26,7 @@ const LightBox = (props) => {
       <div className="relative w-full h-full animate-[wiggle_1s_ease-in-out]">
         <Image
           priority
-          src={"/lightbox/" + image[whatPointIsActive] + ".jpg"}
+          src={"/tests/moked/" + image[whatPointIsActive] + ".jpeg"}
           layout="fill"
           objectFit="cover"
           alt={image[whatPointIsActive]}
