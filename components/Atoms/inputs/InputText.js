@@ -9,8 +9,6 @@ const inputText = (props) => {
   const mail = props.mail || null;
 
   const [value, setValue] = useState("");
-
-  const valueCallback = props.valueCallback;
   const callback = props.callback;
 
   useEffect(() => {
