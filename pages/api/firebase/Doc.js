@@ -4,9 +4,34 @@ import { collection, doc, setDoc, updateDoc } from "firebase/firestore";
 const dataBaseMaPrimeRenov = collection(dataBase, "estimation");
 
 export const setUserDoc = (object) => {
-  console.log(object.id);
   return new Promise((resolve, reject) => {
     setDoc(doc(dataBase, "estimation", object.id), object)
+      .then((value) => {
+        console.log(value);
+        resolve(true);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+export const setUnsubcribeUserDoc = (object) => {
+  return new Promise((resolve, reject) => {
+    setDoc(doc(dataBase, "unsubscribe", object.id), object)
+      .then((value) => {
+        console.log(value);
+        resolve(true);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+export const setNewsLettersUserDoc = (object) => {
+  return new Promise((resolve, reject) => {
+    setDoc(doc(dataBase, "newsLetters", object.id), object)
       .then((value) => {
         console.log(value);
         resolve(true);
