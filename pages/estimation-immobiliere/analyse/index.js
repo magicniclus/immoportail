@@ -111,7 +111,7 @@ const index = () => {
                 marginX="ml-5"
                 textSize="normalLight"
                 color="purple"
-                children="Validation de l’empacement de votre bien "
+                children="Validation de l’emplacement de votre bien "
               />
             </div>
             <div
@@ -134,7 +134,7 @@ const index = () => {
                 marginX="ml-5"
                 textSize="normalLight"
                 color="purple"
-                children="Calcule de votre estimation"
+                children="Calcul de votre estimation"
               />
             </div>
           </div>
