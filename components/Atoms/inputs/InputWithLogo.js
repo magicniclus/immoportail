@@ -54,7 +54,6 @@ const InputWithLogo = (props) => {
             src={image}
             height={15}
             width={15}
-            property
             objectFit="contain"
             objectPosition="right"
             alt="icon"
