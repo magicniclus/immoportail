@@ -8,8 +8,6 @@ import Layout from "../components/Layout/Layout";
 import ContactModal from "../components/Organisms/ContactModal";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateAddress, updateAddressCoordinate } from "../redux/action";
-import { PromptInChatGPT } from "../lib/chatGPT/Prompt";
 
 export default function Home() {
   const [disabled, setDisabled] = useState(true);
