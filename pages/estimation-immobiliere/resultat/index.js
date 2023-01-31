@@ -18,11 +18,11 @@ const index = () => {
     dispatch(updateStepOfProjectProgress("resultat"));
   }, []);
 
-  // useEffect(() => {
-  //   if (state.estimationElements.accommodation === null) {
-  //     router.push("/estimation-immobiliere");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (state.estimationElements.accommodation === null) {
+      router.push("/estimation-immobiliere");
+    }
+  }, []);
 
   const updateDate = (id, newData) => {
     addDataToUserDoc(id, newData)
