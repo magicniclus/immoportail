@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AdressForm from "../../Molecules/form/AdressForm";
 
 const InputWithLogo = (props) => {
@@ -9,6 +9,19 @@ const InputWithLogo = (props) => {
   const color = props.color;
   const componentIsForAdress = props.componentIsForAdress;
   const width = props.width;
+
+  const [value, setValue] = useState("");
+
+  const valueCallback = props.valueCallback;
+  const callback = props.callback;
+
+  useEffect(() => {
+    if (callback) {
+      if (value !== "") {
+        callback(value);
+      } else callback(null);
+    }
+  }, [value]);
 
   return (
     <div className={"relative sm:w-full h-12 max-w-[450px] " + marginY}>
@@ -24,6 +37,8 @@ const InputWithLogo = (props) => {
           }
           type="text"
           placeholder={placeholder}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         />
       )}
       <div
