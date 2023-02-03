@@ -30,7 +30,7 @@ const index = () => {
   }, []);
 
   const allEstimaitonInformations = {
-    id: createId, //TODO: à tester
+    id: createId,
     data: {
       date: date.toLocaleDateString("fr-FR"),
       heure: date.toLocaleTimeString("fr-FR"),
@@ -77,12 +77,8 @@ const index = () => {
   return (
     <LayoutEstimation>
       <div className="flex  min-h-[calc(100vh-7rem)]">
-        <div className=" min-h-[calc(100vh-7rem)] 2xl:hidden w-3/6 relative md:flex hidden">
-          <Image
-            src="/tests/moked/familly.jpeg"
-            layout="fill"
-            objectFit="cover"
-          />
+        <div className=" min-h-[calc(100vh-7rem)] 4xl:hidden w-3/6 relative md:flex hidden">
+          <Image src="/buying/familly.jpg" layout="fill" objectFit="cover" />
         </div>
         <Inscription />
       </div>
