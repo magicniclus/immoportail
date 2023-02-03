@@ -15,7 +15,7 @@ const QualityBanner = () => {
           image="Vectoruserpurple"
           title="Un unique"
           titleWithColor="conseiller"
-          text="Un conseiller partenaire dédiés est spécialisée dans le secteur de l'immobilier pour vous offrir une expertise inégalée. Bénéficiez d'une estimation personnalisée en prenant rendez-vous avec l'un de nos conseillers spécialisés."
+          text="Un conseiller partenaire dédié est spécialisé dans le secteur de l'immobilier pour vous offrir une expertise inégalée. Bénéficiez d'une estimation personnalisée en prenant rendez-vous avec l'un de nos conseillers spécialisés."
         />
         <SetOfQuality
           image="Vectorsafe"
