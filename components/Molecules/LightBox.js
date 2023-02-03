@@ -4,7 +4,7 @@ import Point from "../Atoms/others/Point";
 
 const LightBox = (props) => {
   const [whatPointIsActive, setWhatPointIsActive] = useState(0);
-  const image = ["six", "two", "three", "four", "five"];
+  const image = ["one", "three", "two", "four", "five"];
   const [lightboxIsActive, setLiveboxIsActive] = useState(true);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const LightBox = (props) => {
       <div className="relative w-full h-full animate-[wiggle_1s_ease-in-out]">
         <Image
           priority
-          src={"/tests/moked/" + image[whatPointIsActive] + ".jpeg"}
+          src={"/buying/" + image[whatPointIsActive] + ".jpg"}
           layout="fill"
           objectFit="cover"
           alt={image[whatPointIsActive]}
