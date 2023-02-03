@@ -6,6 +6,7 @@ import Text from "../../Atoms/texts/Text";
 import { updateLevel } from "../../../redux/action";
 
 const Level = () => {
+  //TODO: Faire commencer le nombre par un quand c'est une maison
   const state = useSelector((state) => state.estimationElements.accommodation);
   const dispatch = useDispatch();
   const [title, setTitle] = useState("Étage");
