@@ -70,7 +70,7 @@ const Profil = (props) => {
       </div>
       <div className="mt-5 mb-3">
         <Text
-          children={`Quand souahitez-vous vendre ce ${type} ?`}
+          children={`Quand souhaitez-vous vendre ce ${type} ?`}
           color="purple"
           textSize="bigLight"
         />
