@@ -31,4 +31,4 @@ const InputText = (props) => {
   );
 };
 
-export default inputText;
+export default InputText;
