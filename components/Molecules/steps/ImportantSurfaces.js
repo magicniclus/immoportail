@@ -28,7 +28,7 @@ const ImportantSurfaces = () => {
 
   return (
     <LayoutStep
-      title="Quels est la surface de votre séjour et de votre bâti ?*"
+      title="Quels est la surface de votre séjour et de votre terrain ?*"
       indication="En m²"
     >
       <div className="">
@@ -49,7 +49,7 @@ const ImportantSurfaces = () => {
       <div className="mt-5">
         <div className="mb-2">
           <Text
-            children={`Quelle est la surface de votre terrain (bâti de votre ${type} inclus) ?`}
+            children={`Quelle est la surface de votre terrain ?`}
             color="purple"
             textSize="bigLight"
           />
