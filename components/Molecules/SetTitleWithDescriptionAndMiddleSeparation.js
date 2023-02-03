@@ -17,15 +17,15 @@ const SetTitleWithDescriptionAndMiddleSeparation = (props) => {
       />
       <SeparationLign color={colorSeparation} marginY="my-4" />
       <Text textSize="normal" color="purple">
-        La localisation joue un rôle primordial dans l'évaluation de la valeur
-        d'un bien immobilier. Que ce soit dans une rue paisible à l'extérieur du
-        centre-ville, en campagne ou dans un endroit animé avec plus de passage,
-        la localisation peut fortement influencer le prix.
+        La localisation joue un rôle primordial dans l&apos;évaluation de la
+        valeur d&apos;un bien immobilier. Que ce soit dans une rue paisible à
+        l&apos;extérieur du centre-ville, en campagne ou dans un endroit animé
+        avec plus de passage, la localisation peut fortement influencer le prix.
         <br />
-        <br /> C'est pourquoi nous recommandons à tout propriétaire ayant
-        l'intention de vendre de prendre rendez-vous avec l'un de nos
+        <br /> C&apos;est pourquoi nous recommandons à tout propriétaire ayant
+        l&apos;intention de vendre de prendre rendez-vous avec l&apos;un de nos
         conseillers immobiliers spécialisés pour évaluer, affiner et conseiller
-        sur leur projet de vente afin d'obtenir les estimations les plus
+        sur leur projet de vente afin d&apos;obtenir les estimations les plus
         précises possible.
       </Text>
     </div>

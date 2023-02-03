@@ -27,11 +27,11 @@ const ContactBottomStepContainer = () => {
         <Image src="/femme.jpg" alt="femme" layout="fill" objectFit="cover" />
       </div>
       <div className="w-5/6">
-        <Text
-          children="Pour affiner ce résultat et vous accompagner dans votre projet, vous allez être appeler pas Nicolas dans les 24/48h. Pour le contacter votre conseiller: "
-          color="purple"
-          textSize="bigLight"
-        />
+        <Text color="purple" textSize="bigLight">
+          Pour affiner ce résultat et vous accompagner dans votre projet, vous
+          allez être appeler pas Nicolas dans les 24/48h. Pour le contacter
+          votre conseiller:
+        </Text>
         <PhoneWithLogo phoneNumber="+33631420045" />
       </div>
     </div>

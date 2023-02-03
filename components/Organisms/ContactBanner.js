@@ -12,7 +12,7 @@ const ContactBanner = () => {
         updateWeight="font-light"
       />
       <Text marginX="mt-5" color="purple" textSize="litleText">
-        Suivant l'objet de la demande, un conseiller ou un operateur vous
+        Suivant l&apos;objet de la demande, un conseiller ou un operateur vous
         recontactera sous 24/48h.
       </Text>
       <ContactForm />

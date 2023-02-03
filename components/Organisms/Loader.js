@@ -13,12 +13,9 @@ const Loader = () => {
           src="/vector/spinnerPurple.png"
         />
       </div>
-      <Text
-        children="Chargement..."
-        color="purple"
-        textSize="big"
-        marginX="mt-10"
-      />
+      <Text color="purple" textSize="big" marginX="mt-10">
+        Chargement...
+      </Text>
     </div>
   );
 };

@@ -51,12 +51,9 @@ const CheckWithImage = (props) => {
         width={imageSize.width}
         height={imageSize.height}
       />
-      <Text
-        children={text}
-        color="purple"
-        textSize="titleCard"
-        center="text-center"
-      />
+      <Text color="purple" textSize="titleCard" center="text-center">
+        {text}
+      </Text>
     </div>
   );
 };

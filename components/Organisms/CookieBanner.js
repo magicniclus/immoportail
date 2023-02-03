@@ -54,7 +54,7 @@ export const CookieBanner = () => {
       </p>
       <div className="mt-5">
         <button className="text-blue font-semibold mr-5" onClick={handleAccept}>
-          J'accepte
+          J&apos;accepte
         </button>
         <button className="text-gray-100 font-light" onClick={handleReject}>
           Je refuse

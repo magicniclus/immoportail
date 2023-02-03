@@ -9,7 +9,7 @@ import ResultEstimationBanner from "../../../components/Organisms/ResultEstimati
 import HowToStandOutBanner from "../../../components/Organisms/HowToStandOutBanner";
 import { updateStepOfProjectProgress } from "../../../redux/action";
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
@@ -57,4 +57,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

@@ -16,12 +16,9 @@ const HowToStandOutBanner = () => {
             updateWeight="mb-5 font-light"
           />
           <div className="">
-            <Text
-              color="white"
-              textSize="normal"
-              children="Bénéficiez de notre expertise pour votre projet de vente."
-              marginX="mb-7 xl:mb-0"
-            />
+            <Text color="white" textSize="normal" marginX="mb-7 xl:mb-0">
+              Bénéficiez de notre expertise pour votre projet de vente.
+            </Text>
           </div>
         </div>
         <div className="flex flex-col xl:flex-row w-full xl:w-4/6 justify-between">

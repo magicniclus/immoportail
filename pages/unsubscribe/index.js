@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../components/Layout/Layout";
 import UnsubscribeBanner from "../../components/Organisms/UnsubscribeBanner";
 
-const index = () => {
+const Index = () => {
   //TODO : Create the page
   return (
     <Layout>
@@ -11,4 +11,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

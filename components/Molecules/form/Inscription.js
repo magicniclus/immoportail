@@ -40,8 +40,6 @@ const Inscription = (props) => {
       setDisabled(false);
     else setDisabled(true);
   }, [firstName, lastName, phone, mail]);
-
-  // TODO: ajouter le lien pour annuler le stockage des données dans la politique de confidentialité
   return (
     <form
       className="mx-auto w-10/12 sm:w-4/6 md:w-2/6 flex flex-col py-10 md:py-10 my-auto max-w-[450px]"
@@ -52,12 +50,9 @@ const Inscription = (props) => {
         color="purple"
         updateWeight="font-extralight"
       />
-      <Text
-        children="Vous aurez ensuite accès à votre estimation dans votre espace."
-        color="purple"
-        textSize="normal"
-        marginX={`mt-3 hidden md:flex`}
-      />
+      <Text color="purple" textSize="normal" marginX={`mt-3 hidden md:flex`}>
+        Vous aurez ensuite accès à votre estimation dans votre espace.
+      </Text>
       <div className="flex flex-col mb-3 mt-3">
         <Label text="Nom" nessessary={true} className="text-sm font-light" />
         <InputText
@@ -105,11 +100,11 @@ const Inscription = (props) => {
         updateClass="mb-5"
         type="submit"
       />
-      <Text
-        color="purple"
-        textSize="litleText"
-        children="En soumettant ce formulaire, vous obtenez immédiatement accès à votre estimation et acceptez d'être contacté pour votre projet par l'un de nos conseillers partenaires."
-      />
+      <Text color="purple" textSize="litleText">
+        En soumettant ce formulaire, vous obtenez immédiatement accès à votre
+        estimation et acceptez d&apos;être contacté pour votre projet par
+        l&apos;un de nos conseillers partenaires.
+      </Text>
     </form>
   );
 };

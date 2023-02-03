@@ -1,9 +1,9 @@
 import React from "react";
 
-const index = () => {
+const Index = () => {
   //todo : Create the page
   return <div></div>;
 };
 
-export default index;
+export default Index;
 //t

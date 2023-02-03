@@ -49,7 +49,7 @@ const MultitCardsContainer = () => {
 
   const refs = Array(array.length)
     .fill()
-    .map(() => useRef());
+    .map(() => React.createRef());
 
   const handleRef = (idx) => {
     setTimeout(() => {

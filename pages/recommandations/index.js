@@ -3,7 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import TitlePrimary from "../../components/Atoms/titles/TitlePrimary";
 import { useRouter } from "next/router";
 
-const index = () => {
+const Index = () => {
   const route = useRouter();
   useEffect(() => {
     route.push("/connexion");
@@ -16,4 +16,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

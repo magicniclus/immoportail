@@ -33,11 +33,9 @@ const ImportantSurfaces = () => {
     >
       <div className="">
         <div className="mb-2">
-          <Text
-            children="Quelle est la surface de votre séjour ?"
-            color="purple"
-            textSize="bigLight"
-          />
+          <Text color="purple" textSize="bigLight">
+            Quelle est la surface de votre séjour ?
+          </Text>
         </div>
         <Input
           placeholder="Exemple: 100"
@@ -48,11 +46,9 @@ const ImportantSurfaces = () => {
       </div>
       <div className="mt-5">
         <div className="mb-2">
-          <Text
-            children={`Quelle est la surface de votre terrain ?`}
-            color="purple"
-            textSize="bigLight"
-          />
+          <Text color="purple" textSize="bigLight">
+            Quelle est la surface de votre terrain ?
+          </Text>
         </div>
         <Input
           placeholder="Exemple: 370"

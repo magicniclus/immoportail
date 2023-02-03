@@ -71,11 +71,9 @@ const Standing = (props) => {
         </div>
       </div>
       <div className="mb-2">
-        <Text
-          children={`Votre ${type} est dans un secteur ?`}
-          color="purple"
-          textSize="bigLight"
-        />
+        <Text color="purple" textSize="bigLight">
+          Votre {type} est dans un secteur ?
+        </Text>
       </div>
       <div className="flex">
         <Check

@@ -106,7 +106,7 @@ const GetProjectProgress = () => {
   return (
     <div className="h-full min-h-max w-10/12 my-5 flex flex-col justify-between flex-nowrap">
       {stepName.map((item, idx) => (
-        <div className="flex w-full">
+        <div key={idx} className="flex w-full">
           <div
             className={`h-full flex justify-center mb-3 items-center relative z-0 ${updateBefore(
               idx,

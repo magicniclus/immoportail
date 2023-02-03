@@ -20,18 +20,12 @@ const ConfidenceIndex = () => {
         </div>
       </div>
       <div className="flex items-center">
-        <Text
-          color="purple"
-          textSize="bigLight"
-          children="Indice de confiance:"
-          marginX="w-fit ml-2"
-        />
-        <Text
-          color="purple"
-          textSize="big"
-          children="74%"
-          marginX="font-bold ml-2"
-        />
+        <Text color="purple" textSize="bigLight" marginX="w-fit ml-2">
+          Indice de confiance:
+        </Text>
+        <Text color="purple" textSize="big" marginX="font-bold ml-2">
+          74%
+        </Text>
       </div>
     </div>
   );

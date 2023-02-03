@@ -46,11 +46,10 @@ const Exposure = () => {
   return (
     <LayoutStep title="Exposition/vue ?* ">
       <div className="mb-2">
-        <Text
-          children={`Quelle est l'exposition de votre ${type} (Plusieurs choix possibles) ?`}
-          color="purple"
-          textSize="bigLight"
-        />
+        <Text color="purple" textSize="bigLight">
+          Quelle est l&apos;exposition de votre {type} (Plusieurs choix
+          possibles) ?
+        </Text>
       </div>
       <div className="flex flex-col">
         <div className="flex">
@@ -73,11 +72,9 @@ const Exposure = () => {
         </div>
       </div>
       <div className="mt-5 mb-2">
-        <Text
-          children="Quelle est la vue de votre maison ?"
-          color="purple"
-          textSize="bigLight"
-        />
+        <Text color="purple" textSize="bigLight">
+          Quelle est la vue de votre maison ?
+        </Text>
       </div>
       <div className="flex">
         <SelectValue

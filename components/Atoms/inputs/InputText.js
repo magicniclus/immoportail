@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-const inputText = (props) => {
+const InputText = (props) => {
   const placeholder = props.placeholder;
   const color = props.color;
   const type = props.type;

@@ -23,7 +23,9 @@ const Vignette = (props) => {
         />
       </div>
       <div className="h-32 w-full xl:w-44 p-3">
-        <Text children={text} color="purple" textSize="titleCard" />
+        <Text color="purple" textSize="titleCard">
+          {text}
+        </Text>
       </div>
     </div>
   );

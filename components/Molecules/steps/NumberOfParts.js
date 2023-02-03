@@ -31,17 +31,17 @@ const NumberOfParts = () => {
     <LayoutStep title={`Combien de pièce comporte votre ${type} ?*`}>
       <div className="">
         <div className="mb-2">
-          <Text children="Nombre de pièce" color="purple" textSize="bigLight" />
+          <Text color="purple" textSize="bigLight">
+            Nombre de pièce
+          </Text>
         </div>
         <SelectNumber callback={setValueParts} callbackValue={valueParts} />
       </div>
       <div className="mt-5">
         <div className="mb-2">
-          <Text
-            children="Nombre de chambre"
-            color="purple"
-            textSize="bigLight"
-          />
+          <Text color="purple" textSize="bigLight">
+            Nombre de chambre
+          </Text>
         </div>
         <SelectNumber callback={setValueRooms} callbackValue={valueRooms} />
       </div>

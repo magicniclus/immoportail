@@ -63,11 +63,9 @@ const OutdoorSpace = () => {
     >
       <div className="">
         <div className="mb-2">
-          <Text
-            children={`Votre ${type} à t'il ?`}
-            color="purple"
-            textSize="bigLight"
-          />
+          <Text color="purple" textSize="bigLight">
+            Votre {type} à t&apos;il ?
+          </Text>
         </div>
         <div className="flex">
           <Check
@@ -93,12 +91,9 @@ const OutdoorSpace = () => {
         </div>
         <div className="flex flex-col mt-5">
           <div className="mb-5">
-            <Text
-              children="Parking"
-              color="purple"
-              textSize="bigLight"
-              marginX="mb-2"
-            />
+            <Text color="purple" textSize="bigLight" marginX="mb-2">
+              Parking
+            </Text>
             <SelectValue
               option={number}
               callback={setParking}
@@ -106,12 +101,9 @@ const OutdoorSpace = () => {
             />
           </div>
           <div className="mb-5">
-            <Text
-              children="Garage/Box"
-              color="purple"
-              textSize="bigLight"
-              marginX="mb-2"
-            />
+            <Text color="purple" textSize="bigLight" marginX="mb-2">
+              Garage/Box
+            </Text>
             <SelectValue
               option={number}
               callback={setBox}
@@ -119,12 +111,9 @@ const OutdoorSpace = () => {
             />
           </div>
           <div className="">
-            <Text
-              children="Terrasse/Balcon"
-              color="purple"
-              textSize="bigLight"
-              marginX="mb-2"
-            />
+            <Text color="purple" textSize="bigLight" marginX="mb-2">
+              Terrasse/Balcon
+            </Text>
             <SelectValue
               option={number}
               callback={setBalcon}

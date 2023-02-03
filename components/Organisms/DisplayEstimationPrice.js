@@ -11,56 +11,46 @@ const DisplayEstimationPrice = (props) => {
     <div className={`flex flex-col items-center ${updateStyle}`}>
       <div className="flex md:items-end md:flex-row flex-col">
         <div className=" flex flex-col items-center">
-          <Text textSize="titleCard" color="purple" children="Prix bas" />
-          <Text
-            textSize="bigSubTitle"
-            color="purple"
-            children={
-              state.resultatEstimation !== null
-                ? formatNumber(
-                    removeDecimals(
-                      state.resultatEstimation.mainValuation.confidence_min
-                    )
-                  ) + " €"
-                : "100000 €"
-            }
-          />
+          <Text textSize="titleCard" color="purple">
+            Prix bas
+          </Text>
+          <Text textSize="bigSubTitle" color="purple">
+            {state.resultatEstimation !== null
+              ? formatNumber(
+                  removeDecimals(
+                    state.resultatEstimation.mainValuation.confidence_min
+                  )
+                ) + " €"
+              : "100000 €"}
+          </Text>
         </div>
         <div className="md:mx-28 md:my-0 my-5 flex flex-col items-center">
-          <Text
-            textSize="titleCard"
-            color="purple"
-            children="Prix net vendeur"
-          />
-          <Text
-            textSize="bigTitle"
-            color="purple"
-            children={
-              state.resultatEstimation !== null
-                ? formatNumber(
-                    removeDecimals(
-                      state.resultatEstimation.mainValuation.predicted_price
-                    )
-                  ) + " €"
-                : "100000 €"
-            }
-          />
+          <Text textSize="titleCard" color="purple">
+            Prix net vendeur
+          </Text>
+          <Text textSize="bigTitle" color="purple">
+            {state.resultatEstimation !== null
+              ? formatNumber(
+                  removeDecimals(
+                    state.resultatEstimation.mainValuation.predicted_price
+                  )
+                ) + " €"
+              : "100000 €"}
+          </Text>
         </div>
         <div className=" flex flex-col items-center">
-          <Text textSize="titleCard" color="purple" children="Prix haut" />
-          <Text
-            textSize="bigSubTitle"
-            color="purple"
-            children={
-              state.resultatEstimation !== null
-                ? formatNumber(
-                    removeDecimals(
-                      state.resultatEstimation.mainValuation.confidence_max
-                    )
-                  ) + " €"
-                : "100000 €"
-            }
-          />
+          <Text textSize="titleCard" color="purple">
+            Prix haut
+          </Text>
+          <Text textSize="bigSubTitle" color="purple">
+            {state.resultatEstimation !== null
+              ? formatNumber(
+                  removeDecimals(
+                    state.resultatEstimation.mainValuation.confidence_max
+                  )
+                ) + " €"
+              : "100000 €"}
+          </Text>
         </div>
       </div>
       <div className="text-purple mt-2">

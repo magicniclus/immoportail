@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { updateStepOfProjectProgress } from "../../../redux/action";
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -61,11 +61,9 @@ const index = () => {
               updateWidth="6/6"
               updateWeight="font-light"
             />
-            <Text
-              textSize="titleCard"
-              color="purple"
-              children="Veuillez patienter, nous calculons votre estimation..."
-            />
+            <Text textSize="titleCard" color="purple">
+              Veuillez patienter, nous calculons votre estimation...
+            </Text>
           </div>
         </div>
         <div className="flex mt-10  w-12/12">
@@ -84,12 +82,9 @@ const index = () => {
                   layout="fill"
                 />
               </div>
-              <Text
-                marginX="ml-5"
-                textSize="normalLight"
-                color="purple"
-                children="Validation des caractéristiques de votre bien"
-              />
+              <Text marginX="ml-5" textSize="normalLight" color="purple">
+                Validation des caractéristiques de votre bien
+              </Text>
             </div>
             <div
               className={`flex mt-7 ${
@@ -107,12 +102,9 @@ const index = () => {
                   layout="fill"
                 />
               </div>
-              <Text
-                marginX="ml-5"
-                textSize="normalLight"
-                color="purple"
-                children="Validation de l’emplacement de votre bien "
-              />
+              <Text marginX="ml-5" textSize="normalLight" color="purple">
+                Validation de l’emplacement de votre bien
+              </Text>
             </div>
             <div
               className={`flex mt-7 ${
@@ -130,12 +122,9 @@ const index = () => {
                   layout="fill"
                 />
               </div>
-              <Text
-                marginX="ml-5"
-                textSize="normalLight"
-                color="purple"
-                children="Calcul de votre estimation"
-              />
+              <Text marginX="ml-5" textSize="normalLight" color="purple">
+                Calcul de votre estimation
+              </Text>
             </div>
           </div>
         </div>
@@ -144,4 +133,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

@@ -48,7 +48,9 @@ const Level = () => {
   return (
     <LayoutStep title={title + "*"}>
       <div className="mb-2">
-        <Text children={text} color="purple" textSize="bigLight" />
+        <Text color="purple" textSize="bigLight">
+          {text}
+        </Text>
       </div>
       <SelectNumber callback={setValueLevel} callbackValue={valueLevel} />
     </LayoutStep>

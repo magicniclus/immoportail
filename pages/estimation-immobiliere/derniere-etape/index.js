@@ -12,7 +12,7 @@ import {
 } from "../../../redux/action";
 import { setUserDoc } from "../../api/firebase/Doc";
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
 
   const dispatch = useDispatch();
@@ -86,4 +86,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

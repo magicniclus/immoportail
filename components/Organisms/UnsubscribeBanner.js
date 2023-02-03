@@ -13,10 +13,10 @@ const UnsubscribeBanner = () => {
       />
       <Text marginX="mt-5" color="purple" textSize="litleText">
         Comme Le sujet de la vie privé est important autant pour nos clients que
-        pour nous, une fois désinscrit, l'ensemble des données vous concernant
-        seront déffinitivement supprimés. Noté que pour que vos données soient
-        supprimés, vous devez saisir les même coordonnées que celles que vous
-        avez utilisé lors de votre inscription.
+        pour nous, une fois désinscrit, l&apos;ensemble des données vous
+        concernant seront déffinitivement supprimés. Noté que pour que vos
+        données soient supprimés, vous devez saisir les même coordonnées que
+        celles que vous avez utilisé lors de votre inscription.
       </Text>
       <UnsubscribeForm />
     </div>

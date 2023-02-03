@@ -2,7 +2,7 @@ import React from "react";
 import Connexion from "../../components/Molecules/form/Connexion";
 import Layout from "../../components/Layout/Layout";
 
-const index = () => {
+const Index = () => {
   return (
     <Layout>
       <Connexion />
@@ -10,4 +10,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

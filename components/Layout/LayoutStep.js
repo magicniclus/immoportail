@@ -9,12 +9,9 @@ const LayoutStep = (props) => {
   return (
     <div className="w-full mb-8 flex flex-col">
       <TitleSecondary text={title} color="purple" marginY="font-light" />
-      <Text
-        textSize="bigLight"
-        color="purple"
-        children={indication}
-        marginX="font-thin"
-      />
+      <Text textSize="bigLight" color="purple" marginX="font-thin">
+        {indication}
+      </Text>
       <SeparationLign color="yellow" marginY="mt-3" />
       <div className="flex mt-5 flex-col">{props.children}</div>
     </div>

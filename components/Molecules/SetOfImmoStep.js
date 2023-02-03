@@ -28,10 +28,10 @@ const SetOfImmoStep = (props) => {
             La première étape dans le processus de vente immobilière consiste à
             déterminer la valeur de votre bien. Cela peut être fait en
             consultant un agent immobilier ou en utilisant des outils en ligne
-            pour évaluer la valeur de votre propriété. L'évaluation de votre
-            bien est importante car cela déterminera le prix que vous pouvez en
-            demander. Une estimation précise peut également vous aider à éviter
-            de sur-estimer ou de sous-estimer votre bien.
+            pour évaluer la valeur de votre propriété. L&apos;évaluation de
+            votre bien est importante car cela déterminera le prix que vous
+            pouvez en demander. Une estimation précise peut également vous aider
+            à éviter de sur-estimer ou de sous-estimer votre bien.
           </Text>
         </div>
         <div className="my-10">
@@ -46,10 +46,10 @@ const SetOfImmoStep = (props) => {
             réparation de tout défaut, la mise en valeur de votre bien en
             améliorant son apparence et en mettant en évidence ses
             caractéristiques les plus attrayantes. Les petits travaux de
-            rénovation peuvent faire une grande différence dans l'attrait de
-            votre bien pour les acheteurs potentiels. La mise en valeur de votre
-            bien peut également aider à maximiser le prix que vous pouvez en
-            obtenir.
+            rénovation peuvent faire une grande différence dans l&apos;attrait
+            de votre bien pour les acheteurs potentiels. La mise en valeur de
+            votre bien peut également aider à maximiser le prix que vous pouvez
+            en obtenir.
           </Text>
         </div>
         <SetOfAdvice

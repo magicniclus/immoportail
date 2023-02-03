@@ -49,11 +49,9 @@ const Profil = (props) => {
   return (
     <LayoutStep title="Quel est votre projet ?*">
       <div className="mb-3">
-        <Text
-          children={`Êtes vous propriétaire de ce ${type} ?`}
-          color="purple"
-          textSize="bigLight"
-        />
+        <Text color="purple" textSize="bigLight">
+          Êtes vous propriétaire de ce {type} ?
+        </Text>
       </div>
       <div className="flex">
         <Check
@@ -69,11 +67,9 @@ const Profil = (props) => {
         />
       </div>
       <div className="mt-5 mb-3">
-        <Text
-          children={`Quand souhaitez-vous vendre ce ${type} ?`}
-          color="purple"
-          textSize="bigLight"
-        />
+        <Text color="purple" textSize="bigLight">
+          Quand souhaitez-vous vendre ce {type} ?
+        </Text>
       </div>
       <SelectValue option={options} callback={setValue} callbackValue={value} />
     </LayoutStep>

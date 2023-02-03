@@ -42,12 +42,9 @@ const Check = (props) => {
           isValid ? afterValidButton : null
         }`}
       ></div>
-      <Text
-        children={title}
-        color="purple"
-        textSize="titleCard"
-        center="text-center"
-      />
+      <Text color="purple" textSize="titleCard" center="text-center">
+        {title}
+      </Text>
     </div>
   );
 };
