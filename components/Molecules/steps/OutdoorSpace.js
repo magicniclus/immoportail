@@ -78,7 +78,7 @@ const OutdoorSpace = () => {
             value={1}
           />
           <Check
-            title="Une dépendence"
+            title="Une dépendance"
             updateStyle={"mr-3 md:mr-10"}
             valueCallback={dependence}
             callback={setDependence}
@@ -107,7 +107,7 @@ const OutdoorSpace = () => {
           </div>
           <div className="mb-5">
             <Text
-              children="Parking/Box"
+              children="Garage/Box"
               color="purple"
               textSize="bigLight"
               marginX="mb-2"
