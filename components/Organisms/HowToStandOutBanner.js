@@ -11,7 +11,7 @@ const HowToStandOutBanner = () => {
         <div className="xl:w-2/6 w-full flex flex-col justify-center mr-10">
           <SubTitle
             text="Comment vous vous démarquer avec"
-            textWithColor="Immoportail ?"
+            textWithColor="ImmoSûr ?"
             color="white"
             updateWeight="mb-5 font-light"
           />
