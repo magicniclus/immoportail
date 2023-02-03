@@ -12,7 +12,7 @@ const SetOfImmoStep = (props) => {
   return (
     <div>
       <TitlePrimary
-        text="Quel sont les étapes "
+        text="Quelles sont les étapes "
         textWithColor="d’un projet immobilier ?"
         color="purple"
       />
