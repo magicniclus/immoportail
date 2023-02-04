@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import LayoutEstimation from "../../components/Layout/LayoutEstimation";
-import BottomStepContainer from "../../components/Organisms/BottomStepContainer";
 import MultitCardsContainer from "../../components/Organisms/MultitCardsContainer";
 import ProjectStepContainer from "../../components/Organisms/ProjectStepContainer";
 import { updateStepOfProjectProgress } from "../../redux/action";
