@@ -73,6 +73,7 @@ const Index = () => {
             >
               <div className="h-6 w-6 relative">
                 <Image
+                  priority
                   src={
                     !elementOne
                       ? "/vector/Ellipse.png"
@@ -93,6 +94,7 @@ const Index = () => {
             >
               <div className="h-6 w-6 relative">
                 <Image
+                  priority
                   src={
                     !elementTwo
                       ? "/vector/Ellipse.png"
@@ -113,6 +115,7 @@ const Index = () => {
             >
               <div className="h-6 w-6 relative">
                 <Image
+                  priority
                   src={
                     !elementThree
                       ? "/vector/Ellipse.png"
