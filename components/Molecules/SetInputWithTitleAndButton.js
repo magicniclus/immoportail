@@ -20,16 +20,25 @@ const SetInputWithTitleAndButton = (props) => {
 
   const router = useRouter();
 
+  const fetchAddressCoordinate = (address) => (dispatch) => {
+    return getCoordinateOfAddress(address)
+      .then((res) => {
+        dispatch(updateAddressCoordinate(res));
+      })
+      .catch((error) => console.log(error));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (state.address !== "" && state.address !== undefined) {
-      getCoordinateOfAddress(state.address)
-        .then((res) => {
-          dispatch(updateAddressCoordinate(res));
-          router.push(`/${"estimation-immobiliere"}`);
-        })
-        .catch((error) => console.log(error));
+      dispatch(fetchAddressCoordinate(state.address)).then(() => {
+        router.push(`/${"estimation-immobiliere"}`);
+      });
     }
+  };
+
+  const dispatchAddress = () => {
+    return new Promise((resolve, reject) => {});
   };
 
   return (
