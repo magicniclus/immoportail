@@ -6,7 +6,7 @@ const Logo = () => {
     <div className="cursor-pointer h-7 relative flex items-center w-40 md:w-56">
       <Image
         priority
-        src="/logos/Immosurlogo.png"
+        src="/AvenueImmologo.png"
         layout="fill"
         objectFit="contain"
         objectPosition="left"
