@@ -69,9 +69,14 @@ const Footer = () => {
                 Politique de confidentialité
               </Link>
             </li>
+            <li className="mb-3 text-purple text-base md:text-xl">
+              <Link href="/conditions-d-utilisation">
+                Conditions dd&apos;utilisation
+              </Link>
+            </li>
           </ul>
           <p className="text-purple text-base md:text-xl">
-            © immoportail.fr 2022
+            © avenue-immo.com 2022
           </p>
         </div>
         <form
