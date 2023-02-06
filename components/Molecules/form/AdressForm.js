@@ -3,8 +3,11 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAddress } from "../../../redux/action";
+import { getAddressPrediction } from "../../../lib/googleMap/googleMap";
 
 const AdressForm = (props) => {
+  const proxyurl = "https://cors-anywhere.herokuapp.com/";
+  axios.defaults.withCredentials = true;
   const placeholder = props.placeholder;
   const color = props.color;
   const [source, setSource] = useState(axios.CancelToken.source());
@@ -45,8 +48,10 @@ const AdressForm = (props) => {
     } else {
       axios
         .get(
-          `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${address}&key=${API_KEY}&components=country:fr&types=address`,
-          { cancelToken: source.token }
+          `${proxyurl}https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${address}&key=${API_KEY}&components=country:fr&types=address`,
+          {
+            cancelToken: source.token,
+          }
         )
         .then((res) => {
           setSuggestions(res.data.predictions);
@@ -59,6 +64,18 @@ const AdressForm = (props) => {
             setSuggestions("Erreur, veuillez essayer à nouveau");
           }
         });
+      // getAddressPrediction(address)
+      //   .then((res) => {
+      //     setSuggestions(res);
+      //   })
+      //   .catch((error) => {
+      //     if (axios.isCancel(error)) {
+      //       console.log("Request canceled", error.message);
+      //     } else {
+      //       console.error(error);
+      //       setSuggestions("Erreur, veuillez essayer à nouveau");
+      //     }
+      //   });
     }
   }, [address]);
 
