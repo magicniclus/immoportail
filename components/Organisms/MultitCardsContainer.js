@@ -132,9 +132,7 @@ const MultitCardsContainer = () => {
     //   })
     //   .catch((error) => console.log(error));
     axios
-      .get(
-        `https://www.avenue-immo.com/api/coordinate?address=${state.address}`
-      )
+      .get(`http://localhost:3002/api/coordinate?address=${state.address}`)
       .then((res) => {
         console.log(res);
         dispatch(
