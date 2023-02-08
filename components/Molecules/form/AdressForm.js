@@ -45,7 +45,10 @@ const AdressForm = (props) => {
     } else {
       axios
         .get(
-          `https://avenue-immo.com:8080/api/places/autocomplete?address=${address}`
+          `${
+            "https://avenue-immo.com:" + process.env.PORT ||
+            "http://localhost:3005"
+          }/api/places/autocomplete?address=${address}`
         )
         .then((res) => {
           setSuggestions(res.data.predictions);
