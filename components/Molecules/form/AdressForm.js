@@ -45,7 +45,9 @@ const AdressForm = (props) => {
       return;
     } else {
       axios
-        .get(`http://localhost:3000/api/places/autocomplete?address=${address}`)
+        .get(
+          `http://www.avenue-immo.com/api/places/autocomplete?address=${address}`
+        )
         .then((res) => {
           setSuggestions(res.data.predictions);
         })
