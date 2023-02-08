@@ -15,7 +15,7 @@ export default function Home() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  console.log(process.env.NEXT_PUBLIC_PORT);
+  // console.log(process.env.NEXT_PUBLIC_PORT);
 
   useEffect(() => {
     state.address !== "" ? setDisabled(false) : setDisabled(true);
