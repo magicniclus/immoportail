@@ -5,7 +5,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://www.avenue-immo.com", "https://www.avenue-immo.com"],
+    origin: ["http://avenue-immo.com", "https://avenue-immo.com"],
   })
 );
 const API_KEY = "AIzaSyBhFIY1nvseuxoi4xA0HPiM-PvwNQdx9kI";
@@ -37,7 +37,6 @@ app.get("/api/coordinate", async (req, res) => {
 });
 
 const PORT = 8080;
-// console.log(`PORT:`, PORT);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
