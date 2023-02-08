@@ -5,7 +5,7 @@ const app = express();
 require("dotenv").config();
 
 app.use(
-  process.env.NEXT_PUBLIC_PORT
+  process.env.PORT
     ? cors({
         origin: ["http://avenue-immo.com", "https://avenue-immo.com"],
       })
@@ -39,9 +39,7 @@ app.get("/api/coordinate", async (req, res) => {
   }
 });
 
-const PORT = process.env.NEXT_PUBLIC_PORT || 3005;
-
-console.log("PORT: " + process.env.NEXT_PUBLIC_PORT);
+const PORT = process.env.PORT || 3005;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
