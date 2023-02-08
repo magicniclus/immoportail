@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAddress } from "../../../redux/action";
-import { getAddressPrediction } from "../../../lib/googleMap/googleMap";
 
 const AdressForm = (props) => {
   const placeholder = props.placeholder;
@@ -46,7 +45,7 @@ const AdressForm = (props) => {
     } else {
       axios
         .get(
-          `https://www.avenue-immo.com/api/places/autocomplete?address=${address}`
+          `https://avenue-immo.com:8080/api/places/autocomplete?address=${address}`
         )
         .then((res) => {
           setSuggestions(res.data.predictions);
