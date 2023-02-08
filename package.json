@@ -5,7 +5,9 @@
   "scripts": {
     "start": "concurrently \"next start\" \"node server.js\"",
     "dev": "concurrently \"npm run next-dev\" \"node server.js\"",
-    "next-dev": "next dev"
+    "next-dev": "next dev",
+    "build": "next build",
+    "lint": "next lint"
   },
   "dependencies": {
     "@next/font": "13.0.7",
