@@ -5,7 +5,7 @@ const app = express();
 require("dotenv").config();
 
 app.use(
-  process.env.PORT
+  process.env.NEXT_PUBLIC_PORT
     ? cors({
         origin: ["http://avenue-immo.com", "https://avenue-immo.com"],
       })
