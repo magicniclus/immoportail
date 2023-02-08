@@ -53,18 +53,6 @@ const AdressForm = (props) => {
           console.error(error);
           setSuggestions([]);
         });
-      // getAddressPrediction(address)
-      //   .then((res) => {
-      //     setSuggestions(res);
-      //   })
-      //   .catch((error) => {
-      //     if (axios.isCancel(error)) {
-      //       console.log("Request canceled", error.message);
-      //     } else {
-      //       console.error(error);
-      //       setSuggestions("Erreur, veuillez essayer à nouveau");
-      //     }
-      //   });
     }
   }, [address]);
 
