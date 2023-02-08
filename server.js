@@ -2,6 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 const app = express();
+require("dotenv").config();
 
 app.use(
   cors({
@@ -36,7 +37,7 @@ app.get("/api/coordinate", async (req, res) => {
   }
 });
 
-const PORT = 8080;
+const PORT = process.env.PORT || 3005;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
