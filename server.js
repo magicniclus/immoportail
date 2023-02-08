@@ -3,7 +3,9 @@ const axios = require("axios");
 const cors = require("cors");
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({ origin: ["http://avenue-immo.com", "https://avenue-immo.com"] })
+);
 const API_KEY = "AIzaSyBhFIY1nvseuxoi4xA0HPiM-PvwNQdx9kI";
 
 app.get("/api/places/autocomplete", async (req, res) => {
