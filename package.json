@@ -3,11 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node server.js",
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "concurrently \"next start\" \"node server.js\"",
+    "dev": "concurrently \"npm run next-dev\" \"node server.js\"",
+    "next-dev": "next dev"
   },
   "dependencies": {
     "@next/font": "13.0.7",
@@ -30,8 +28,10 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "concurrently": "^7.6.0",
     "http-proxy-middleware": "^2.0.6",
     "postcss": "^8.4.20",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "next": "latest"
   }
 }
