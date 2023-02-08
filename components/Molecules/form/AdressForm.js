@@ -41,8 +41,8 @@ const AdressForm = (props) => {
     }
 
     let baseUrl = "http://localhost:3005";
-    if (process.env.NEXT_PUBLIC_PORT) {
-      baseUrl = `https://avenue-immo.com:${process.env.NEXT_PUBLIC_PORT}`;
+    if (process.env.PORT) {
+      baseUrl = `https://avenue-immo.com:${process.env.PORT}`;
     }
 
     if (address.length < 3) {
