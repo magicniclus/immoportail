@@ -60,7 +60,10 @@ const GetProjectProgress = () => {
     estimationElements.balcon
       ? "Avec espaces exterieurs"
       : "Espaces exterieurs",
-    estimationElements.exposure
+    estimationElements.exposure[0] !== null ||
+    estimationElements.exposure[1] !== null ||
+    estimationElements.exposure[2] !== null ||
+    estimationElements.exposure[3] !== null
       ? estimationElements.exposure
       : "Exposition/Vue",
     estimationElements.standing ? estimationElements.standing : "Standing",
