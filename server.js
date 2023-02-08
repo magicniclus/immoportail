@@ -37,6 +37,7 @@ app.get("/api/coordinate", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3002;
+console.log(`PORT:`, PORT);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
