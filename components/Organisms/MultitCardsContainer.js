@@ -20,6 +20,7 @@ import WhatAddress from "../Molecules/steps/WhatAddress";
 import WhatIsASurface from "../Molecules/steps/WhatIsASurface";
 import Works from "../Molecules/steps/Works";
 import YearOfContruction from "../Molecules/steps/YearOfContruction";
+import axios from "axios";
 
 const MultitCardsContainer = () => {
   const dispatch = useDispatch();
@@ -124,12 +125,27 @@ const MultitCardsContainer = () => {
   };
 
   const updateAddress = async (idx) => {
-    getCoordinateOfAddress(state.address)
+    // getCoordinateOfAddress(state.address)
+    //   .then((res) => {
+    //     dispatch(updateAddressCoordinate(res));
+    //     handleRef(idx);
+    //   })
+    //   .catch((error) => console.log(error));
+    axios
+      .get(`http://localhost:3000/api/coordinate?address=${state.address}`)
       .then((res) => {
-        dispatch(updateAddressCoordinate(res));
+        console.log(res);
+        dispatch(
+          updateAddressCoordinate({
+            lat: res.data.candidates[0].geometry.location.lat,
+            lng: res.data.candidates[0].geometry.location.lng,
+          })
+        );
         handleRef(idx);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   useEffect(() => {
