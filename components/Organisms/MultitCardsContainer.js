@@ -126,7 +126,7 @@ const MultitCardsContainer = () => {
 
   const updateAddress = async (idx) => {
     let baseUrl = "http://localhost:3005";
-    if (process.env.PORT) {
+    if (process.env.NEXT_PUBLIC_PORT) {
       baseUrl = `https://avenue-immo.com:${process.env.NEXT_PUBLIC_PORT}`;
     }
     axios
