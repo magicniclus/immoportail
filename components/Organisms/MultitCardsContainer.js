@@ -125,14 +125,12 @@ const MultitCardsContainer = () => {
   };
 
   const updateAddress = async (idx) => {
-    // getCoordinateOfAddress(state.address)
-    //   .then((res) => {
-    //     dispatch(updateAddressCoordinate(res));
-    //     handleRef(idx);
-    //   })
-    //   .catch((error) => console.log(error));
+    let baseUrl = "http://localhost:3005";
+    if (process.env.PORT) {
+      baseUrl = `https://avenue-immo.com:${process.env.PORT}`;
+    }
     axios
-      .get(`http://localhost:3002/api/coordinate?address=${state.address}`)
+      .get(`${baseUrl}/api/places/autocomplete?address=${address}`)
       .then((res) => {
         console.log(res);
         dispatch(
