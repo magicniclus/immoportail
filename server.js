@@ -5,9 +5,11 @@ const app = express();
 require("dotenv").config();
 
 app.use(
-  cors({
-    origin: ["http://avenue-immo.com", "https://avenue-immo.com"],
-  })
+  process.env.PORT
+    ? cors({
+        origin: ["http://avenue-immo.com", "https://avenue-immo.com"],
+      })
+    : cors()
 );
 const API_KEY = "AIzaSyBhFIY1nvseuxoi4xA0HPiM-PvwNQdx9kI";
 
