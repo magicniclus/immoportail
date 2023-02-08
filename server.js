@@ -39,7 +39,9 @@ app.get("/api/coordinate", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3005;
+const PORT = process.env.NEXT_PUBLIC_PORT || 3005;
+
+console.log("PORT: " + process.env.NEXT_PUBLIC_PORT);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
