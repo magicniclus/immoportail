@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAddress } from "../../../redux/action";
+import { getAddressPrediction } from "../../../lib/googleMap/googleMap";
 
 const AdressForm = (props) => {
   const placeholder = props.placeholder;
@@ -42,20 +43,22 @@ const AdressForm = (props) => {
 
     // let baseUrl = "http://localhost:3005";
     // if (process.env.PORT) {
-    let baseUrl = `https://avenue-immo.com:${process.env.PORT}`;
+    // let baseUrl = `https://avenue-immo.com:${process.env.PORT}`;
     // }
 
     if (address.length < 3) {
       return;
     } else {
       axios
-        .get(`${baseUrl}/api/places/autocomplete?address=${address}`)
+        .get(
+          `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${address}&key=${API_KEY}&components=country:fr`
+        )
         .then((res) => {
           setSuggestions(res.data.predictions);
         })
         .catch((error) => {
           console.error(error);
-          setSuggestions([]);
+          setSuggestions("Erreur, veuillez essayer à nouveau");
         });
     }
   }, [address]);
