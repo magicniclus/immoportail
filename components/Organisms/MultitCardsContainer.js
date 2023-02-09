@@ -23,6 +23,7 @@ import YearOfContruction from "../Molecules/steps/YearOfContruction";
 import axios from "axios";
 
 const MultitCardsContainer = () => {
+  const API_KEY = "AIzaSyBhFIY1nvseuxoi4xA0HPiM-PvwNQdx9kI";
   const dispatch = useDispatch();
 
   const state = useSelector((state) => state);
@@ -127,23 +128,38 @@ const MultitCardsContainer = () => {
   const updateAddress = async (idx) => {
     // let baseUrl = "http://localhost:3005";
     // if (process.env.PORT) {
-    let baseUrl = `https://avenue-immo.com:${process.env.PORT}`;
-    // }
-    axios
-      .get(`${baseUrl}/api/places/autocomplete?address=${address}`)
+    // let baseUrl = `https://avenue-immo.com:${process.env.PORT}`;
+    // // }
+    // axios
+    //   .get(`${baseUrl}/api/places/autocomplete?address=${address}`)
+    //   .then((res) => {
+    //     console.log(res);
+    //     dispatch(
+    //       updateAddressCoordinate({
+    //         lat: res.data.candidates[0].geometry.location.lat,
+    //         lng: res.data.candidates[0].geometry.location.lng,
+    //       })
+    //     );
+    //     handleRef(idx);
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
+    //   if (axios.isCancel(error)) {
+    //     reject(error.message);
+    //   } else {
+    //     reject(error);
+    //   }
+    // });
+
+    axios;
+    getCoordinateOfAddress(state.address)
       .then((res) => {
-        console.log(res);
-        dispatch(
-          updateAddressCoordinate({
-            lat: res.data.candidates[0].geometry.location.lat,
-            lng: res.data.candidates[0].geometry.location.lng,
-          })
-        );
+        dispatch(updateAddressCoordinate(res));
         handleRef(idx);
       })
-      .catch((error) => {
-        console.error(error);
-      });
+      .catch((error) => console.log(error));
+    // .catch((error) => {
   };
 
   useEffect(() => {
