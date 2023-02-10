@@ -34,11 +34,7 @@ const GetAdressInMap = (props) => {
 
   // Utilisation d'un effet pour mettre à jour l'état de chargement du script lorsque les coordonnées de l'adresse changent
   useEffect(() => {
-    if (
-      window.google &&
-      state.address !== "" &&
-      state.addressCoordinate !== null
-    ) {
+    if (state.address !== "" && state.addressCoordinate !== null) {
       setScriptLoaded(true);
     }
   }, [state.addressCoordinate, state.address]);
