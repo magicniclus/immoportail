@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import AdressForm from "../../Molecules/form/AdressForm";
+import TestFormAddress from "../../Molecules/form/TestFormAddress";
 
 const InputWithLogo = (props) => {
   const placeholder = props.placeholder;
@@ -26,7 +27,8 @@ const InputWithLogo = (props) => {
   return (
     <div className={"relative sm:w-full h-12 max-w-[450px] " + marginY}>
       {componentIsForAdress && componentIsForAdress !== undefined ? (
-        <AdressForm color={color} placeholder={placeholder} />
+        // <AdressForm color={color} placeholder={placeholder} />
+        <TestFormAddress color={color} placeholder={placeholder} />
       ) : (
         <input
           className={
