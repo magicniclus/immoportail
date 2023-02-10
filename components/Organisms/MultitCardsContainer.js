@@ -125,14 +125,16 @@ const MultitCardsContainer = () => {
     }
   };
 
-  // const updateAddress = async (idx) => {
-  //   getCoordinateOfAddress(state.address)
-  //     .then((res) => {
-  //       dispatch(updateAddressCoordinate(res));
-  //       handleRef(idx);
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
+  const updateAddress = async (idx) => {
+    // getCoordinateOfAddress(state.address)
+    //   .then((res) => {
+    //     dispatch(updateAddressCoordinate(res));
+    //     handleRef(idx);
+    //   })
+    //   .catch((error) => console.log(error));
+
+    handleRef(idx);
+  };
 
   useEffect(() => {
     const estimation = state.estimationElements;
@@ -306,10 +308,9 @@ const MultitCardsContainer = () => {
                     text="Suivant"
                     type="button"
                     updateClass={idx === index ? null : "hidden"}
-                    // callback={(e) =>
-                    //   idx > 0 ? handleRef(idx) : updateAddress(idx)
-                    // }
-                    callback={(e) => handleRef(idx)}
+                    callback={(e) =>
+                      idx > 0 ? handleRef(idx) : updateAddress(idx)
+                    }
                   />
                 )}
               </div>
