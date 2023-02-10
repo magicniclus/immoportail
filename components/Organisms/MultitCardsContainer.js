@@ -125,42 +125,14 @@ const MultitCardsContainer = () => {
     }
   };
 
-  const updateAddress = async (idx) => {
-    // let baseUrl = "http://localhost:3005";
-    // if (process.env.PORT) {
-    // let baseUrl = `https://avenue-immo.com:${process.env.PORT}`;
-    // // }
-    // axios
-    //   .get(`${baseUrl}/api/places/autocomplete?address=${address}`)
-    //   .then((res) => {
-    //     console.log(res);
-    //     dispatch(
-    //       updateAddressCoordinate({
-    //         lat: res.data.candidates[0].geometry.location.lat,
-    //         lng: res.data.candidates[0].geometry.location.lng,
-    //       })
-    //     );
-    //     handleRef(idx);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
-    //   if (axios.isCancel(error)) {
-    //     reject(error.message);
-    //   } else {
-    //     reject(error);
-    //   }
-    // });
-
-    axios;
-    getCoordinateOfAddress(state.address)
-      .then((res) => {
-        dispatch(updateAddressCoordinate(res));
-        handleRef(idx);
-      })
-      .catch((error) => console.log(error));
-    // .catch((error) => {
-  };
+  // const updateAddress = async (idx) => {
+  //   getCoordinateOfAddress(state.address)
+  //     .then((res) => {
+  //       dispatch(updateAddressCoordinate(res));
+  //       handleRef(idx);
+  //     })
+  //     .catch((error) => console.log(error));
+  // };
 
   useEffect(() => {
     const estimation = state.estimationElements;
@@ -334,9 +306,10 @@ const MultitCardsContainer = () => {
                     text="Suivant"
                     type="button"
                     updateClass={idx === index ? null : "hidden"}
-                    callback={(e) =>
-                      idx > 0 ? handleRef(idx) : updateAddress(idx)
-                    }
+                    // callback={(e) =>
+                    //   idx > 0 ? handleRef(idx) : updateAddress(idx)
+                    // }
+                    callback={(e) => handleRef(idx)}
                   />
                 )}
               </div>
