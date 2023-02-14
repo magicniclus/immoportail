@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCoordinateOfAddress } from "../../lib/googleMap/googleMap";
 import {
   updateAddressCoordinate,
+  updateStepNumber,
   updateStepOfProjectProgress,
 } from "../../redux/action";
 import ButtonPrimary from "../Atoms/buttons/ButtonPrimary";
@@ -35,6 +36,9 @@ const MultitCardsContainer = () => {
   // État local pour gérer l'index actuel de la carte
   const [index, setIndex] = useState(0);
 
+  // État local pour gérer l'index actuel de la carte
+  const [card, setCard] = useState(0);
+
   // État local pour gérer l'état de désactivation du bouton "suivant"
   const [disabled, setDisabled] = useState(true);
 
@@ -57,62 +61,6 @@ const MultitCardsContainer = () => {
     "twelve",
     "thirteen",
   ];
-
-  // Création de refs pour chaque étape
-  const refs = Array(array.length)
-    .fill()
-    .map(() => React.createRef());
-
-  // Fonction pour faire défiler vers l'étape suivante
-  const handleRef = (idx) => {
-    setTimeout(() => {
-      dispatch(updateStepOfProjectProgress(idx + 2));
-    }, 50);
-    if (index < array.length - 1) {
-      setIndex(idx + 1);
-      const element = refs[idx + 1].current;
-      if (element) {
-        const parent = document.getElementById("cardContainer");
-        parent.scrollTo({
-          top: element.offsetTop - parent.offsetTop,
-          left: 0,
-          behavior: "smooth",
-        });
-      }
-    } else e.preventDefault();
-  };
-
-  // Fonction pour faire défiler vers l'étape précédente
-  const handleReturnRef = (idx) => {
-    setIndex(idx - 1);
-    const element = refs[idx - 1].current;
-    if (element) {
-      const parent = document.getElementById("cardContainer");
-      parent.scrollTo({
-        top: element.offsetTop - parent.offsetTop,
-        left: 0,
-        behavior: "smooth",
-      });
-    }
-    dispatch(updateStepOfProjectProgress(idx));
-  };
-
-  // Effet d'utilisation pour faire défiler automatiquement à l'étape suivante lorsque l'adresse est définie
-  useEffect(() => {
-    if (state.address !== undefined && state.address !== "") {
-      setIndex(1);
-      const element = refs[1].current;
-      if (element) {
-        const parent = document.getElementById("cardContainer");
-        parent.scrollTo({
-          top: element.offsetTop - parent.offsetTop,
-          left: 0,
-          behavior: "smooth",
-        });
-      }
-      dispatch(updateStepOfProjectProgress(2));
-    }
-  }, []);
 
   // Fonction gérant la soumission du formulaire d'estimation immobilière
   const handleSubmit = (e) => {
@@ -142,22 +90,6 @@ const MultitCardsContainer = () => {
     }
   };
 
-  // Mise à jour de l'adresse
-  const updateAddress = async (idx) => {
-    // Récupération des coordonnées de l'adresse
-    getCoordinateOfAddress(state.address)
-      .then((res) => {
-        // Mise à jour des coordonnées de l'adresse dans le state
-        dispatch(updateAddressCoordinate(res));
-        // Appel de la fonction handleRef
-        handleRef(idx);
-      })
-      .catch((error) => console.log(error));
-
-    // Appel de la fonction handleRef
-    handleRef(idx);
-  };
-
   // Fonction pour activer/désactiver le bouton de validation de l'estimation
   useEffect(() => {
     // Récupération des éléments d'estimation et du numéro d'étape actuelle dans le processus de progression du projet
@@ -168,60 +100,62 @@ const MultitCardsContainer = () => {
     setDisabled(true);
 
     // Vérification de l'étape actuelle dans le processus de progression du projet et définition de la valeur de disabled
+    console.log("step number: ", stepNumber);
+    console.log("card: ", card);
     switch (stepNumber) {
-      case 1:
+      case 0:
         state.address !== "" ? setDisabled(false) : setDisabled(true);
         break;
 
-      case 2:
+      case 1:
         estimation.accommodation !== null
           ? setDisabled(false)
           : setDisabled(true);
         break;
 
-      case 3:
+      case 2:
         estimation.surface !== null ? setDisabled(false) : setDisabled(true);
         break;
 
-      case 4:
+      case 3:
         estimation.level !== null ? setDisabled(false) : setDisabled(true);
         break;
 
-      case 5:
+      case 4:
         estimation.partNumber !== null ? setDisabled(false) : setDisabled(true);
         break;
 
-      case 6:
+      case 5:
         estimation.years !== null ? setDisabled(false) : setDisabled(true);
         break;
 
-      case 7:
+      case 6:
         estimation.works !== null ? setDisabled(false) : setDisabled(true);
         break;
 
-      case 8:
+      case 7:
         estimation.livingArea !== null && estimation.landArea !== null
           ? setDisabled(false)
           : setDisabled(true);
         break;
 
-      case 10:
+      case 9:
         estimation.exposure !== null && estimation.view !== null
           ? setDisabled(false)
           : setDisabled(true);
         break;
 
-      case 11:
+      case 10:
         estimation.standing !== null && estimation.secteur !== null
           ? setDisabled(false)
           : setDisabled(true);
         break;
 
-      case 12:
+      case 11:
         estimation.adjoining !== null ? setDisabled(false) : setDisabled(true);
         break;
 
-      case 13:
+      case 12:
         estimation.contract !== null && estimation.when !== null
           ? setDisabled(false)
           : setDisabled(true);
@@ -280,6 +214,16 @@ const MultitCardsContainer = () => {
     }
   };
 
+  const handleCard = (e) => {
+    setCard(card + 1);
+    dispatch(updateStepOfProjectProgress(card + 1));
+  };
+
+  const handleReturnRef = () => {
+    setCard(card - 1);
+    dispatch(updateStepOfProjectProgress(card - 1));
+  };
+
   // Gère les événements de touche "Tab" pour éviter le comportement par défaut
   const handleTab = useCallback((event) => {
     // Vérifie si la touche appuyée est la touche "Tab"
@@ -292,53 +236,12 @@ const MultitCardsContainer = () => {
   return (
     <div
       onKeyDown={handleTab}
-      // className={`min-h-[750px] md:top-0 top-10 md:w-7/12 w-11/12 xs:w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative pl-5 sm:pl-20 md:pl-24 lg:pl-48`}
-      style={{
-        minHeight: "750px",
-        top: index > 0 ? "10px" : "0",
-        width: "11/12",
-        maxWidth: "100%",
-        marginLeft: "auto",
-        marginRight: "auto",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        height: "calc((100vh - 7rem))",
-        overflow: "hidden",
-        position: "relative",
-        paddingLeft: "5px",
-        "@media (min-width: 640px)": {
-          top: index > 0 ? "10px" : "0",
-          width: "10/12",
-        },
-        "@media (min-width: 768px)": {
-          top: "0",
-          width: "7/12",
-          height: "calc((100vh - 12rem))",
-          paddingLeft: "24px",
-        },
-        "@media (min-width: 1024px)": {
-          paddingLeft: "48px",
-        },
-      }}
+      className={`min-h-[750px] md:top-0 top-10 md:w-7/12 w-11/12 xs:w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] relative pl-5 sm:pl-20 md:pl-24 lg:pl-48`}
     >
-      {index > 0 ? (
+      {card > 0 ? (
         <p
           onClick={() => handleReturnRef(index)}
-          // className="absolute top-0 left-5 md:left-10 text-gray-400 font-normal hover:cursor-pointer md:text-normal text-md"
-          style={{
-            position: "absolute",
-            top: "0",
-            left: "5px",
-            color: "#9CA3AF",
-            fontSize: "1rem",
-            fontWeight: "400",
-            cursor: "pointer",
-            "@media (min-width: 768px)": {
-              left: "10px",
-              fontSize: "1.125rem",
-            },
-          }}
+          className="absolute top-0 left-5 md:left-10 text-gray-400 font-normal hover:cursor-pointer md:text-normal text-md"
         >
           &lsaquo; Retour
         </p>
@@ -346,91 +249,15 @@ const MultitCardsContainer = () => {
       <form
         onSubmit={handleSubmit}
         id="cardContainer"
-        // className="w-full mt-12 xs:mt-20 lg:mt-0 flex flex-col items-center min-h-[900px] h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden"
-        style={{
-          width: "100%",
-          marginTop: "48px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          minHeight: "900px",
-          height: "calc((100vh - 7rem))",
-          overflow: "hidden",
-          "@media (min-width: 640px)": {
-            marginTop: "64px",
-          },
-          "@media (min-width: 1024px)": {
-            marginTop: "0",
-          },
-        }}
+        className="w-full mt-12 xs:mt-20 lg:mt-0 flex flex-col items-center min-h-[900px] h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))]"
       >
-        {array.map((item, idx) => {
-          return (
-            <div
-              key={idx}
-              // className={
-              //   "flex-1 w-full flex flex-col items-start justify-start " +
-              //   (idx === array.length - 1
-              //     ? "min-h-[100%] pt-10"
-              //     : "mb-20 pt-10")
-              // }
-              style={{
-                flex: "1",
-                width: "90%",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
-                minHeight:
-                  idx === array.length - 1 ? "100%" : "calc(100% - 48px)",
-                paddingTop: "10px",
-                marginBottom: idx === array.length - 1 ? "0" : "20px",
-                "@media (min-width: 640px)": {
-                  minHeight:
-                    idx === array.length - 1 ? "100%" : "calc(100% - 64px)",
-                  paddingTop: "16px",
-                  marginBottom: idx === array.length - 1 ? "0" : "32px",
-                },
-              }}
-              ref={refs[idx]}
-            >
-              <div
-                // className={`flex flex-col justify-between w-full items-start ${
-                //   idx < index || idx > index ? "opacity-20" : null
-                // }`}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                  width: "100%",
-                  alignItems: "flex-start",
-                  opacity: idx < index || idx > index ? 0.2 : 1,
-                }}
-              >
-                {handleFunction(idx)}
-                {idx === array.length - 1 ? (
-                  <ButtonPrimary
-                    disabled={disabled}
-                    text="Estimer"
-                    updateClass={idx === index ? null : "hidden"}
-                    callback={handleSubmit}
-                    type="submit"
-                  />
-                ) : (
-                  <ButtonPrimary
-                    disabled={disabled}
-                    text="Suivant"
-                    type="button"
-                    updateClass={idx === index ? null : "hidden"}
-                    callback={(e) =>
-                      idx > 0 ? handleRef(idx) : updateAddress(idx)
-                    }
-                  />
-                )}
-              </div>
-            </div>
-          );
-        })}
+        {handleFunction(card)}
+        <ButtonPrimary
+          disabled={disabled}
+          text={card < 12 ? "Suivant" : "Estimer"}
+          type={card < 12 ? "button" : "submit"}
+          callback={handleCard}
+        />
       </form>
     </div>
   );
