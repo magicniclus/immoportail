@@ -7,7 +7,9 @@ import { updateAddressCoordinate } from "../../redux/action";
 import { useRouter } from "next/router";
 import { getCoordinateOfAddress } from "../../lib/googleMap/googleMap";
 
+// Composant pour l'affichage d'un titre, d'un champ de saisie d'adresse et d'un bouton d'envoi
 const SetInputWithTitleAndButton = (props) => {
+  // Récupération des propriétés passées en paramètres
   const bgColor = props.bgColor;
   const titleColor = props.titleColor;
   const buttonVersion = props.buttonVersion;
@@ -15,30 +17,39 @@ const SetInputWithTitleAndButton = (props) => {
   const textWithColor = props.textWithColor;
   const disabled = props.disabled;
 
+  // Récupération du state global via le hook useSelector
   const state = useSelector((state) => state);
+
+  // Initialisation du hook useDispatch pour dispatcher des actions
   const dispatch = useDispatch();
 
+  // Initialisation du hook useRouter pour accéder à la navigation
   const router = useRouter();
 
+  // Fonction pour récupérer les coordonnées d'une adresse via l'API Google Map
   const fetchAddressCoordinate = (address) => (dispatch) => {
     return getCoordinateOfAddress(address)
       .then((res) => {
+        console.log("ok");
+        // Mise à jour des coordonnées dans le state global via l'action updateAddressCoordinate
         dispatch(updateAddressCoordinate(res));
       })
       .catch((error) => console.log(error));
   };
 
+  // Fonction déclenchée lors de la soumission du formulaire
   const handleSubmit = (e) => {
+    // Empêche le comportement par défaut de l'événement de soumission
     e.preventDefault();
+
+    // Si l'adresse saisie n'est pas vide
     if (state.address !== "" && state.address !== undefined) {
+      // Dispatch de la fonction pour récupérer les coordonnées de l'adresse
       dispatch(fetchAddressCoordinate(state.address)).then(() => {
+        // Redirection vers la page "estimation-immobiliere"
         router.push(`/${"estimation-immobiliere"}`);
       });
     }
-  };
-
-  const dispatchAddress = () => {
-    return new Promise((resolve, reject) => {});
   };
 
   return (
