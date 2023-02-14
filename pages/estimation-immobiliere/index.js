@@ -15,7 +15,7 @@ const EstimationImmobiliere = () => {
 
   return (
     <LayoutEstimation>
-      <div className="min-h-[calc((100vh-7rem))] w-full flex mx-auto flex-col justify-center md:flex-row md:max-w-screen-2xl md:py-8">
+      <div className="w-full flex mx-auto flex-col justify-center md:flex-row md:max-w-screen-2xl md:py-8">
         {/* Left Container */}
         <ProjectStepContainer />
         {/* Right Container */}
