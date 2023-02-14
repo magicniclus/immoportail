@@ -10,7 +10,7 @@ const EstimationImmobiliere = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(updateStepOfProjectProgress(1));
+    dispatch(updateStepOfProjectProgress(0));
   }, []);
 
   return (
