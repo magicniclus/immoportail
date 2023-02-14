@@ -215,8 +215,10 @@ const MultitCardsContainer = () => {
   };
 
   const handleCard = (e) => {
-    setCard(card + 1);
-    dispatch(updateStepOfProjectProgress(card + 1));
+    if (card < 12) {
+      setCard(card + 1);
+      dispatch(updateStepOfProjectProgress(card + 1));
+    }
   };
 
   const handleReturnRef = () => {
@@ -236,7 +238,7 @@ const MultitCardsContainer = () => {
   return (
     <div
       onKeyDown={handleTab}
-      className={`min-h-[750px] md:top-0 top-10 md:w-7/12 w-11/12 xs:w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] relative pl-5 sm:pl-20 md:pl-24 lg:pl-48`}
+      className={`md:top-0 top-5 md:w-7/12 w-11/12 xs:w-10/12 flex flex-col items-center relative pl-5 sm:pl-20 md:pl-24 lg:pl-48`}
     >
       {card > 0 ? (
         <p
@@ -249,15 +251,17 @@ const MultitCardsContainer = () => {
       <form
         onSubmit={handleSubmit}
         id="cardContainer"
-        className="w-full mt-12 xs:mt-20 lg:mt-0 flex flex-col items-center min-h-[900px] h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))]"
+        className="w-full mt-20 xs:mt-20 lg:mt-32 flex flex-col items-center"
       >
         {handleFunction(card)}
-        <ButtonPrimary
-          disabled={disabled}
-          text={card < 12 ? "Suivant" : "Estimer"}
-          type={card < 12 ? "button" : "submit"}
-          callback={handleCard}
-        />
+        <div className="w-full flex justify-start">
+          <ButtonPrimary
+            disabled={disabled}
+            text={card < 12 ? "Suivant" : "Estimer"}
+            type={card < 12 ? "button" : "submit"}
+            callback={handleCard}
+          />
+        </div>
       </form>
     </div>
   );
