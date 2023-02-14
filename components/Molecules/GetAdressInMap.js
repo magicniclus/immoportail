@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
 import { useSelector } from "react-redux";
 
-const GetAdressInMap = (props) => {
+const KEY_API = "AIzaSyBhFIY1nvseuxoi4xA0HPiM-PvwNQdx9kI";
+
+const GetAddressInMap = () => {
   const customMarker = "/vector/localizationHouse.png";
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const state = useSelector((state) => state);
@@ -10,39 +12,40 @@ const GetAdressInMap = (props) => {
     width: "100%",
     height: "100%",
   };
-  const center = {
-    lat:
-      state.addressCoordinate !== null ? state.addressCoordinate.lat : 48.8566,
-    lng:
-      state.addressCoordinate !== null ? state.addressCoordinate.lng : 2.3522,
-  };
+
+  const [center, setCenter] = useState({
+    lat: state.addressCoordinate?.lat ?? 48.8566,
+    lng: state.addressCoordinate?.lng ?? 2.3522,
+  });
+
   const options = {
     disableDefaultUI: true,
     zoomControl: false,
   };
 
   useEffect(() => {
-    if (
-      (state.address !== "" && state.addressCoordinate !== null) ||
-      window.google
-    ) {
+    setCenter({
+      lat: state.addressCoordinate?.lat ?? 48.8566,
+      lng: state.addressCoordinate?.lng ?? 2.3522,
+    });
+  }, [state.addressCoordinate]);
+
+  useEffect(() => {
+    if (state.address !== "" && state.addressCoordinate !== null) {
       setScriptLoaded(true);
     }
-  }, [state.addressCoordinate, state.address, window.google]);
+  }, [state.addressCoordinate, state.address]);
 
-  // Utilisation des coordonnées de l'adresse pour positionner le marqueur sur la carte
   const markerPosition = {
-    lat:
-      state.addressCoordinate !== null ? state.addressCoordinate.lat : 48.8566,
-    lng:
-      state.addressCoordinate !== null ? state.addressCoordinate.lng : 2.3522,
+    lat: state.addressCoordinate?.lat ?? 48.8566,
+    lng: state.addressCoordinate?.lng ?? 2.3522,
   };
 
   return (
     <div className="h-48 w-11/12 bg-white shadow-[inset_0px_0px_15px_30px_#FAFAFA]">
       {!scriptLoaded ? (
         <LoadScript
-          googleMapsApiKey="AIzaSyBhFIY1nvseuxoi4xA0HPiM-PvwNQdx9kI"
+          googleMapsApiKey={KEY_API}
           onLoad={() => setScriptLoaded(true)}
         >
           <GoogleMap
@@ -68,4 +71,4 @@ const GetAdressInMap = (props) => {
   );
 };
 
-export default GetAdressInMap;
+export default GetAddressInMap;
