@@ -1,9 +1,12 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import AddressAutoFill from "../../Molecules/form/SearchSuggestAddress";
 import AdressForm from "../../Molecules/form/AdressForm";
 import TestFormAddress from "../../Molecules/form/TestFormAddress";
+import SearchSuggestAddress from "../../Molecules/form/SearchSuggestAddress";
 
 const InputWithLogo = (props) => {
+  // Récupération des propriétés passées en paramètres
   const placeholder = props.placeholder;
   const image = props.image;
   const marginY = props.marginY;
@@ -11,16 +14,23 @@ const InputWithLogo = (props) => {
   const componentIsForAdress = props.componentIsForAdress;
   const width = props.width;
 
+  // Initialisation de l'état `value` à une chaîne vide, et définition de la fonction `setValue` pour mettre à jour cet état
   const [value, setValue] = useState("");
 
+  // `valueCallback`, la fonction de retour de la valeur
   const valueCallback = props.valueCallback;
+
+  // `callback`, la fonction de retour de la valeur
   const callback = props.callback;
 
   useEffect(() => {
+    // Exécution de l'effet lorsque le composant est monté ou que la valeur change
     if (callback) {
+      // Si `callback` existe
       if (value !== "") {
-        callback(value);
-      } else callback(null);
+        // Si la valeur n'est pas vide
+        callback(value); // Appel de la fonction `callback` avec la valeur en entrée
+      } else callback(null); // Sinon appel de la fonction `callback` avec `null` en entrée
     }
   }, [value]);
 
