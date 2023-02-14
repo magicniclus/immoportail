@@ -292,12 +292,53 @@ const MultitCardsContainer = () => {
   return (
     <div
       onKeyDown={handleTab}
-      className={`min-h-[750px] md:top-0 top-10 md:w-7/12 w-11/12 xs:w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative pl-5 sm:pl-20 md:pl-24 lg:pl-48`}
+      // className={`min-h-[750px] md:top-0 top-10 md:w-7/12 w-11/12 xs:w-10/12 flex flex-col items-center h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden relative pl-5 sm:pl-20 md:pl-24 lg:pl-48`}
+      style={{
+        minHeight: "750px",
+        top: index > 0 ? "10px" : "0",
+        width: "11/12",
+        maxWidth: "100%",
+        marginLeft: "auto",
+        marginRight: "auto",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        height: "calc((100vh - 7rem))",
+        overflow: "hidden",
+        position: "relative",
+        paddingLeft: "5px",
+        "@media (min-width: 640px)": {
+          top: index > 0 ? "10px" : "0",
+          width: "10/12",
+        },
+        "@media (min-width: 768px)": {
+          top: "0",
+          width: "7/12",
+          height: "calc((100vh - 12rem))",
+          paddingLeft: "24px",
+        },
+        "@media (min-width: 1024px)": {
+          paddingLeft: "48px",
+        },
+      }}
     >
       {index > 0 ? (
         <p
           onClick={() => handleReturnRef(index)}
-          className="absolute top-0 left-5 md:left-10 text-gray-400 font-normal hover:cursor-pointer md:text-normal text-md"
+          // className="absolute top-0 left-5 md:left-10 text-gray-400 font-normal hover:cursor-pointer md:text-normal text-md"
+          style={{
+            position: "absolute",
+            top: "0",
+            left: "5px",
+            color: "#9CA3AF",
+            fontSize: "1rem",
+            fontWeight: "400",
+            cursor: "pointer",
+            "@media (min-width: 768px)": {
+              left: "10px",
+              fontSize: "1.125rem",
+            },
+          }}
         >
           &lsaquo; Retour
         </p>
@@ -305,25 +346,66 @@ const MultitCardsContainer = () => {
       <form
         onSubmit={handleSubmit}
         id="cardContainer"
-        className="w-full mt-12 xs:mt-20 lg:mt-0 flex flex-col items-center min-h-[900px] h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden"
+        // className="w-full mt-12 xs:mt-20 lg:mt-0 flex flex-col items-center min-h-[900px] h-[calc((100vh-7rem))] md:h-[calc((100vh-12rem))] overflow-hidden"
+        style={{
+          width: "100%",
+          marginTop: "48px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          minHeight: "900px",
+          height: "calc((100vh - 7rem))",
+          overflow: "hidden",
+          "@media (min-width: 640px)": {
+            marginTop: "64px",
+          },
+          "@media (min-width: 1024px)": {
+            marginTop: "0",
+          },
+        }}
       >
         {array.map((item, idx) => {
           return (
             <div
               key={idx}
-              className={
-                "flex-1 w-full flex flex-col items-start justify-start " +
-                (idx === array.length - 1
-                  ? "min-h-[100%] pt-10"
-                  : "mb-20 pt-10")
-              }
-              e
+              // className={
+              //   "flex-1 w-full flex flex-col items-start justify-start " +
+              //   (idx === array.length - 1
+              //     ? "min-h-[100%] pt-10"
+              //     : "mb-20 pt-10")
+              // }
+              style={{
+                flex: "1",
+                width: "90%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
+                minHeight:
+                  idx === array.length - 1 ? "100%" : "calc(100% - 48px)",
+                paddingTop: "10px",
+                marginBottom: idx === array.length - 1 ? "0" : "20px",
+                "@media (min-width: 640px)": {
+                  minHeight:
+                    idx === array.length - 1 ? "100%" : "calc(100% - 64px)",
+                  paddingTop: "16px",
+                  marginBottom: idx === array.length - 1 ? "0" : "32px",
+                },
+              }}
               ref={refs[idx]}
             >
               <div
-                className={`flex flex-col justify-between w-full items-start ${
-                  idx < index || idx > index ? "opacity-20" : null
-                }`}
+                // className={`flex flex-col justify-between w-full items-start ${
+                //   idx < index || idx > index ? "opacity-20" : null
+                // }`}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  width: "100%",
+                  alignItems: "flex-start",
+                  opacity: idx < index || idx > index ? 0.2 : 1,
+                }}
               >
                 {handleFunction(idx)}
                 {idx === array.length - 1 ? (
