@@ -1,6 +1,7 @@
 const initState = {
   loader: false,
   formAddressStatus: false,
+  isReady: false,
   modal: {
     message: null,
     show: false,
@@ -301,6 +302,12 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         formAddressStatus: action.payload,
+      };
+
+    case "updateIsReady":
+      return {
+        ...state,
+        isReady: action.payload,
       };
 
     default:
