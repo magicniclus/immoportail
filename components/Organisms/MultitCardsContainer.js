@@ -23,16 +23,25 @@ import YearOfContruction from "../Molecules/steps/YearOfContruction";
 import axios from "axios";
 
 const MultitCardsContainer = () => {
+  // Clé API
   const API_KEY = "AIzaSyBhFIY1nvseuxoi4xA0HPiM-PvwNQdx9kI";
+
+  // Dispatch pour utiliser les actions de Redux
   const dispatch = useDispatch();
 
+  // État de Redux
   const state = useSelector((state) => state);
 
+  // État local pour gérer l'index actuel de la carte
   const [index, setIndex] = useState(0);
+
+  // État local pour gérer l'état de désactivation du bouton "suivant"
   const [disabled, setDisabled] = useState(true);
 
+  // Utilisation du Router pour naviguer entre les pages
   const router = useRouter();
 
+  // Tableau de noms d'étapes
   const array = [
     "one",
     "two",
@@ -49,10 +58,12 @@ const MultitCardsContainer = () => {
     "thirteen",
   ];
 
+  // Création de refs pour chaque étape
   const refs = Array(array.length)
     .fill()
     .map(() => React.createRef());
 
+  // Fonction pour faire défiler vers l'étape suivante
   const handleRef = (idx) => {
     setTimeout(() => {
       dispatch(updateStepOfProjectProgress(idx + 2));
@@ -71,6 +82,7 @@ const MultitCardsContainer = () => {
     } else e.preventDefault();
   };
 
+  // Fonction pour faire défiler vers l'étape précédente
   const handleReturnRef = (idx) => {
     setIndex(idx - 1);
     const element = refs[idx - 1].current;
@@ -85,6 +97,7 @@ const MultitCardsContainer = () => {
     dispatch(updateStepOfProjectProgress(idx));
   };
 
+  // Effet d'utilisation pour faire défiler automatiquement à l'étape suivante lorsque l'adresse est définie
   useEffect(() => {
     if (state.address !== undefined && state.address !== "") {
       setIndex(1);
@@ -101,9 +114,12 @@ const MultitCardsContainer = () => {
     }
   }, []);
 
+  // Fonction gérant la soumission du formulaire d'estimation immobilière
   const handleSubmit = (e) => {
     const estimation = state.estimationElements;
     e.preventDefault();
+
+    // Vérification que tous les champs ont été remplis
     if (
       estimation.accommodation !== null &&
       estimation.years !== null &&
@@ -121,25 +137,37 @@ const MultitCardsContainer = () => {
       estimation.contract !== null &&
       estimation.when !== null
     ) {
+      // Redirection vers la page d'analyse de l'estimation immobilière
       router.push("/estimation-immobiliere/analyse");
     }
   };
 
+  // Mise à jour de l'adresse
   const updateAddress = async (idx) => {
-    // getCoordinateOfAddress(state.address)
-    //   .then((res) => {
-    //     dispatch(updateAddressCoordinate(res));
-    //     handleRef(idx);
-    //   })
-    //   .catch((error) => console.log(error));
+    // Récupération des coordonnées de l'adresse
+    getCoordinateOfAddress(state.address)
+      .then((res) => {
+        // Mise à jour des coordonnées de l'adresse dans le state
+        dispatch(updateAddressCoordinate(res));
+        // Appel de la fonction handleRef
+        handleRef(idx);
+      })
+      .catch((error) => console.log(error));
 
+    // Appel de la fonction handleRef
     handleRef(idx);
   };
 
+  // Fonction pour activer/désactiver le bouton de validation de l'estimation
   useEffect(() => {
+    // Récupération des éléments d'estimation et du numéro d'étape actuelle dans le processus de progression du projet
     const estimation = state.estimationElements;
     const stepNumber = state.stepOfProjectProgress;
+
+    // Initialisation de la valeur disabled à true
     setDisabled(true);
+
+    // Vérification de l'étape actuelle dans le processus de progression du projet et définition de la valeur de disabled
     switch (stepNumber) {
       case 1:
         state.address !== "" ? setDisabled(false) : setDisabled(true);
@@ -205,6 +233,7 @@ const MultitCardsContainer = () => {
     }
   }, [state.address, state.estimationElements, state.stepOfProjectProgress]);
 
+  // Fonction qui gère l'affichage en fonction de l'index donné
   const handleFunction = (idx) => {
     switch (idx) {
       case 0:
@@ -251,8 +280,11 @@ const MultitCardsContainer = () => {
     }
   };
 
+  // Gère les événements de touche "Tab" pour éviter le comportement par défaut
   const handleTab = useCallback((event) => {
+    // Vérifie si la touche appuyée est la touche "Tab"
     if (event.key === "Tab") {
+      // Annule le comportement par défaut lorsque la touche "Tab" est appuyée
       event.preventDefault();
     }
   }, []);
