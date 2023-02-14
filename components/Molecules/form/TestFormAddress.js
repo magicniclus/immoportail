@@ -6,11 +6,11 @@ import {
   updateAddress,
   updateAddressCoordinate,
   updateFormAddressStatus,
+  updateIsReady,
 } from "../../../redux/action";
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
-  reset,
 } from "use-places-autocomplete";
 
 // Component de form pour entrer une adresse
@@ -19,6 +19,7 @@ export default function TestFormAddress(props) {
   // Props qui sont passées depuis le parent
   const placeholder = props.placeholder;
   const color = props.color;
+  const key = props.key;
 
   // Chargement de la bibliothèque Google Places API
   const { isLoaded } = useLoadScript({
@@ -26,24 +27,39 @@ export default function TestFormAddress(props) {
     libraries: ["places"],
   });
 
-  useEffect(() => {
-    let timeoutId = null;
+  const { ready } = usePlacesAutocomplete();
 
-    if (!isLoaded) {
-      timeoutId = setTimeout(() => {
-        window.location.reload();
-      }, 1000);
-    }
+  // useEffect(() => {
+  //   let timeoutId = null;
 
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
-  }, [isLoaded]);
+  //   if (!isLoaded) {
+  //     timeoutId = setTimeout(() => {
+  //       window.location.reload();
+  //     }, 1000);
+  //   }
+
+  //   return () => {
+  //     if (timeoutId) {
+  //       clearTimeout(timeoutId);
+  //     }
+  //   };
+  // }, [isLoaded]);
 
   // Si la bibliothèque n'est pas chargée, retourner un message de chargement
-  if (!isLoaded) return <div>Loading...</div>;
+  if (!isLoaded)
+    return (
+      <div
+        className={
+          color !== undefined
+            ? "border flex items-center text-purple rounded-lg placeholder:text-slate-400 px-3 w-full h-12 border-" +
+              color
+            : "border flex items-center text-purple rounded-lg placeholder:text-slate-400 px-3 w-full h-12 border-purple"
+        }
+      >
+        Loading...
+      </div>
+    );
+
   // Sinon retourner le composant Map
   return <Map placeholder={placeholder} color={color} />;
 }
@@ -72,12 +88,12 @@ const Map = (props) => {
       : null;
   }, [router.pathname]);
 
-  useEffect(() => {
-    if (currentUrl === "/" && state.formAddressStatus) {
-      window.location.reload();
-      dispatch(updateFormAddressStatus(false));
-    } else null;
-  }, [currentUrl]);
+  // useEffect(() => {
+  //   if (currentUrl === "/" && state.formAddressStatus) {
+  //     window.location.reload();
+  //     dispatch(updateFormAddressStatus(false));
+  //   } else null;
+  // }, [currentUrl]);
 
   // Hook pour utiliser l'autocompletion de Google Places
   const {
@@ -93,8 +109,9 @@ const Map = (props) => {
 
     if (!ready) {
       timeoutId = setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+        dispatch(updateIsReady(true));
+        // window.location.reload();
+      }, 2000);
     }
 
     return () => {
@@ -114,6 +131,12 @@ const Map = (props) => {
     clearSuggestions();
   };
 
+  const handleSelected = () => {
+    if (value !== "") {
+      window.location.reload();
+    } else null;
+  };
+
   useEffect(() => {
     selected !== null ? dispatch(updateAddressCoordinate(selected)) : null;
   }, [selected]);
@@ -124,6 +147,7 @@ const Map = (props) => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={!ready}
+        onClick={handleSelected}
         className={
           color !== undefined
             ? "border text-purple rounded-lg placeholder:text-slate-400 px-3 w-full h-12 border-" +
