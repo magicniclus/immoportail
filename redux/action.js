@@ -170,3 +170,10 @@ export const updateFormAddressStatus = (bool) => {
     payload: bool,
   };
 };
+
+export const updateIsReady = (bool) => {
+  return {
+    type: "updateIsReady",
+    payload: bool,
+  };
+};
