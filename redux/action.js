@@ -163,3 +163,10 @@ export const updateModal = (object) => {
     payload: object,
   };
 };
+
+export const updateFormAddressStatus = (bool) => {
+  return {
+    type: "updateFormAddressStatus",
+    payload: bool,
+  };
+};
