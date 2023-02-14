@@ -8,6 +8,7 @@ import Layout from "../components/Layout/Layout";
 import ContactModal from "../components/Organisms/ContactModal";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { updateAddress, updateAddressCoordinate } from "../redux/action";
 
 export default function Home() {
   const [disabled, setDisabled] = useState(true);
@@ -15,11 +16,22 @@ export default function Home() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   if (state.updateFormAddressStatus) {
+  //     window.location.reload();
+  //   } else null;
+  // }, []);
+
   // console.log(process.env.NEXT_PUBLIC_PORT);
 
   useEffect(() => {
     state.address !== "" ? setDisabled(false) : setDisabled(true);
   }, [state.address]);
+
+  useEffect(() => {
+    dispatch(updateAddress(""));
+    dispatch(updateAddressCoordinate(null));
+  }, []);
 
   return (
     <Layout
@@ -35,4 +47,6 @@ export default function Home() {
       <ContactModal />
     </Layout>
   );
+
+  //0768059230 0673476774 0676850900 0671549059
 }
