@@ -77,8 +77,9 @@ const GetProjectProgress = () => {
   ];
 
   useEffect(() => {
-    dispatch(updateStepNumber(stepName.length + 1));
-  }, []);
+    console.log("trackStep: ", trackStep);
+    dispatch(updateStepNumber(stepName.length));
+  }, [trackStep]);
 
   useEffect(() => {
     if (trackStep !== state.stepOfProjectProgress) {
@@ -110,7 +111,7 @@ const GetProjectProgress = () => {
           <div
             className={`h-full flex justify-center mb-3 items-center relative z-0 ${updateBefore(
               idx,
-              trackStep
+              trackStep + 1
             )}`}
           >
             <Icon
@@ -121,7 +122,7 @@ const GetProjectProgress = () => {
           <TextWithColorChange
             key={idx}
             text={item}
-            isSelected={trackStep <= idx}
+            isSelected={trackStep < idx}
             valueIdx={idx}
             updateStyle=" ml-3 text-ellipsis overflow-hidden whitespace-nowrap"
           />
