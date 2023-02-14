@@ -4,6 +4,8 @@ import AddressAutoFill from "../../Molecules/form/SearchSuggestAddress";
 import AdressForm from "../../Molecules/form/AdressForm";
 import TestFormAddress from "../../Molecules/form/TestFormAddress";
 import SearchSuggestAddress from "../../Molecules/form/SearchSuggestAddress";
+import { useDispatch, useSelector } from "react-redux";
+import { updateIsReady } from "../../../redux/action";
 
 const InputWithLogo = (props) => {
   // Récupération des propriétés passées en paramètres
@@ -13,6 +15,10 @@ const InputWithLogo = (props) => {
   const color = props.color;
   const componentIsForAdress = props.componentIsForAdress;
   const width = props.width;
+
+  const dispatch = useDispatch();
+
+  const state = useSelector((state) => state);
 
   // Initialisation de l'état `value` à une chaîne vide, et définition de la fonction `setValue` pour mettre à jour cet état
   const [value, setValue] = useState("");
@@ -34,11 +40,21 @@ const InputWithLogo = (props) => {
     }
   }, [value]);
 
+  const [seed, setSeed] = useState(1);
+
+  // useEffect(() => {
+  //   if (state.isReady) {
+  //     setSeed(Math.random());
+  //     dispatch(updateIsReady(false));
+  //     console.log("ok");
+  //   } else null;
+  // }, [state.isReady]);
+
   return (
     <div className={"relative sm:w-full h-12 max-w-[450px] " + marginY}>
       {componentIsForAdress && componentIsForAdress !== undefined ? (
         // <AdressForm color={color} placeholder={placeholder} />
-        <TestFormAddress color={color} placeholder={placeholder} />
+        <TestFormAddress key={seed} color={color} placeholder={placeholder} />
       ) : (
         <input
           className={
