@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useLoadScript } from "@react-google-maps/api";
 import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   updateAddress,
   updateAddressCoordinate,
-  updateFormAddressStatus,
   updateIsReady,
 } from "../../../redux/action";
 import usePlacesAutocomplete, {
@@ -62,9 +61,6 @@ const Map = (props) => {
 
   // État pour stocker la localisation sélectionnée
   const [selected, setSelected] = useState(null);
-
-  // Récupération du state global via le hook useSelector
-  const state = useSelector((state) => state);
 
   // Hook pour utiliser l'autocompletion de Google Places
   const {
