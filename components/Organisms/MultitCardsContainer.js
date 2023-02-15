@@ -37,7 +37,7 @@ const MultitCardsContainer = () => {
   const [index, setIndex] = useState(0);
 
   // État local pour gérer l'index actuel de la carte
-  const [card, setCard] = useState(0);
+  const [card, setCard] = useState(state.address !== "" ? 1 : 0);
 
   // État local pour gérer l'état de désactivation du bouton "suivant"
   const [disabled, setDisabled] = useState(true);
@@ -100,8 +100,6 @@ const MultitCardsContainer = () => {
     setDisabled(true);
 
     // Vérification de l'étape actuelle dans le processus de progression du projet et définition de la valeur de disabled
-    console.log("step number: ", stepNumber);
-    console.log("card: ", card);
     switch (stepNumber) {
       case 0:
         state.address !== "" ? setDisabled(false) : setDisabled(true);
@@ -213,6 +211,10 @@ const MultitCardsContainer = () => {
         return <WhatAddress />;
     }
   };
+
+  useEffect(() => {
+    dispatch(updateStepOfProjectProgress(card));
+  }, []);
 
   const handleCard = (e) => {
     if (card < 12) {
