@@ -36,7 +36,13 @@ const SelectNumber = (props) => {
             value > 0 ? "opacity-100" : "opacity-80"
           } rounded-l-lg flex items-center justify-center cursor-pointer`}
         >
-          <Image width={21} height={21} alt="moins" src="/vector/moins.png" />
+          <Image
+            priority
+            width={21}
+            height={21}
+            alt="moins"
+            src="/vector/moins.png"
+          />
         </div>
         <input
           className={`text-xs md:text-sm border w-[80px] placeholder-gray-200::placeholder px-3 h-12 border-purple`}
