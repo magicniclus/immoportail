@@ -3,29 +3,21 @@ import React, { useState, useEffect } from "react";
 
 export const CookieBanner = () => {
   const router = useRouter();
-
   const [accepted, setAccepted] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.localStorage) {
-      const acceptedFromStorage =
-        localStorage.getItem("acceptedCookies") === "true";
-      setAccepted(acceptedFromStorage);
+      const acceptedFromStorage = localStorage.getItem("acceptedCookies");
+      if (acceptedFromStorage === "true") {
+        setAccepted(true);
+      }
     }
   }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      const acceptedFromStorage =
-        localStorage.getItem("acceptedCookies") === "true";
-      setAccepted(acceptedFromStorage);
-    }
-  }, [typeof window]);
 
   const handleAccept = () => {
     setAccepted(true);
     if (typeof window !== "undefined" && window.localStorage) {
-      localStorage.setItem("acceptedCookies", true);
+      localStorage.setItem("acceptedCookies", "true");
     }
   };
 
@@ -37,16 +29,7 @@ export const CookieBanner = () => {
   if (accepted) return null;
 
   return (
-    <div
-      className={`fixed bottom-0 right-0 w-full bg-gray-400 text-white px-10 py-20 z-50 ${
-        typeof window !== "undefined" &&
-        window.localStorage &&
-        localStorage.getItem("acceptedCookies") !== null &&
-        localStorage.getItem("acceptedCookies")
-          ? "hidden"
-          : "block"
-      }`}
-    >
+    <div className="fixed bottom-0 right-0 w-full bg-gray-400 text-white px-10 py-20 z-50">
       <p>
         Ce site utilise des cookies pour améliorer votre expérience. En
         continuant à naviguer sur ce site, vous acceptez notre utilisation des
