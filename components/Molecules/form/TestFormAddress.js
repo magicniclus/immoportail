@@ -29,22 +29,6 @@ export default function TestFormAddress(props) {
 
   const { ready } = usePlacesAutocomplete();
 
-  // useEffect(() => {
-  //   let timeoutId = null;
-
-  //   if (!isLoaded) {
-  //     timeoutId = setTimeout(() => {
-  //       window.location.reload();
-  //     }, 1000);
-  //   }
-
-  //   return () => {
-  //     if (timeoutId) {
-  //       clearTimeout(timeoutId);
-  //     }
-  //   };
-  // }, [isLoaded]);
-
   // Si la bibliothèque n'est pas chargée, retourner un message de chargement
   if (!isLoaded)
     return (
@@ -81,19 +65,6 @@ const Map = (props) => {
 
   // Récupération du state global via le hook useSelector
   const state = useSelector((state) => state);
-
-  useEffect(() => {
-    currentUrl === "/estimation-immobiliere"
-      ? dispatch(updateFormAddressStatus(true))
-      : null;
-  }, [router.pathname]);
-
-  // useEffect(() => {
-  //   if (currentUrl === "/" && state.formAddressStatus) {
-  //     window.location.reload();
-  //     dispatch(updateFormAddressStatus(false));
-  //   } else null;
-  // }, [currentUrl]);
 
   // Hook pour utiliser l'autocompletion de Google Places
   const {
