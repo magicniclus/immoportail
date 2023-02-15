@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TitleSecondary from "../Atoms/titles/TitleSecondary";
 import InputWithLogo from "../Atoms/inputs/InputWithLogo";
 import ButtonPrimary from "../Atoms/buttons/ButtonPrimary";
