@@ -1,11 +1,7 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import AddressAutoFill from "../../Molecules/form/SearchSuggestAddress";
-import AdressForm from "../../Molecules/form/AdressForm";
 import TestFormAddress from "../../Molecules/form/TestFormAddress";
-import SearchSuggestAddress from "../../Molecules/form/SearchSuggestAddress";
 import { useDispatch, useSelector } from "react-redux";
-import { updateIsReady } from "../../../redux/action";
 
 const InputWithLogo = (props) => {
   // Récupération des propriétés passées en paramètres
@@ -53,9 +49,9 @@ const InputWithLogo = (props) => {
   return (
     <div className={"relative sm:w-full h-12 max-w-[450px] " + marginY}>
       {componentIsForAdress && componentIsForAdress !== undefined ? (
-        // <AdressForm color={color} placeholder={placeholder} />
-        <TestFormAddress key={seed} color={color} placeholder={placeholder} />
+        <TestFormAddress color={color} placeholder={placeholder} />
       ) : (
+        // <AutocompleteAddress />
         <input
           className={
             color !== undefined
