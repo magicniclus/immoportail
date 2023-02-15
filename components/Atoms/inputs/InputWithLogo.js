@@ -38,14 +38,6 @@ const InputWithLogo = (props) => {
 
   const [seed, setSeed] = useState(1);
 
-  // useEffect(() => {
-  //   if (state.isReady) {
-  //     setSeed(Math.random());
-  //     dispatch(updateIsReady(false));
-  //     console.log("ok");
-  //   } else null;
-  // }, [state.isReady]);
-
   return (
     <div className={"relative sm:w-full h-12 max-w-[450px] " + marginY}>
       {componentIsForAdress && componentIsForAdress !== undefined ? (
