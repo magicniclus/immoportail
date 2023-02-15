@@ -73,7 +73,13 @@ const Map = (props) => {
     setValue,
     suggestions: { status, data },
     clearSuggestions,
-  } = usePlacesAutocomplete();
+  } = usePlacesAutocomplete({
+    requestOptions: {
+      location: { lat: () => 46.227638, lng: () => 2.213749 }, // Les coordonnées du centre de la France
+      radius: 1000000, // La distance maximale à laquelle chercher des résultats (en mètres)
+      componentRestrictions: { country: "fr" }, // Seulement les résultats en France
+    },
+  });
 
   useEffect(() => {
     let timeoutId = null;
@@ -81,7 +87,6 @@ const Map = (props) => {
     if (!ready) {
       timeoutId = setTimeout(() => {
         dispatch(updateIsReady(true));
-        // window.location.reload();
       }, 2000);
     }
 
@@ -102,12 +107,6 @@ const Map = (props) => {
     clearSuggestions();
   };
 
-  const handleSelected = () => {
-    if (value !== "") {
-      window.location.reload();
-    } else null;
-  };
-
   useEffect(() => {
     selected !== null ? dispatch(updateAddressCoordinate(selected)) : null;
   }, [selected]);
@@ -118,7 +117,7 @@ const Map = (props) => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={!ready}
-        onClick={handleSelected}
+        // onClick={handleSelected}
         className={
           color !== undefined
             ? "border text-purple rounded-lg placeholder:text-slate-400 px-3 w-full h-12 border-" +
