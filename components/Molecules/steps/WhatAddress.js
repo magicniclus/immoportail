@@ -1,16 +1,23 @@
 import React from "react";
 import InputWithLogo from "../../Atoms/inputs/InputWithLogo";
 import LayoutStep from "../../Layout/LayoutStep";
+import TestFormAddress from "../form/TestFormAddress";
 
-const WhatAddress = () => {
+const WhatAddress = (props) => {
+  const titleColor = "purple";
+  const colorInput = "purple";
   return (
     <LayoutStep title="Adresse du bien à estimer ?*">
       <InputWithLogo
         componentIsForAdress={true}
-        image="/Vectorlocalization.png"
-        marginY="mt-2"
+        image={
+          titleColor === "purple"
+            ? "/Vectorlocalization.png"
+            : "/vector/VectorlocalizationPurple.png"
+        }
+        marginY="my-4"
         placeholder="Saisir une adresse"
-        color="purple"
+        color={colorInput !== undefined ? colorInput : "purple"}
       />
     </LayoutStep>
   );
