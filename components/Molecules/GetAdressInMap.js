@@ -9,8 +9,12 @@ const KEY_API =
 const GetAddressInMap = () => {
   const state = useSelector((state) => state);
   const [viewState, setViewState] = useState({
-    longitude: -0.57918,
-    latitude: 44.837789,
+    longitude: state.addressCoordinate?.lng
+      ? state.addressCoordinate.lng
+      : -0.57918,
+    latitude: state.addressCoordinate?.lat
+      ? state.addressCoordinate.lat
+      : 44.837789,
     zoom: 14,
     height: "80vh",
     width: "100%",
