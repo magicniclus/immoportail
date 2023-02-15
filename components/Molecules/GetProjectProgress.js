@@ -77,7 +77,6 @@ const GetProjectProgress = () => {
   ];
 
   useEffect(() => {
-    console.log("trackStep: ", trackStep);
     dispatch(updateStepNumber(stepName.length));
   }, [trackStep]);
 
@@ -115,7 +114,13 @@ const GetProjectProgress = () => {
             )}`}
           >
             <Icon
-              image={trackStep > idx ? "checkRoundedPurple" : "roundedGray"}
+              image={
+                trackStep > idx
+                  ? "checkRoundedPurple"
+                  : trackStep === idx
+                  ? "roundedPurple"
+                  : "roundedGray"
+              }
               size="extraLight"
             />
           </div>
