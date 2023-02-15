@@ -23,7 +23,9 @@ const Modal = () => {
 
   return (
     <div
-      className={`py-10 px-10 border-2 border-orange bg-white fixed bottom-60 right-16 z-30 rounded-lg shadow-md ${
+      className={`py-10 px-10 border-2 ${
+        state.modal.show ? "border-orange" : "border-white"
+      } bg-white fixed bottom-60 right-16 z-30 rounded-lg shadow-md ${
         show ? "block" : "hidden"
       }`}
     >
