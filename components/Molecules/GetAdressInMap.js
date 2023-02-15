@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import ReactMapGL from "react-map-gl";
-import Image from "next/image";
 
 const KEY_API =
   "pk.eyJ1IjoibWFnaWNuaWNsdXMiLCJhIjoiY2w1cG13bDdnMW96YTNvcGp5a3hnanE4bCJ9.o82GL_7qj6RuhYkF84fTZw";
