@@ -5,7 +5,7 @@ import GetProjectProgress from "../Molecules/GetProjectProgress";
 
 const ProjectStepContainer = () => {
   return (
-    <div className=" w-3/12  h-full max-h-[850px] md:flex hidden bg-grayLight flex-col lg:items-start justify-between pl-5 py-10 flex-nowrap">
+    <div className=" w-3/12 h-full max-h-[900px] md:flex hidden bg-grayLight flex-col lg:items-start justify-between pl-5 py-10 flex-nowrap">
       <TitleThree
         text="Caractéristiques de "
         textWithColor="votre bien"
