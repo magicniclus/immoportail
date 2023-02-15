@@ -1,72 +1,29 @@
 import React, { useState, useEffect } from "react";
-import { GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
 import { useSelector } from "react-redux";
+import ReactMapGL from "react-map-gl";
+import Image from "next/image";
 
-const KEY_API = "AIzaSyBhFIY1nvseuxoi4xA0HPiM-PvwNQdx9kI";
+const KEY_API =
+  "pk.eyJ1IjoibWFnaWNuaWNsdXMiLCJhIjoiY2w1cG13bDdnMW96YTNvcGp5a3hnanE4bCJ9.o82GL_7qj6RuhYkF84fTZw";
 
 const GetAddressInMap = () => {
-  const customMarker = "/vector/localizationHouse.png";
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-  const state = useSelector((state) => state);
-  const containerStyle = {
+  const [viewState, setViewState] = React.useState({
+    longitude: -0.57918,
+    latitude: 44.837789,
+    zoom: 16,
+    height: "80vh",
     width: "100%",
-    height: "100%",
-  };
-
-  const [center, setCenter] = useState({
-    lat: state.addressCoordinate?.lat ?? 48.8566,
-    lng: state.addressCoordinate?.lng ?? 2.3522,
   });
-
-  const options = {
-    disableDefaultUI: true,
-    zoomControl: false,
-  };
-
-  useEffect(() => {
-    setCenter({
-      lat: state.addressCoordinate?.lat ?? 48.8566,
-      lng: state.addressCoordinate?.lng ?? 2.3522,
-    });
-  }, [state.addressCoordinate]);
-
-  useEffect(() => {
-    if (state.address !== "" && state.addressCoordinate !== null) {
-      setScriptLoaded(true);
-    }
-  }, [state.addressCoordinate, state.address]);
-
-  const markerPosition = {
-    lat: state.addressCoordinate?.lat ?? 48.8566,
-    lng: state.addressCoordinate?.lng ?? 2.3522,
-  };
-
   return (
-    <div className="h-48 w-11/12 bg-white shadow-[inset_0px_0px_15px_30px_#FAFAFA]">
-      {!scriptLoaded ? (
-        <LoadScript
-          googleMapsApiKey={KEY_API}
-          onLoad={() => setScriptLoaded(true)}
-        >
-          <GoogleMap
-            id="map"
-            mapContainerStyle={containerStyle}
-            zoom={18}
-            center={center}
-            options={options}
-          />
-        </LoadScript>
-      ) : (
-        <GoogleMap
-          id="map"
-          mapContainerStyle={containerStyle}
-          zoom={18}
-          center={center}
-          options={options}
-        >
-          <Marker position={markerPosition} icon={customMarker} />
-        </GoogleMap>
-      )}
+    <div className="h-42 w-11/12 bg-white shadow-[inset_0px_0px_15px_30px_#FAFAFA]">
+      <ReactMapGL
+        {...viewState}
+        mapStyle="mapbox://styles/magicniclus/cle4otd4q005401mtrktqv0wt"
+        mapboxAccessToken={KEY_API}
+        interactive={false}
+        around="center"
+        onViewportChange={(viewState) => setViewState(viewState)}
+      ></ReactMapGL>
     </div>
   );
 };
