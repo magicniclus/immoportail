@@ -38,7 +38,7 @@ const apiDomain = "https://www.avenue-immo.com/"; // Remplacez YOUR_API_DOMAIN p
 const apiUrl = `https://bdvapis.appspot.com/estimation/v3.0.0/transaction`;
 
 const config = {
-  headers: {
+  header: {
     Authorization: `Bearer ${apiKey}`,
     Origin: apiDomain,
   },
