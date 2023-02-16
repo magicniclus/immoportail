@@ -25,16 +25,12 @@ export default function Layout(props) {
     <>
       <Head>
         <title>{props.title}</title>
-        <meta
-          property="og:title"
-          content={props.description}
-          key={props.key !== undefined ? props.key : "title"}
-        />
+        <meta name="description" content={props.description} />
       </Head>
       <header>
         <Header />
       </header>
-      <main className="relative min-h-[calc((100vh-7rem))]">
+      <main className="relative flex flex-col justify-between  min-h-[calc(100vh-12rem)] h-max mx-auto drop-shadow-md w-full">
         {loading ? <Loader /> : props.children}
       </main>
       <Footer />
