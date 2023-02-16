@@ -177,3 +177,10 @@ export const updateIsReady = (bool) => {
     payload: bool,
   };
 };
+
+export const updateCookieDisplay = (bool) => {
+  return {
+    type: "updateCookieDisplay",
+    payload: bool,
+  };
+};
