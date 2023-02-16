@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import LayoutEstimation from "../../../components/Layout/LayoutEstimation";
 import { getEstimation } from "../../api/homadata/Estimation";
@@ -14,7 +14,7 @@ const Index = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
-  const [params, updateParams] = (useState = {
+  const [params, setParams] = useState({
     lon: state.addressCoordinate.lng,
     lat: state.addressCoordinate.lat,
     propertyType: state.estimationElements.accommodation === "Maison" ? 1 : 0,
@@ -33,7 +33,7 @@ const Index = () => {
     parkingNb: state.estimationElements.parking
       ? state.estimationElements.parking
       : 0,
-    terraceNb: tate.estimationElements.balcon
+    terraceNb: state.estimationElements.balcon
       ? state.estimationElements.balcon
       : 0,
   });
@@ -69,7 +69,7 @@ const Index = () => {
       .catch((err) => {
         dispatch(handleLoader(false));
       });
-  }, []);
+  }, [params]);
 
   return (
     <LayoutEstimation>
