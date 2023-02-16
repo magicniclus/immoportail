@@ -8,16 +8,20 @@ import Label from "../../Atoms/labels/Label";
 import Text from "../../Atoms/texts/Text";
 import TitlePrimary from "../../Atoms/titles/TitlePrimary";
 
+// Définition du composant Inscription
 const Inscription = (props) => {
   const dispatch = useDispatch();
 
+  // Définition d'un état local pour le bouton de validation du formulaire
   const [disabled, setDisabled] = useState(true);
 
+  // Définition des états locaux pour les champs du formulaire
   const [firstName, setFirstName] = useState(null);
   const [lastName, setLastName] = useState(null);
   const [phone, setPhone] = useState(null);
   const [mail, setMail] = useState(null);
 
+  // Fonction de soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
@@ -30,6 +34,7 @@ const Inscription = (props) => {
     );
   };
 
+  // Utilisation du hook useEffect pour mettre à jour l'état du bouton de validation en fonction des champs du formulaire
   useEffect(() => {
     if (
       firstName !== null &&
@@ -40,6 +45,7 @@ const Inscription = (props) => {
       setDisabled(false);
     else setDisabled(true);
   }, [firstName, lastName, phone, mail]);
+
   return (
     <form
       className="mx-auto w-10/12 sm:w-4/6 md:w-2/6 flex flex-col py-10 md:py-10 my-auto max-w-[450px] md:mb-0 mb-24"
