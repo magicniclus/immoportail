@@ -25,7 +25,7 @@ export const CookieBanner = () => {
 
   const handleReject = () => {
     setAccepted(false);
-    router.push("google.com");
+    router.push("https://www.google.com/");
   };
 
   if (accepted) return null;
