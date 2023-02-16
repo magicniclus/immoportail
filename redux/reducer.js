@@ -2,6 +2,7 @@ const initState = {
   loader: false,
   formAddressStatus: false,
   isReady: false,
+  cookieDisplay: false,
   modal: {
     message: null,
     show: false,
@@ -308,6 +309,12 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         isReady: action.payload,
+      };
+
+    case "updateCookieDisplay":
+      return {
+        ...state,
+        cookieDisplay: action.payload,
       };
 
     default:
