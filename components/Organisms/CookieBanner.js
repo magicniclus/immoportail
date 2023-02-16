@@ -1,17 +1,19 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export const CookieBanner = () => {
   const router = useRouter();
-  const [accepted, setAccepted] = useState(false);
+  const [accepted, setAccepted] = useState(true);
+  const state = useSelector((state) => state);
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.localStorage) {
       const acceptedFromStorage = localStorage.getItem("acceptedCookies");
       if (acceptedFromStorage === "true") {
         setAccepted(true);
-      }
-    }
+      } else setAccepted(false);
+    } else null;
   }, []);
 
   const handleAccept = () => {
