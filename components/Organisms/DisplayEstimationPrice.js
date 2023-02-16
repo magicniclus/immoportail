@@ -18,7 +18,7 @@ const DisplayEstimationPrice = (props) => {
             {state.resultatEstimation !== null
               ? formatNumber(
                   removeDecimals(
-                    state.resultatEstimation.mainValuation.confidence_min
+                    state.resultatEstimation.mainValuation.confidenceMin
                   )
                 ) + " €"
               : "100000 €"}
@@ -32,7 +32,7 @@ const DisplayEstimationPrice = (props) => {
             {state.resultatEstimation !== null
               ? formatNumber(
                   removeDecimals(
-                    state.resultatEstimation.mainValuation.predicted_price
+                    state.resultatEstimation.mainValuation.predictedPrice
                   )
                 ) + " €"
               : "100000 €"}
@@ -46,7 +46,7 @@ const DisplayEstimationPrice = (props) => {
             {state.resultatEstimation !== null
               ? formatNumber(
                   removeDecimals(
-                    state.resultatEstimation.mainValuation.confidence_max
+                    state.resultatEstimation.mainValuation.confidenceMax
                   )
                 ) + " €"
               : "100000 €"}
@@ -58,7 +58,7 @@ const DisplayEstimationPrice = (props) => {
         {formatNumber(
           removeDecimals(
             state.resultatEstimation !== null
-              ? state.resultatEstimation.mainValuation.price_m2
+              ? state.resultatEstimation.mainValuation.priceM2
               : "100000 €"
           )
         )}
