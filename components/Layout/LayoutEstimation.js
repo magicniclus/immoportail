@@ -26,11 +26,7 @@ const LayoutEstimation = (props) => {
     <>
       <Head>
         <title>{props.title}</title>
-        <meta
-          property="og:title"
-          content={props.description}
-          key={props.key !== undefined ? props.key : "title"}
-        />
+        <meta name="description" content={props.description} />
       </Head>
       <header className=" mx-auto">
         <HeaderEstimation />
