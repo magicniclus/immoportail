@@ -50,7 +50,7 @@ const config = {
 export const getAllEstimation = () => {
   return new Promise((resolve, reject) => {
     axios
-      .get(apiUrl, userData, config)
+      .get(apiUrl, config)
       .then((response) => {
         resolve(response);
       })
