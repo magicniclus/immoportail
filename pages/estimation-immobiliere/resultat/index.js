@@ -14,6 +14,30 @@ const Index = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
+  const [params, updateParams] = (useState = {
+    lon: state.addressCoordinate.lng,
+    lat: state.addressCoordinate.lat,
+    propertyType: state.estimationElements.accommodation === "Maison" ? 1 : 0,
+    propertySurface: state.estimationElements.surface,
+    roomNb: state.estimationElements.partNumber,
+    bedroomNb: state.estimationElements.roomNumber,
+    floor:
+      state.estimationElements.accommodation === "Maison"
+        ? 0
+        : state.estimationElements.level,
+    floorNb: state.estimationElements.level,
+    gardenSurface:
+      state.estimationElements.accommodation === "Maison"
+        ? state.estimationElements.landArea
+        : 0,
+    parkingNb: state.estimationElements.parking
+      ? state.estimationElements.parking
+      : 0,
+    terraceNb: tate.estimationElements.balcon
+      ? state.estimationElements.balcon
+      : 0,
+  });
+
   useEffect(() => {
     dispatch(updateStepOfProjectProgress("resultat"));
   }, []);
@@ -36,7 +60,7 @@ const Index = () => {
 
   useEffect(() => {
     dispatch(handleLoader(true));
-    getEstimation()
+    getEstimation(params)
       .then((value) => {
         updateDate(state.id, value);
         dispatch(makeResultatEstimation(value));
@@ -44,8 +68,6 @@ const Index = () => {
       })
       .catch((err) => {
         dispatch(handleLoader(false));
-        // alert("Erreur du chargement de vos données...");
-        // router.push("/estimation-immobiliere");
       });
   }, []);
 
