@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAddress, updateAddressCoordinate } from "../redux/action";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { getAllEstimation } from "./api/homadata/Estimation";
 
 export default function Home() {
   const [disabled, setDisabled] = useState(true);
@@ -17,13 +18,11 @@ export default function Home() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (state.updateFormAddressStatus) {
-  //     window.location.reload();
-  //   } else null;
-  // }, []);
-
-  // console.log(process.env.NEXT_PUBLIC_PORT);
+  useEffect(() => {
+    getAllEstimation()
+      .then((response) => console.log(re))
+      .catch((error) => console.log(error));
+  }, []);
 
   useEffect(() => {
     state.address !== "" ? setDisabled(false) : setDisabled(true);
