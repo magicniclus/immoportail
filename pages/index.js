@@ -20,7 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     getAllEstimation()
-      .then((response) => console.log(re))
+      .then((response) => console.log(response))
       .catch((error) => console.log(error));
   }, []);
 
@@ -47,6 +47,4 @@ export default function Home() {
       <ContactModal />
     </Layout>
   );
-
-  //0768059230 0673476774 0676850900 0671549059
 }
