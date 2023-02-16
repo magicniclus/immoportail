@@ -38,6 +38,7 @@ const GetAddressInMap = () => {
         interactive={false}
         around="center"
         onViewportChange={(viewState) => setViewState(viewState)}
+        attributionControl={false}
       ></ReactMapGL>
     </div>
   );
