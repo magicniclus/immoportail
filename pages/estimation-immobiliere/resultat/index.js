@@ -15,8 +15,8 @@ const Index = () => {
   const state = useSelector((state) => state);
 
   const [params, setParams] = useState({
-    lon: state.addressCoordinate.lng,
-    lat: state.addressCoordinate.lat,
+    lon: state.addressCoordinate?.lng ? state.addressCoordinate.lng : null,
+    lat: state.addressCoordinate?.lat ? state.addressCoordinate.lat : null,
     propertyType: state.estimationElements.accommodation === "Maison" ? 1 : 0,
     propertySurface: state.estimationElements.surface,
     roomNb: state.estimationElements.partNumber,
