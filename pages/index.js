@@ -29,8 +29,8 @@ export default function Home() {
 
   return (
     <Layout
-      title="Estimez votre bien | ImmoPortail"
-      description="Estimez votre bien immobilier gratuitement en ligne en 2 minutes"
+      title="Avenue-Immo : Expert en conseil immobilier en ligne"
+      description="Bienvenue sur Avenue-Immo, l'expert de l'estimation immobilière en ligne. Obtenez une évaluation précise de votre bien grâce à notre service gratuit."
     >
       <EstimationBanner disabled={disabled} />
       <BreadcrumbContainer list={["Accueil", "Estimation"]} />
