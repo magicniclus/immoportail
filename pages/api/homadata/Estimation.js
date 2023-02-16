@@ -7,7 +7,7 @@ const updateMockedData = () => {
 
 // Configuration de la requête
 
-export const getEstimation = (params => {
+export const getEstimation = (params) => {
   const mocked = false;
   const apiKey = "c7e6b36c05049c7d57a18b2af71455839818fd4f"; // Remplacez YOUR_API_KEY par votre clé d'API réelle
   const apiDomain = "https://www.avenue-immo.com/"; // Remplacez YOUR_API_DOMAIN par votre domaine API réel
@@ -18,7 +18,7 @@ export const getEstimation = (params => {
       Authorization: `Bearer c7e6b36c05049c7d57a18b2af71455839818fd4f`,
       Origin: "https://www.avenue-immo.com/",
     },
-    params
+    params,
     // params: {
     //   lon: 2.294481,
     //   lat: 48.85837,
