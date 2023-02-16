@@ -18,11 +18,11 @@ export default function Home() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    getAllEstimation()
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
-  }, []);
+  // useEffect(() => {
+  //   getAllEstimation()
+  //     .then((response) => console.log(response))
+  //     .catch((error) => console.log(error));
+  // }, []);
 
   useEffect(() => {
     state.address !== "" ? setDisabled(false) : setDisabled(true);
