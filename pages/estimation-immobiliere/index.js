@@ -14,7 +14,10 @@ const EstimationImmobiliere = () => {
   }, []);
 
   return (
-    <LayoutEstimation>
+    <LayoutEstimation
+      title="Estimation immobilière en ligne gratuite | Avenue-Immo"
+      description="Estimation immobilière en ligne gratuite en 2 min | Avenue-Immo : votre expert immobilier en ligne pour évaluer rapidement votre bien immobilier"
+    >
       <div className="w-full flex mx-auto flex-col justify-center md:flex-row md:max-w-screen-2xl md:py-8">
         {/* Left Container */}
         <ProjectStepContainer />
