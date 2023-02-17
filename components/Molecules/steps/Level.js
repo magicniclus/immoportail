@@ -45,8 +45,11 @@ const Level = () => {
 
   useEffect(() => {
     if (state === "Maison") {
-      setText("1 étant le rez-de-chaussé");
-    } else if (state === "Appartement") setText("Zero étant le rez-de-chaussé");
+      setText("1 étant le rez-de-chaussée");
+    } else if (state === "Appartement")
+      setText(
+        "À quel étage se situe votre appartement ? (0 étant le rez-de-chaussée)"
+      );
     else setText("");
   }, [state]);
 
@@ -65,6 +68,13 @@ const Level = () => {
       if (valueLevel === null) dispatch(updateLevel(null));
     }
   }, [valueLevel, state, numberBuildingLevel, aCardIsSelected]);
+
+  useEffect(() => {
+    if (state === "Appartement") {
+      setValueLevel(0);
+      setNumberBuildingLevel(0);
+    }
+  }, []);
 
   const AppartmentContainer = () => {};
 
