@@ -3,7 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import LayoutStep from "../../Layout/LayoutStep";
 import SelectNumber from "../../Atoms/select/SelectNumber";
 import Text from "../../Atoms/texts/Text";
-import { updateLevel } from "../../../redux/action";
+import {
+  updateBuildingLevel,
+  updateElevator,
+  updateLevel,
+} from "../../../redux/action";
+import Check from "../cards/Check";
 
 const Level = () => {
   //TODO: Faire commencer le nombre par un quand c'est une maison
@@ -16,15 +21,25 @@ const Level = () => {
     state === "Appartement" ? 0 : null
   );
 
+  const [numberBuildingLevel, setNumberBuildingLevel] = useState(
+    state === "Appartement" ? 0 : null
+  );
+
+  const [aCardIsSelected, setACardIsSelected] = useState(null);
+
   useEffect(() => {
     dispatch(updateLevel(valueLevel));
+    if (state === "Appartement")
+      dispatch(updateBuildingLevel(numberBuildingLevel));
   }, []);
 
   useEffect(() => {
     if (state === "Maison") {
       setTitle("Combien de niveau que comporte votre maison ?");
     } else if (state === "Appartement")
-      setTitle("A quel étage se situe votre appartement ?");
+      setTitle(
+        "Combien y a-t-il d'étages dans votre immeuble et à quel étage êtes vous ?"
+      );
     else setTitle("Étage");
   }, [state]);
 
@@ -37,13 +52,21 @@ const Level = () => {
 
   useEffect(() => {
     if (state === "Appartement") {
-      if (valueLevel === 0 || valueLevel === null) dispatch(updateLevel(0));
-      else dispatch(updateLevel(valueLevel));
+      if (valueLevel !== null) dispatch(updateLevel(valueLevel));
+      if (valueLevel === null) dispatch(updateLevel(null));
+      if (numberBuildingLevel !== null)
+        dispatch(updateBuildingLevel(numberBuildingLevel));
+      if (numberBuildingLevel === null) dispatch(updateBuildingLevel(0));
+      if (numberBuildingLevel === 0) dispatch(updateBuildingLevel(0));
+      if (aCardIsSelected !== null) dispatch(updateElevator(aCardIsSelected));
+      if (aCardIsSelected === null) dispatch(updateElevator(null));
     } else {
-      if (valueLevel === 0 || valueLevel === null) dispatch(updateLevel(null));
-      else dispatch(updateLevel(valueLevel));
+      if (valueLevel !== null) dispatch(updateLevel(valueLevel));
+      if (valueLevel === null) dispatch(updateLevel(null));
     }
-  }, [valueLevel, state]);
+  }, [valueLevel, state, numberBuildingLevel, aCardIsSelected]);
+
+  const AppartmentContainer = () => {};
 
   return (
     <LayoutStep title={title + "*"}>
@@ -53,6 +76,39 @@ const Level = () => {
         </Text>
       </div>
       <SelectNumber callback={setValueLevel} callbackValue={valueLevel} />
+      {state === "Appartement" ? (
+        <>
+          <div className="mb-2 mt-5">
+            <Text color="purple" textSize="bigLight">
+              Nombre d'étage de l'immeuble
+            </Text>
+          </div>
+          <SelectNumber
+            callback={setNumberBuildingLevel}
+            callbackValue={numberBuildingLevel}
+          />
+          <div className="mb-2 mt-5">
+            <Text color="purple" textSize="bigLight">
+              Votre immeuble possède-t-il un ascenseur ?
+            </Text>
+            <div className="flex mt-2">
+              <Check
+                title="Oui"
+                updateStyle={"mr-5 md:mr-10"}
+                valueCallback={aCardIsSelected}
+                callback={setACardIsSelected}
+                value={1}
+              />
+              <Check
+                title="Non"
+                valueCallback={aCardIsSelected}
+                callback={setACardIsSelected}
+                value={1}
+              />
+            </div>
+          </div>
+        </>
+      ) : null}
     </LayoutStep>
   );
 };
