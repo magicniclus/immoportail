@@ -136,6 +136,27 @@ export const updateLevel = (number) => {
   };
 };
 
+export const updateBuildingLevel = (number) => {
+  return {
+    type: "updateBuildingLevel",
+    payload: number,
+  };
+};
+
+export const updateEnergy = (number) => {
+  return {
+    type: "updateEnergy",
+    payload: number,
+  };
+};
+
+export const updateElevator = (bool) => {
+  return {
+    type: "updateElevator",
+    payload: bool,
+  };
+};
+
 export const updateUserInformations = (object) => {
   return {
     type: "updateUserInformations",
