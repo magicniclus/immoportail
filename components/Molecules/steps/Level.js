@@ -80,7 +80,7 @@ const Level = () => {
         <>
           <div className="mb-2 mt-5">
             <Text color="purple" textSize="bigLight">
-              Nombre d'étage de l'immeuble
+              Nombre d&apos;étage de l&apos;immeuble
             </Text>
           </div>
           <SelectNumber
