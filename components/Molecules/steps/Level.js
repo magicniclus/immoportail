@@ -45,7 +45,7 @@ const Level = () => {
 
   useEffect(() => {
     if (state === "Maison") {
-      setText("Le rez-de-chaussé est à prendre en compte");
+      setText("1 étant le rez-de-chaussé");
     } else if (state === "Appartement") setText("Zero étant le rez-de-chaussé");
     else setText("");
   }, [state]);
@@ -75,7 +75,11 @@ const Level = () => {
           {text}
         </Text>
       </div>
-      <SelectNumber callback={setValueLevel} callbackValue={valueLevel} />
+      <SelectNumber
+        callback={setValueLevel}
+        callbackValue={valueLevel}
+        startInOne={state === "Maison" ? true : false}
+      />
       {state === "Appartement" ? (
         <>
           <div className="mb-2 mt-5">
