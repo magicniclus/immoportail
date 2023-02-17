@@ -41,6 +41,9 @@ const GetProjectProgress = () => {
       ? estimationElements.partNumber +
         `${estimationElements.partNumber > 1 ? " pièces" : " pièce"}`
       : "Nombre de pièce",
+    estimationElements.energy !== null
+      ? estimationElements.energy
+      : "Classement energetique",
     estimationElements.years !== null
       ? estimationElements.years
       : "Année de construction",
@@ -88,7 +91,6 @@ const GetProjectProgress = () => {
 
   const selectedBefore = "before:bg-purple";
   const unselectedBefore = "before:bg-newGray";
-
   const beforeGlobalStyle =
     "before:w-1 before:h-3 before:absolute before:bottom-4 before:left-1.5 z-40 ";
 
