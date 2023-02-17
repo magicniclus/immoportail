@@ -40,9 +40,9 @@ const MultitCardsContainer = () => {
   // Utilisation du Router pour naviguer entre les pages
   const router = useRouter();
 
+  const estimation = state.estimationElements;
   // Fonction gérant la soumission du formulaire d'estimation immobilière
   const handleSubmit = (e) => {
-    const estimation = state.estimationElements;
     e.preventDefault();
 
     // Vérification que tous les champs ont été remplis
@@ -249,7 +249,12 @@ const MultitCardsContainer = () => {
       <form
         onSubmit={handleSubmit}
         id="cardContainer"
-        className="w-full mt-20 xs:mt-20 lg:mt-32 flex flex-col items-center"
+        className={`w-full mt-20 xs:mt-20 lg:mt-${
+          estimation.accommodation === "Maison" &&
+          (state.stepOfProjectProgress !== 3 || 10)
+            ? "32"
+            : "20"
+        } flex flex-col items-center`}
       >
         {handleFunction(card)}
         <div className="w-full flex justify-start">
