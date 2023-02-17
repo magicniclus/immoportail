@@ -23,6 +23,9 @@ const initState = {
     years: null,
     surface: null,
     level: null,
+    energy: null,
+    buildingLevel: null,
+    elevator: null,
     partNumber: null,
     roomNumber: null,
     works: null,
@@ -262,6 +265,33 @@ const reducer = (state = initState, action) => {
         estimationElements: {
           ...state.estimationElements,
           level: action.payload,
+        },
+      };
+
+    case "updateBuildingLevel":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          buildingLevel: action.payload,
+        },
+      };
+
+    case "updateElevator":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          elevator: action.payload,
+        },
+      };
+
+    case "updateEnergy":
+      return {
+        ...state,
+        estimationElements: {
+          ...state.estimationElements,
+          energy: action.payload,
         },
       };
 
