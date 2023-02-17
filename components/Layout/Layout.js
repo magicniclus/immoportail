@@ -6,6 +6,7 @@ import Loader from "../Organisms/Loader";
 import React, { useEffect, useState } from "react";
 import CookieBanner from "../Organisms/CookieBanner";
 import Modal from "../Molecules/modals/Modal";
+import ContactModal from "../Organisms/ContactModal";
 
 export default function Layout(props) {
   const state = useSelector((state) => state);
@@ -30,12 +31,13 @@ export default function Layout(props) {
       <header>
         <Header />
       </header>
-      <main className="relative flex flex-col justify-between  min-h-[calc(100vh-12rem)] h-max mx-auto drop-shadow-md w-full">
+      <main className="relative flex flex-col justify-between min-h-[calc(100vh-12rem)] h-max mx-auto drop-shadow-md w-full">
         {loading ? <Loader /> : props.children}
       </main>
       <Footer />
       <CookieBanner />
       <Modal />
+      <ContactModal />
     </>
   );
 }
