@@ -250,8 +250,9 @@ const MultitCardsContainer = () => {
         onSubmit={handleSubmit}
         id="cardContainer"
         className={`w-full mt-20 xs:mt-20 lg:mt-${
-          estimation.accommodation === "Maison" &&
-          (state.stepOfProjectProgress !== 3 || 10)
+          (estimation.accommodation === "Maison" &&
+            state.stepOfProjectProgress !== 3) ||
+          state.stepOfProjectProgress !== 10
             ? "32"
             : "20"
         } flex flex-col items-center`}
