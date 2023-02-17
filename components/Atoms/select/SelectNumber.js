@@ -10,7 +10,7 @@ const SelectNumber = (props) => {
   const callback = props.callback;
 
   const updateMoreValue = () => {
-    if ((value) => 0) setValue(value + 1);
+    if (value >= 0) setValue(value + 1);
     else null;
   };
 
@@ -49,7 +49,7 @@ const SelectNumber = (props) => {
           required
           placeholder={placeholder}
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e) => setValue(parseInt(e.target.value))}
         />
         <div
           onClick={updateMoreValue}
