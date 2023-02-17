@@ -1,14 +1,10 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCoordinateOfAddress } from "../../lib/googleMap/googleMap";
-import {
-  updateAddressCoordinate,
-  updateStepNumber,
-  updateStepOfProjectProgress,
-} from "../../redux/action";
+import { updateStepOfProjectProgress } from "../../redux/action";
 import ButtonPrimary from "../Atoms/buttons/ButtonPrimary";
 import Adjoining from "../Molecules/steps/Adjoining";
+import Energy from "../Molecules/steps/Energy";
 import Exposure from "../Molecules/steps/Exposure";
 import ImportantSurfaces from "../Molecules/steps/ImportantSurfaces";
 import Level from "../Molecules/steps/Level";
@@ -21,7 +17,6 @@ import WhatAddress from "../Molecules/steps/WhatAddress";
 import WhatIsASurface from "../Molecules/steps/WhatIsASurface";
 import Works from "../Molecules/steps/Works";
 import YearOfContruction from "../Molecules/steps/YearOfContruction";
-import axios from "axios";
 
 const MultitCardsContainer = () => {
   // Clé API
@@ -45,23 +40,6 @@ const MultitCardsContainer = () => {
   // Utilisation du Router pour naviguer entre les pages
   const router = useRouter();
 
-  // Tableau de noms d'étapes
-  const array = [
-    "one",
-    "two",
-    "three",
-    "four",
-    "five",
-    "six",
-    "seven",
-    "height",
-    "nine",
-    "ten",
-    "eleven",
-    "twelve",
-    "thirteen",
-  ];
-
   // Fonction gérant la soumission du formulaire d'estimation immobilière
   const handleSubmit = (e) => {
     const estimation = state.estimationElements;
@@ -74,6 +52,7 @@ const MultitCardsContainer = () => {
       estimation.surface !== null &&
       estimation.level !== null &&
       estimation.partNumber !== null &&
+      estimation.energy !== null &&
       estimation.works !== null &&
       estimation.livingArea !== null &&
       estimation.landArea !== null &&
@@ -116,7 +95,15 @@ const MultitCardsContainer = () => {
         break;
 
       case 3:
-        estimation.level !== null ? setDisabled(false) : setDisabled(true);
+        estimation.accommodation === "Maison"
+          ? estimation.level !== null
+            ? setDisabled(false)
+            : setDisabled(true)
+          : estimation.level !== null &&
+            estimation.buildingLevel !== null &&
+            estimation.elevator !== null
+          ? setDisabled(false)
+          : setDisabled(true);
         break;
 
       case 4:
@@ -124,36 +111,40 @@ const MultitCardsContainer = () => {
         break;
 
       case 5:
-        estimation.years !== null ? setDisabled(false) : setDisabled(true);
+        estimation.energy !== null ? setDisabled(false) : setDisabled(true);
         break;
 
       case 6:
-        estimation.works !== null ? setDisabled(false) : setDisabled(true);
+        estimation.years !== null ? setDisabled(false) : setDisabled(true);
         break;
 
       case 7:
+        estimation.works !== null ? setDisabled(false) : setDisabled(true);
+        break;
+
+      case 8:
         estimation.livingArea !== null && estimation.landArea !== null
           ? setDisabled(false)
           : setDisabled(true);
         break;
 
-      case 9:
+      case 10:
         estimation.exposure !== null && estimation.view !== null
           ? setDisabled(false)
           : setDisabled(true);
         break;
 
-      case 10:
+      case 11:
         estimation.standing !== null && estimation.secteur !== null
           ? setDisabled(false)
           : setDisabled(true);
         break;
 
-      case 11:
+      case 12:
         estimation.adjoining !== null ? setDisabled(false) : setDisabled(true);
         break;
 
-      case 12:
+      case 13:
         estimation.contract !== null && estimation.when !== null
           ? setDisabled(false)
           : setDisabled(true);
@@ -184,27 +175,30 @@ const MultitCardsContainer = () => {
         return <NumberOfParts />;
 
       case 5:
-        return <YearOfContruction />;
+        return <Energy />;
 
       case 6:
-        return <Works />;
+        return <YearOfContruction />;
 
       case 7:
-        return <ImportantSurfaces />;
+        return <Works />;
 
       case 8:
-        return <OutdoorSpace />;
+        return <ImportantSurfaces />;
 
       case 9:
-        return <Exposure />;
+        return <OutdoorSpace />;
 
       case 10:
-        return <Standing />;
+        return <Exposure />;
 
       case 11:
-        return <Adjoining />;
+        return <Standing />;
 
       case 12:
+        return <Adjoining />;
+
+      case 13:
         return <Profil />;
 
       default:
@@ -217,7 +211,7 @@ const MultitCardsContainer = () => {
   }, []);
 
   const handleCard = (e) => {
-    if (card < 12) {
+    if (card < 13) {
       setCard(card + 1);
       dispatch(updateStepOfProjectProgress(card + 1));
     }
@@ -241,7 +235,7 @@ const MultitCardsContainer = () => {
     <div
       onKeyDown={handleTab}
       className={`md:top-0 top-5 md:w-7/12 w-11/12 xs:w-10/12 flex flex-col items-center relative pl-5 sm:pl-20 md:pl-24 lg:pl-48 ${
-        card === 8 || 9 ? "mb-36" : null
+        card === 9 || 10 ? "mb-36" : null
       }`}
     >
       {card > 0 ? (
@@ -261,8 +255,8 @@ const MultitCardsContainer = () => {
         <div className="w-full flex justify-start">
           <ButtonPrimary
             disabled={disabled}
-            text={card < 12 ? "Suivant" : "Estimer"}
-            type={card < 12 ? "button" : "submit"}
+            text={card < 13 ? "Suivant" : "Estimer"}
+            type={card < 13 ? "button" : "submit"}
             callback={handleCard}
           />
         </div>
