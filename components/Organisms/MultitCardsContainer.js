@@ -235,7 +235,7 @@ const MultitCardsContainer = () => {
     <div
       onKeyDown={handleTab}
       className={`md:top-0 top-5 md:w-7/12 w-11/12 xs:w-10/12 flex flex-col items-center relative pl-5 sm:pl-20 md:pl-24 lg:pl-48 ${
-        card === 9 || 10 ? "mb-36" : null
+        card === 9 || 10 || 5 ? "mb-36" : null
       }`}
     >
       {card > 0 ? (
