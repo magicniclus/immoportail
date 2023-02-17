@@ -44,8 +44,8 @@ const Index = () => {
     elevator:
       state.estimationElements.elevator !== null &&
       state.estimationElements.elevator === "Oui"
-        ? true
-        : false,
+        ? 1
+        : 0,
     view: updateView(state.estimationElements.view),
   });
 
