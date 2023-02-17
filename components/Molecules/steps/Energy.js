@@ -25,7 +25,7 @@ const Energy = () => {
 
   return (
     <LayoutStep
-      title={`Quel est le classement energétique de votre logement ?* `}
+      title={`Quel est le diagnostic de performance énergétique (DPE) de votre logement ?* `}
     >
       <SelectValue
         option={energyClassement}
