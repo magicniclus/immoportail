@@ -26,8 +26,8 @@ const GetProjectProgress = () => {
             estimationElements.level === 0
               ? "Plein pied"
               : estimationElements.level > 1
-              ? estimationElements.level + " niveaux"
-              : estimationElements.level + " niveau"
+              ? estimationElements.level + " étages"
+              : estimationElements.level + " étage"
           }`
         : `${
             estimationElements.level === 0
