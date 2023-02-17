@@ -102,7 +102,7 @@ const Index = () => {
 
   return (
     <LayoutEstimation>
-      <div className="flex  min-h-[calc(100vh-7rem)]">
+      <div className="flex min-h-[calc(100vh-7rem)] items-center">
         <div className=" min-h-[calc(100vh-7rem)] 4xl:hidden w-3/6 relative md:flex hidden">
           <Image
             priority
