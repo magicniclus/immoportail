@@ -33,8 +33,8 @@ const GetProjectProgress = () => {
             estimationElements.level === 0
               ? "Rez-de-chaussé"
               : estimationElements.level > 1
-              ? estimationElements.level + " etages"
-              : estimationElements.level + " etage"
+              ? estimationElements.level + " étages"
+              : estimationElements.level + " étage"
           }`
       : "Étages",
     estimationElements.partNumber !== null
