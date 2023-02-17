@@ -6,6 +6,7 @@ const SelectNumber = (props) => {
   const valueCallback = props.valueCallback;
   const callback = props.callback;
   const startInOne = props.startInOne || 0;
+  const startInZero = props.startInZero || false;
 
   const [value, setValue] = useState(startInOne ? 1 : 0);
 
@@ -15,10 +16,14 @@ const SelectNumber = (props) => {
   };
 
   useEffect(() => {
-    if (callback) {
-      if (value > 0) {
-        callback(value);
-      } else callback(null);
+    if (!startInZero) {
+      if (callback) {
+        if (value > 0) {
+          callback(value);
+        } else callback(null);
+      }
+    } else {
+      callback(value);
     }
   }, [value]);
 
