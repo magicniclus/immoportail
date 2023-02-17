@@ -38,7 +38,6 @@ export default function Home() {
       <QualityBanner />
       <ImmoStepContainer />
       <SetInputWithTitleButtonBanner disabled={disabled} />
-      <ContactModal />
     </Layout>
   );
 }
