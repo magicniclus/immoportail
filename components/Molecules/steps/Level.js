@@ -17,9 +17,7 @@ const Level = () => {
   const [title, setTitle] = useState("Étage");
   const [text, setText] = useState("");
 
-  const [valueLevel, setValueLevel] = useState(
-    state === "Appartement" ? 0 : null
-  );
+  const [valueLevel, setValueLevel] = useState(state === "Appartement" ? 0 : 0);
 
   const [numberBuildingLevel, setNumberBuildingLevel] = useState(
     state === "Appartement" ? 0 : null
@@ -35,7 +33,7 @@ const Level = () => {
 
   useEffect(() => {
     if (state === "Maison") {
-      setTitle("Combien de niveau que comporte votre maison ?");
+      setTitle("Combien d'étage comporte votre maison ?");
     } else if (state === "Appartement")
       setTitle(
         "Combien y a-t-il d'étages dans votre immeuble et à quel étage êtes vous ?"
@@ -45,7 +43,7 @@ const Level = () => {
 
   useEffect(() => {
     if (state === "Maison") {
-      setText("1 étant le rez-de-chaussée");
+      setText("0 étant le rez-de-chaussée");
     } else if (state === "Appartement")
       setText(
         "À quel étage se situe votre appartement ? (0 étant le rez-de-chaussée)"
@@ -73,10 +71,10 @@ const Level = () => {
     if (state === "Appartement") {
       setValueLevel(0);
       setNumberBuildingLevel(0);
+    } else {
+      setValueLevel(0);
     }
   }, []);
-
-  const AppartmentContainer = () => {};
 
   return (
     <LayoutStep title={title + "*"}>
@@ -88,7 +86,7 @@ const Level = () => {
       <SelectNumber
         callback={setValueLevel}
         callbackValue={valueLevel}
-        startInOne={state === "Maison" ? true : false}
+        startInZero={true}
       />
       {state === "Appartement" ? (
         <>
