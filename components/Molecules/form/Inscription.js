@@ -48,7 +48,7 @@ const Inscription = (props) => {
 
   return (
     <form
-      className="mx-auto w-10/12 sm:w-4/6 md:w-2/6 flex flex-col py-10 md:py-10 my-auto max-w-[450px] md:mb-0 mb-24"
+      className="mx-auto w-10/12 sm:w-4/6 md:w-2/6 flex flex-col py-10 md:py-10 my-auto max-w-[450px] md:mb-auto mb-24"
       onSubmit={handleSubmit}
     >
       <TitlePrimary
