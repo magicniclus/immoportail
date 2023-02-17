@@ -2,12 +2,12 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 const SelectNumber = (props) => {
-  const [value, setValue] = useState(0);
-
   const placeholder = props.placeholder;
-
   const valueCallback = props.valueCallback;
   const callback = props.callback;
+  const startInOne = props.startInOne || 0;
+
+  const [value, setValue] = useState(startInOne ? 1 : 0);
 
   const updateMoreValue = () => {
     if (value >= 0) setValue(value + 1);
@@ -23,7 +23,7 @@ const SelectNumber = (props) => {
   }, [value]);
 
   const updateLessValue = () => {
-    if (value > 0) setValue(value - 1);
+    if (value > startInOne ? 1 : 0) setValue(value - 1);
     else null;
   };
 
@@ -33,7 +33,7 @@ const SelectNumber = (props) => {
         <div
           onClick={updateLessValue}
           className={`h-12 w-10 bg-purple ${
-            value > 0 ? "opacity-100" : "opacity-80"
+            value > startInOne ? 1 : 0 ? "opacity-100" : "opacity-80"
           } rounded-l-lg flex items-center justify-center cursor-pointer`}
         >
           <Image
@@ -50,6 +50,8 @@ const SelectNumber = (props) => {
           placeholder={placeholder}
           value={value}
           onChange={(e) => setValue(parseInt(e.target.value))}
+          min={startInOne ? 1 : null}
+          type="number"
         />
         <div
           onClick={updateMoreValue}
