@@ -8,6 +8,7 @@ import { addDataToUserDoc } from "../../api/firebase/Doc";
 import ResultEstimationBanner from "../../../components/Organisms/ResultEstimationBanner";
 import HowToStandOutBanner from "../../../components/Organisms/HowToStandOutBanner";
 import { updateStepOfProjectProgress } from "../../../redux/action";
+import { updateDPE, updateView } from "../../../lib/utils/func";
 
 const Index = () => {
   const router = useRouter();
@@ -25,7 +26,10 @@ const Index = () => {
       state.estimationElements.accommodation === "Maison"
         ? 0
         : state.estimationElements.level,
-    floorNb: state.estimationElements.level,
+    floorNb:
+      state.estimationElements.accommodation === "Appartment"
+        ? state.estimationElements.buildingLevel
+        : state.estimationElements.level,
     gardenSurface:
       state.estimationElements.accommodation === "Maison"
         ? state.estimationElements.landArea
@@ -36,6 +40,13 @@ const Index = () => {
     terraceNb: state.estimationElements.balcon
       ? state.estimationElements.balcon
       : 0,
+    ratingEnergyConso: updateDPE(state.estimationElements.energy),
+    elevator:
+      state.estimationElements.elevator !== null &&
+      state.estimationElements.elevator === "Oui"
+        ? true
+        : false,
+    view: updateView(state.estimationElements.view),
   });
 
   useEffect(() => {
