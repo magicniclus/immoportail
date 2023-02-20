@@ -31,7 +31,7 @@ export const CookieBanner = () => {
   if (accepted) return null;
 
   return (
-    <div className="fixed bottom-0 right-0 w-full bg-gray-400 text-white px-10 py-20 z-50">
+    <div className="fixed bottom-0 right-0 w-full bg-gray-400 text-white px-10 py-20 z-100">
       <p>
         Ce site utilise des cookies pour améliorer votre expérience. En
         continuant à naviguer sur ce site, vous acceptez notre utilisation des
