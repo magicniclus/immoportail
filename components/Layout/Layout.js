@@ -11,6 +11,7 @@ import ContactModal from "../Organisms/ContactModal";
 export default function Layout(props) {
   const state = useSelector((state) => state);
   const [loading, setLoading] = useState(true);
+  const [showContactModal, setShowContactModal] = useState(false);
 
   useEffect(() => {
     if (state.loader) setLoading(true);
