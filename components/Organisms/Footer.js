@@ -71,7 +71,7 @@ const Footer = () => {
             </li>
             <li className="mb-3 text-purple text-base md:text-xl">
               <Link href="/conditions-d-utilisation">
-                Conditions dd&apos;utilisation
+                Conditions d&apos;utilisation
               </Link>
             </li>
           </ul>
