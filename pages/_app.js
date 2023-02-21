@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href="/vector/favicon.png" />
+        <link rel="shortcut icon" href="/vector/favicons.png" />
       </Head>
       <Provider store={store}>
         <Component {...pageProps} />
