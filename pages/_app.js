@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import store from "../redux/store";
 import TagManager from "react-gtm-module";
 import { useEffect } from "react";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -12,8 +13,13 @@ export default function App({ Component, pageProps }) {
     TagManager.initialize(tagManagerArgs);
   }, []);
   return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
+    <>
+      <Head>
+        <link rel="shortcut icon" href="/vector/favicon.png" />
+      </Head>
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+    </>
   );
 }
