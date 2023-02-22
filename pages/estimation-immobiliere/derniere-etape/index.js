@@ -50,6 +50,8 @@ const Index = () => {
     },
     stateUserInformations,
     stateEstimationElements,
+    address: state.address,
+    coordinate: state.addressCoordinate,
   };
 
   // Utilisation du hook useEffect pour exécuter une action lorsqu'un des éléments de l'objet stateUserInformations change
