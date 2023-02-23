@@ -75,6 +75,7 @@ const Inscription = (props) => {
           valueCallback={lastName}
           callback={setLastName}
           placeholder="John"
+          type="text"
           required
         />
       </div>
@@ -88,6 +89,7 @@ const Inscription = (props) => {
           valueCallback={phone}
           callback={setPhone}
           placeholder="0631420047"
+          type="tel"
           required
         />
       </div>
@@ -97,6 +99,7 @@ const Inscription = (props) => {
           valueCallback={mail}
           callback={setMail}
           placeholder="exemple@exemple.com"
+          type="email"
           required
         />
       </div>
