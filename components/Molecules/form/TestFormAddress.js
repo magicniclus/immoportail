@@ -6,6 +6,7 @@ import {
   updateAddress,
   updateAddressCoordinate,
   updateIsReady,
+  handleLoader,
 } from "../../../redux/action";
 import usePlacesAutocomplete, {
   getGeocode,
