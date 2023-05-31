@@ -6,6 +6,7 @@ import Loader from "../Organisms/Loader";
 import React, { useEffect, useState } from "react";
 import CookieBanner from "../Organisms/CookieBanner";
 import Modal from "../Molecules/modals/Modal";
+import FooterGlobal from "../Organisms/FooterGlobal";
 
 export default function Layout(props) {
   const state = useSelector((state) => state);
@@ -37,7 +38,7 @@ export default function Layout(props) {
       <main className="relative min-h-[calc((100vh-7rem))]">
         {loading ? <Loader /> : props.children}
       </main>
-      <Footer />
+      <FooterGlobal />
       <CookieBanner />
       <Modal />
     </>
