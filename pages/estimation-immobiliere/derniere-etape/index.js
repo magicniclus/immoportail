@@ -31,6 +31,7 @@ const Index = () => {
 
   const allEstimaitonInformations = {
     id: createId,
+    date: date.toLocaleDateString("fr-FR"),
     data: {
       date: date.toLocaleDateString("fr-FR"),
       heure: date.toLocaleTimeString("fr-FR"),
