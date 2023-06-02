@@ -50,7 +50,7 @@ const SelectNumber = (props) => {
           />
         </div>
         <input
-          className={`text-xs md:text-sm border w-[80px] placeholder-gray-200::placeholder px-3 h-12 border-purple`}
+          className={`text-base border w-[80px] placeholder-gray-200::placeholder px-3 h-12 border-purple`}
           required
           placeholder={placeholder}
           value={value}

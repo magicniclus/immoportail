@@ -47,9 +47,9 @@ const InputWithLogo = (props) => {
         <input
           className={
             color !== undefined
-              ? "border min-w-[200px] rounded-lg placeholder-gray-200::placeholder px-3 w-full h-12 text-ellipsis overflow-hidden whitespace-nowrap border-" +
+              ? "border min-w-[200px] text-base rounded-lg placeholder-gray-200::placeholder px-3 w-full h-12 text-ellipsis overflow-hidden whitespace-nowrap border-" +
                 color
-              : "border min-w-[200px] rounded-lg placeholder-gray-200::placeholder px-3 w-full h-12 text-ellipsis overflow-hidden whitespace-nowrap border-purple"
+              : "border min-w-[200px] texte-base rounded-lg placeholder-gray-200::placeholder px-3 w-full h-12 text-ellipsis overflow-hidden whitespace-nowrap border-purple"
           }
           type="text"
           placeholder={placeholder}

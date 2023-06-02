@@ -10,8 +10,8 @@ const TextWithColorChange = (props) => {
     <p
       className={
         isSelected
-          ? `text-xs text-newGray ${updateStyle} `
-          : `text-sm text-purple ${updateStyle} `
+          ? `text-base text-newGray ${updateStyle} `
+          : `text-base text-purple ${updateStyle} `
       }
     >
       {text}

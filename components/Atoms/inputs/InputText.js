@@ -21,7 +21,7 @@ const InputText = (props) => {
 
   return (
     <input
-      className={`border min-w-[200px] rounded-lg placeholder-gray-200::placeholder px-3  max-w-[450px] h-12 border-purple text-xs md:text-sm text-ellipsis overflow-hidden whitespace-nowrap text-purple`}
+      className={`border min-w-[200px] rounded-lg placeholder-gray-200::placeholder px-3  max-w-[450px] h-12 border-purple text-base text-ellipsis overflow-hidden whitespace-nowrap text-purple`}
       required={required}
       placeholder={placeholder}
       value={value}
