@@ -24,11 +24,9 @@ const LightBox = (props) => {
   return (
     <div className="flex content-center items-center relative w-full h-full">
       <div className="relative w-full h-full animate-[wiggle_1s_ease-in-out]">
-        <Image
-          priority
-          src={"/buying/" + image[whatPointIsActive] + ".jpg"}
-          layout="fill"
-          objectFit="cover"
+        <img
+          className="object-none h-full w-max"
+          src={"/buying/second-" + image[whatPointIsActive] + ".jpg"}
           alt={image[whatPointIsActive]}
         />
       </div>
