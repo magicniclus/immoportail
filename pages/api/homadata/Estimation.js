@@ -6,7 +6,6 @@ const updateMockedData = () => {
 };
 
 // Configuration de la requête
-
 export const getEstimation = (params) => {
   const mocked = false;
   const apiKey = "c7e6b36c05049c7d57a18b2af71455839818fd4f"; // Remplacez YOUR_API_KEY par votre clé d'API réelle
